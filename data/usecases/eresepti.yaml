@@ -1,0 +1,380 @@
+# Käyttötapaus. Kaikki näkymät (kuvaus, roolit kartalla, rahavirrat, luottamusketju) rakentuvat tästä tiedostosta.
+id: eresepti
+name:
+  fi: Sähköinen resepti apteekissa ulkomailla
+  en: ePrescription at a pharmacy abroad
+short:
+  fi: Potilas tunnistautuu apteekissa EUDI-lompakon terveystunnisteella, ja apteekki hakee reseptin MyHealth@EU-verkon kautta.
+  en: The patient identifies at the pharmacy with a Health ID attestation in the EUDI Wallet, and the pharmacy retrieves the prescription through MyHealth@EU.
+wallets:
+  - eudi
+driver: mahdollistava
+status: kaytanto
+detail:
+  title:
+    fi: Sähköinen resepti apteekissa ulkomailla
+    en: ePrescription at a pharmacy abroad
+  highlight_label:
+    fi: Sähköinen resepti
+    en: ePrescription
+  lead:
+    fi: Potilas hakee lääkkeensä mistä tahansa apteekista, myös toisessa jäsenvaltiossa, esittämällä EUDI-lompakon terveystunnisteen.
+    en: The patient collects their medication from any pharmacy, including in another Member State, by presenting a Health ID attestation in the EUDI Wallet.
+  status: kaytanto
+  intro:
+    - fi: EU:ssa toimi vuonna 2024 noin 200 000 apteekkia, ja lääketoimituksia arvioidaan olevan noin 6,7 miljardia vuodessa. Rajat ylittävä sähköinen resepti toimii jo MyHealth@EU-verkossa, jota on käytetty vuodesta 2019. Apteekissa potilaan tunnistaminen vaihtelee kuitenkin maittain, ja usein tarvitaan erillinen henkilöllisyystodistus, sovellus, tuloste tai vakuutuskortti.
+      en: Around 200,000 pharmacies operated in the EU in 2024, and there are an estimated 6.7 billion medication dispensations a year. Cross-border ePrescriptions already work in the MyHealth@EU network, which has been in use since 2019. At the pharmacy, however, patient identification varies by country, and a separate identity document, app, printout or insurance card is often needed.
+    - fi: "Lompakko ei sisällä reseptiä. Siinä on terveystunniste (Health ID), joka kertoo, kuka potilas on ja mistä maasta ja vakuutuksesta hänen tietonsa löytyvät. Resepti haetaan ja toimitustieto palautetaan kansalliseen terveystietojärjestelmään MyHealth@EU:n kautta. Sama tunniste käy kaikkiin resepteihin koko voimassaoloaikansa."
+      en: "The wallet does not contain the prescription. It holds a Health ID attestation that tells who the patient is and in which country and insurance their data can be found. The prescription is retrieved from, and the dispensation data returned to, the national digital health system through MyHealth@EU. The same attestation works for all prescriptions throughout its validity."
+  cast:
+    haltija:
+      fi: Potilas
+      en: Patient
+    lahde:
+      fi: Kotimaan kansallinen terveystietojärjestelmä ja reseptitiedot
+      en: The home country’s national digital health system and prescription data
+    myontaja:
+      fi: Jäsenvaltion nimeämä terveystunnisteen myöntäjä
+      en: Health ID issuer designated by the Member State
+    pubeaa:
+      fi: Terveystunnisteen myöntäjä, joka voidaan rekisteröidä PuB-EAA-listalle
+      en: Health ID issuer, which can be registered on the PuB-EAA list
+    eudilompakko:
+      fi: Potilaan EUDI-lompakko
+      en: The patient’s EUDI Wallet
+    todentaja:
+      fi: Apteekki ja farmaseutti
+      en: Pharmacy and pharmacist
+    ohjelmisto:
+      fi: Apteekkijärjestelmien toimittajat
+      en: Pharmacy system vendors
+    tl:
+      fi: Luotettavat listat – PuB-EAA-myöntäjät
+      en: Trusted lists – PuB-EAA providers
+    wrprek:
+      fi: Apteekit rekisteröityvät luottaviksi osapuoliksi
+      en: Pharmacies register as relying parties
+    varmenne:
+      fi: Apteekin pääsyvarmenne
+      en: The pharmacy’s access certificate
+    skeema:
+      fi: Terveystunnisteen tietosisältö MyHealth@EU-määrittelyjen mukaan
+      en: Health ID data content in line with MyHealth@EU specifications
+    luottekos:
+      fi: Mahdollinen apteekkien ja terveydenhuollon ekosysteemi
+      en: Possible pharmacy and healthcare ecosystem
+  cast_order:
+    - haltija
+    - lahde
+    - myontaja
+    - pubeaa
+    - eudilompakko
+    - todentaja
+    - ohjelmisto
+    - tl
+    - wrprek
+    - varmenne
+    - skeema
+    - luottekos
+  steps:
+    - fi: Potilas saa jäsenvaltion nimeämältä myöntäjältä terveystunnisteen EUDI-lompakkoonsa. Tunnisteessa on muun muassa vakuutusmaa, vakuutus- ja potilastunniste, nimi ja syntymäaika.
+      en: The patient receives a Health ID attestation in their EUDI Wallet from an issuer designated by the Member State. It contains, among other things, the country of affiliation, health insurance and patient identifiers, name and date of birth.
+    - fi: Lääkäri kirjaa reseptin sähköiseen reseptijärjestelmään, joka on yhteydessä MyHealth@EU-verkkoon.
+      en: The physician enters the prescription in the electronic prescription system, which is connected to MyHealth@EU.
+    - fi: Potilas menee valitsemaansa apteekkiin, myös toisessa jäsenvaltiossa, ja esittää terveystunnisteen lähietäisyydeltä tai etänä.
+      en: The patient goes to a pharmacy of their choice, also in another Member State, and presents the Health ID attestation in proximity or remotely.
+    - fi: Lompakko tarkistaa, että pyytäjä on rekisteröity apteekki. Apteekki tarkistaa tunnisteen allekirjoituksen ja sen, että myöntäjä on luotettavalla listalla.
+      en: The wallet checks that the requester is a registered pharmacy. The pharmacy checks the attestation’s signature and that the issuer is on the trusted list.
+    - fi: Farmaseutti hakee tunnisteen tiedoilla potilaan reseptin MyHealth@EU:n kautta kotimaan järjestelmästä.
+      en: Using the attestation data, the pharmacist retrieves the patient’s prescription from the home country’s system through MyHealth@EU.
+    - fi: Farmaseutti toimittaa lääkkeen ja palauttaa toimitustiedot järjestelmään. Resepti- ja toimitustiedot eivät tallennu lompakkoon.
+      en: The pharmacist dispenses the medication and submits the dispensation data to the system. Prescription and dispensation data are not stored in the wallet.
+  value:
+    - who:
+        fi: Potilas
+        en: Patient
+      text:
+        fi: Lääkkeen saa samalla tavalla kotimaassa ja ulkomailla. Erillistä henkilöllisyystodistusta, sovellusta, tulostetta tai vakuutuskorttia ei tarvita.
+        en: Medication can be collected in the same way at home and abroad. No separate identity document, app, printout or insurance card is needed.
+    - who:
+        fi: Apteekki
+        en: Pharmacy
+      text:
+        fi: Potilaan tunnistaminen nopeutuu, ja tunnistus- ja kirjausvirheet vähenevät sekä kotimaisissa että rajat ylittävissä toimituksissa.
+        en: Identifying the patient is faster, and identification and data entry errors decrease in both domestic and cross-border dispensations.
+    - who:
+        fi: Viranomaiset
+        en: Authorities
+      text:
+        fi: Rajat ylittävä yhteentoimivuus perustuu yhteiseen digitaaliseen identiteettiin, ja hallinnolliset kustannukset pienenevät.
+        en: Cross-border interoperability is based on a common digital identity, and administrative costs decrease.
+    - who:
+        fi: Yhteiskunta
+        en: Society
+      text:
+        fi: Yhtenäinen tunnistustapa noin 200 000 apteekissa tukee EHDS-asetuksen tavoitetta, että sähköiset reseptit toimivat kaikkialla EU:ssa.
+        en: A uniform identification method in around 200,000 pharmacies supports the EHDS Regulation’s aim of ePrescriptions working everywhere in the EU.
+  sections:
+    - title:
+        fi: Sääntely
+        en: Regulation
+      text:
+        fi: Rajat ylittävää terveydenhuoltoa koskeva direktiivi velvoittaa tunnustamaan toisessa jäsenvaltiossa annetut reseptit. Eurooppalaisen terveysdataavaruuden (EHDS) asetus velvoittaa jäsenvaltiot ja apteekit liittymään MyHealth@EU-verkkoon, ja sähköisten reseptien yhteentoimivuusvelvoitteet alkavat 26.3.2029. EUDI-lompakon käyttöä resepteissä ei kuitenkaan erikseen velvoiteta, eikä terveystunnistetta ole määritelty lainsäädännössä. Ohjekirja ehdottaa sille EHDS-asetuksen täytäntöönpanosäädöstä.
+        en: The cross-border healthcare directive requires prescriptions issued in another Member State to be recognised. The European Health Data Space (EHDS) Regulation requires Member States and pharmacies to connect to MyHealth@EU, and the interoperability obligations for ePrescriptions apply from 26 March 2029. However, using the EUDI Wallet for prescriptions is not specifically mandated, and the Health ID attestation is not defined in legislation. The manual suggests an implementing act under the EHDS Regulation for it.
+    - title:
+        fi: Miksi tarvitaan ekosysteemiä
+        en: Why an ecosystem is needed
+      text:
+        fi: "Perusluottamus tulee valmiista infrasta: terveystunnisteen myöntäjä voidaan rekisteröidä PuB-EAA-listalle, apteekit rekisteröityvät luottaviksi osapuoliksi, ja MyHealth@EU hoitaa reseptitietojen välityksen. Erillistä luottamusrekisteriä ei tarvita kertomaan, onko myöntäjä luotettava. Ekosysteemiä tarvitaan sen sijaan käyttöönotossa: apteekkijärjestelmien toimittajien, apteekkien ja myöntäjien on sovittava tunnisteen tietosisällöstä, testauksesta ja vastuista. Yhteinen yhteentoimivuusprofiili ja sääntökirja voivat nopeuttaa tätä."
+        en: "Basic trust comes from existing infrastructure: the Health ID issuer can be registered on the PuB-EAA list, pharmacies register as relying parties, and MyHealth@EU handles the exchange of prescription data. No separate trust registry is needed to tell whether the issuer is trustworthy. An ecosystem is needed instead for deployment: pharmacy system vendors, pharmacies and issuers must agree on the attestation’s data content, testing and responsibilities. A common interoperability profile and rulebook can speed this up."
+  expert:
+    fi: "EHDS-asetus (EU) 2025/327 art. 23 (MyHealth@EU-liityntä) ja mahdollinen täytäntöönpanosäädös art. 16 nojalla (tunnistamisen hallinta); direktiivi 2011/24/EU (reseptien vastavuoroinen tunnustaminen). PuB-EAA: asetus 910/2014 sellaisena kuin se on muutettuna asetuksella 2024/1183, art. 3(46) ja 45f. Muoto ISO/IEC 18013-5 (mdoc); esittäminen ISO/IEC 18013-5 ja ISO/IEC TS 18013-7; myöntäminen esim. OpenID4VCI 1.0. Kehittänyt suurpilotti POTENTIAL."
+    en: "EHDS Regulation (EU) 2025/327 Art. 23 (connecting to MyHealth@EU) and a possible implementing act under Art. 16 (identification management); Directive 2011/24/EU (mutual recognition of prescriptions). PuB-EAA: Regulation 910/2014 as amended by Regulation 2024/1183, Art. 3(46) and 45f. Format ISO/IEC 18013-5 (mdoc); presentation ISO/IEC 18013-5 and ISO/IEC TS 18013-7; issuance e.g. OpenID4VCI 1.0. Developed by the large-scale pilot POTENTIAL."
+  note:
+    fi: Kuvaus perustuu komission käyttötapausohjekirjaan ja on yleistetty malli eikä kuvaa yksittäistä toteutusta. MyHealth@EU-määrittelyjä ja apteekkijärjestelmiä voidaan joutua päivittämään ennen käyttöönottoa.
+    en: The description is based on the Commission’s use case manual and is a generalised model that does not describe any single implementation. MyHealth@EU specifications and pharmacy systems may need updating before deployment.
+trust_chain:
+  name:
+    fi: Sähköinen resepti
+    en: ePrescription
+  note:
+    fi: Neljä kysymystä, joihin vastaavat EUDI-luottamusinfra ja MyHealth@EU. Kuvaus on yleistetty.
+    en: Four questions answered by the EUDI trust infrastructure and MyHealth@EU. The description is generalised.
+  links:
+    - question:
+        fi: 1. Voinko luottaa pyytäjään?
+        en: 1. Can I trust the requester?
+      answer:
+        fi: Lompakko tarkistaa apteekin pääsyvarmenteen ja rekisteröinnin ennen kuin se näyttää potilaalle, mitä tietoja pyydetään.
+        en: The wallet checks the pharmacy’s access certificate and registration before showing the patient which data is requested.
+    - question:
+        fi: 2. Onko terveystunniste aito?
+        en: 2. Is the Health ID attestation genuine?
+      answer:
+        fi: Apteekki tarkistaa tunnisteen allekirjoituksen ja sen, että myöntäjä on PuB-EAA-tarjoajien luotettavalla listalla.
+        en: The pharmacy checks the attestation’s signature and that the issuer is on the trusted list of PuB-EAA providers.
+    - question:
+        fi: 3. Onko resepti aito ja voimassa?
+        en: 3. Is the prescription genuine and valid?
+      answer:
+        fi: Resepti ei kulje lompakossa. Apteekki hakee sen MyHealth@EU:n kautta suoraan potilaan kotimaan järjestelmästä.
+        en: The prescription does not travel in the wallet. The pharmacy retrieves it through MyHealth@EU directly from the patient’s home country system.
+    - question:
+        fi: 4. Kuka vastaa mistä?
+        en: 4. Who is responsible for what?
+      answer:
+        fi: EHDS-asetus ja MyHealth@EU:n säännöt määrittävät tietojen välityksen vastuut. Tunnisteen tietosisällöstä ja apteekkien käyttöönotosta voidaan sopia ekosysteemin sääntökirjassa.
+        en: The EHDS Regulation and the MyHealth@EU rules define responsibilities for exchanging data. The attestation’s data content and pharmacies’ deployment can be agreed in an ecosystem rulebook.
+flows:
+  title:
+    fi: Sähköinen resepti
+    en: ePrescription
+  intro:
+    fi: "Arvo syntyy pääosin nopeampana ja virheettömämpänä tunnistamisena apteekissa. Lääkkeen hinta ja korvaukset säilyvät ennallaan; muutos koskee vain sitä, miten potilas tunnistetaan. Kustannuksia syntyy apteekkijärjestelmien päivityksistä. Kuvaus on yleistetty malli."
+    en: "Value arises mainly as faster and more error-free identification at the pharmacy. The price of medication and reimbursements remain unchanged; the change concerns only how the patient is identified. Costs arise from updating pharmacy systems. The description is a generalised model."
+  nodes:
+    - id: tl
+      x: 450
+      "y": 55
+      label:
+        fi: Luotettavat listat
+        en: Trusted lists
+      sub:
+        fi: PuB-EAA-myöntäjät
+        en: PuB-EAA providers
+    - id: myontaja
+      x: 130
+      "y": 200
+      label:
+        fi: Terveystunnisteen myöntäjä
+        en: Health ID issuer
+      sub:
+        fi: jäsenvaltion nimeämä
+        en: designated by the Member State
+    - id: apteekki
+      x: 770
+      "y": 200
+      label:
+        fi: Apteekki
+        en: Pharmacy
+      sub:
+        fi: todentaja
+        en: verifier
+    - id: potilas
+      x: 450
+      "y": 300
+      label:
+        fi: Potilas
+        en: Patient
+      sub:
+        fi: EUDI-lompakko
+        en: EUDI Wallet
+    - id: myhealth
+      x: 450
+      "y": 470
+      label:
+        fi: MyHealth@EU
+        en: MyHealth@EU
+      sub:
+        fi: kansalliset terveystietojärjestelmät
+        en: national digital health systems
+    - id: laakari
+      x: 130
+      "y": 470
+      label:
+        fi: Lääkäri
+        en: Physician
+      sub:
+        fi: määrääjä
+        en: prescriber
+    - id: aptsw
+      x: 770
+      "y": 470
+      label:
+        fi: Apteekkijärjestelmän toimittaja
+        en: Pharmacy system vendor
+  flows:
+    - from: myontaja
+      to: potilas
+      type: data
+      status: kaytanto
+      name:
+        fi: Terveystunniste
+        en: Health ID attestation
+      description:
+        fi: Vakuutusmaa, vakuutus- ja potilastunniste, nimi ja syntymäaika. Sama tunniste käy kaikkiin resepteihin voimassaoloaikanaan.
+        en: Country of affiliation, health insurance and patient identifiers, name and date of birth. The same attestation works for all prescriptions during its validity.
+    - from: laakari
+      to: myhealth
+      type: data
+      status: voimassa
+      name:
+        fi: Resepti järjestelmään
+        en: Prescription to the system
+      description:
+        fi: Lääkäri kirjaa reseptin kansalliseen järjestelmään, joka on yhteydessä MyHealth@EU-verkkoon.
+        en: The physician enters the prescription in the national system, which is connected to MyHealth@EU.
+    - from: potilas
+      to: apteekki
+      type: data
+      status: kaytanto
+      name:
+        fi: Terveystunnisteen esittäminen
+        en: Presenting the Health ID attestation
+      description:
+        fi: Potilas esittää tunnisteen apteekissa lähietäisyydeltä tai etänä. Reseptiä ei ole lompakossa.
+        en: The patient presents the attestation at the pharmacy in proximity or remotely. The prescription is not in the wallet.
+    - from: apteekki
+      to: tl
+      type: data
+      status: voimassa
+      name:
+        fi: "Kysely: onko myöntäjä listalla"
+        en: "Query: is the issuer on the list"
+      description:
+        fi: Apteekki tarkistaa, että tunnisteen myöntäjä on PuB-EAA-tarjoajien luotettavalla listalla.
+        en: The pharmacy checks that the attestation’s issuer is on the trusted list of PuB-EAA providers.
+    - from: apteekki
+      to: myhealth
+      type: data
+      status: voimassa
+      bend: -40
+      name:
+        fi: Reseptin haku ja toimitustieto
+        en: Retrieving the prescription and returning dispensation data
+      description:
+        fi: Apteekki hakee reseptin tunnisteen tiedoilla ja palauttaa toimitustiedot. EHDS-asetus velvoittaa apteekit liittymään MyHealth@EU-verkkoon.
+        en: The pharmacy retrieves the prescription using the attestation data and returns the dispensation data. The EHDS Regulation requires pharmacies to connect to MyHealth@EU.
+    - from: apteekki
+      to: apteekki
+      type: saasto
+      status: lahde
+      name:
+        fi: Tunnistus nopeutuu
+        en: Faster identification
+      pill:
+        fi: "Säästö: vähemmän virheitä"
+        en: "Saving: fewer errors"
+      description:
+        fi: Ohjekirjan mukaan potilaan tunnistus- ja kirjausvirheet vähenevät ja palvelu nopeutuu.
+        en: According to the manual, patient identification and data entry errors decrease and service becomes faster.
+    - from: potilas
+      to: potilas
+      type: saasto
+      status: lahde
+      pill_position: below
+      name:
+        fi: Ei erillisiä asiakirjoja
+        en: No separate documents
+      pill:
+        fi: "Hyöty: sama tapa joka maassa"
+        en: "Benefit: same method in every country"
+      description:
+        fi: Erillistä henkilöllisyystodistusta, sovellusta, tulostetta tai vakuutuskorttia ei tarvita.
+        en: No separate identity document, app, printout or insurance card is needed.
+    - from: potilas
+      to: apteekki
+      type: raha
+      status: kaytanto
+      bend: 60
+      name:
+        fi: Lääkkeen hinta ja omavastuu
+        en: Price of medication and co-payment
+      description:
+        fi: Olemassa oleva rahavirta; lompakko muuttaa vain sen, miten potilas tunnistetaan.
+        en: An existing money flow; the wallet only changes how the patient is identified.
+    - from: apteekki
+      to: aptsw
+      type: raha
+      model: C
+      status: havainnollistava
+      name:
+        fi: Apteekkijärjestelmän päivitys
+        en: Updating the pharmacy system
+      description:
+        fi: Apteekkijärjestelmät on päivitettävä hyväksymään EUDI-lompakko. Ohjekirja ei kerro kustannuksia.
+        en: Pharmacy systems must be updated to accept the EUDI Wallet. The manual does not give costs.
+    - from: myontaja
+      to: myontaja
+      type: reuna
+      status: havainnollistava
+      name:
+        fi: Terveystunnistetta ei ole määritelty laissa
+        en: The Health ID attestation is not defined in law
+      pill:
+        fi: "Avoin: täytäntöönpanosäädös"
+        en: "Open: implementing act"
+      description:
+        fi: Ohjekirja ehdottaa terveystunnisteelle EHDS-asetuksen täytäntöönpanosäädöstä. Siihen asti tunnisteen myöntäminen riippuu jäsenvaltion omista ratkaisuista.
+        en: The manual suggests an implementing act under the EHDS Regulation for the Health ID attestation. Until then, issuing it depends on each Member State’s own decisions.
+    - from: apteekki
+      to: apteekki
+      type: reuna
+      status: voimassa
+      pill_position: below
+      name:
+        fi: Liittyminen MyHealth@EU-verkkoon
+        en: Connecting to MyHealth@EU
+      pill:
+        fi: "Velvoite: MyHealth@EU 2029"
+        en: "Obligation: MyHealth@EU 2029"
+      description:
+        fi: EHDS-asetuksen mukaan apteekkien on liityttävä MyHealth@EU-verkkoon, ja sähköisten reseptien yhteentoimivuusvelvoitteet alkavat 26.3.2029. Lompakon hyväksymistä ei velvoiteta.
+        en: Under the EHDS Regulation, pharmacies must connect to MyHealth@EU, and the interoperability obligations for ePrescriptions apply from 26 March 2029. Accepting the wallet is not mandated.
+    - from: potilas
+      to: potilas
+      type: reuna
+      status: voimassa
+      name:
+        fi: Lompakko maksuton potilaalle
+        en: Wallet free of charge for the patient
+      description:
+        fi: EUDI-lompakko on luonnollisille henkilöille maksuton.
+        en: The EUDI Wallet is free of charge for natural persons.
+  extra:
+    title:
+      fi: Mitä tästä voi oppia
+      en: What can be learned
+    text:
+      fi: Lompakon ei tarvitse sisältää kaikkea tietoa. Tässä se kantaa vain tunnisteen, ja arkaluonteinen terveystieto kulkee edelleen terveydenhuollon omassa verkossa. Luottamusinfra on pääosin valmis, mutta käyttöönotto riippuu apteekkijärjestelmien päivityksistä ja siitä, määritelläänkö terveystunniste säädöksessä.
+      en: The wallet does not need to contain all the data. Here it carries only an identifier, and sensitive health data still travels in healthcare’s own network. The trust infrastructure is largely in place, but deployment depends on pharmacy system updates and on whether the Health ID attestation is defined in legislation.

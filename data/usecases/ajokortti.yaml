@@ -1,0 +1,439 @@
+# Käyttötapaus. Kaikki näkymät (kuvaus, roolit kartalla, rahavirrat, luottamusketju) rakentuvat tästä tiedostosta.
+id: ajokortti
+name:
+  fi: Mobiiliajokortti
+  en: Mobile driving licence
+short:
+  fi: Kuljettaja esittää ajokorttinsa EUDI-lompakosta autovuokraamolle verkossa ja paikan päällä sekä poliisille tienvarsitarkastuksessa.
+  en: The driver presents their driving licence from the EUDI Wallet to a car rental company online and on site, and to the police at a roadside check.
+wallets:
+  - eudi
+driver: mahdollistava
+status: ehdotus
+detail:
+  title:
+    fi: Mobiiliajokortti autovuokraamossa ja tienvarsitarkastuksessa
+    en: Mobile driving licence at car rental and roadside checks
+  highlight_label:
+    fi: Mobiiliajokortti
+    en: Mobile driving licence
+  lead:
+    fi: Ajokorttiviranomainen myöntää ajo-oikeuden todisteen EUDI-lompakkoon, ja kuljettaja esittää sen etänä tai lähitunnistuksessa.
+    en: The driving licence authority issues a credential of the right to drive to the EUDI Wallet, and the driver presents it remotely or in proximity.
+  status: ehdotus
+  intro:
+    - fi: Ajokortti todistaa henkilön oikeuden kuljettaa tietynlaista ajoneuvoa. Autovuokraamoiden on tarkistettava ajo-oikeus jokaisesta vuokrauksesta, ja Euroopassa vuokrataan vuosittain 40–70 miljoonaa autoa. Poliisi tarkistaa ajokortin tienvarsitarkastuksissa. Nykyisin tarkistus tehdään pääosin katsomalla fyysistä korttia, ja unohtunut kortti hidastaa asiointia.
+      en: A driving licence proves a person’s right to drive a certain kind of vehicle. Car rental companies must check the right to drive for every rental, and 40–70 million cars are rented in Europe each year. The police check driving licences at roadside checks. Today the check is mostly done by looking at the physical card, and a forgotten card slows things down.
+    - fi: "Uuden ajokorttidirektiivin mukaan mobiiliajokortit myönnetään EUDI-lompakkoihin, ja jäsenvaltioiden on tunnustettava toistensa mobiiliajokortit. Mobiiliajokortti noudattaa ISO/IEC 18013-5 -standardia, joten sama todiste toimii sekä etänä että lähitunnistuksessa NFC- tai Bluetooth-yhteydellä, tarvittaessa ilman verkkoyhteyttä. Komission ohjekirjan mukaan Suomessa mobiiliajokortti on suunnitteilla, mutta se ei ole vielä oikeudellisesti pätevä."
+      en: "Under the new Driving Licence Directive, mobile driving licences are issued to EUDI Wallets, and Member States must recognise each other’s mobile driving licences. The mobile driving licence follows the ISO/IEC 18013-5 standard, so the same credential works both remotely and in proximity over NFC or Bluetooth, if needed without a network connection. According to the Commission’s manual, a mobile driving licence is planned in Finland but is not yet legally valid."
+  cast:
+    haltija:
+      fi: Kuljettaja
+      en: Driver
+    eudilompakko:
+      fi: Kuljettajan EUDI-lompakko
+      en: The driver’s EUDI Wallet
+    lahde:
+      fi: Kansallinen ajokorttirekisteri
+      en: National driving licence register
+    myontaja:
+      fi: Kansallinen ajokorttiviranomainen
+      en: National driving licence authority
+    pubeaa:
+      fi: Ajokorttiviranomainen – mobiiliajokortti
+      en: Driving licence authority – mobile driving licence
+    pid:
+      fi: Henkilön tunnistetiedot autovuokraamon varausta varten
+      en: Person identification data for the car rental booking
+    skeema:
+      fi: Mobiiliajokortin rakenne ISO/IEC 18013-5 -standardin mukaan
+      en: Structure of the mobile driving licence under ISO/IEC 18013-5
+    todentaja:
+      fi: Autovuokraamo ja poliisi
+      en: Car rental company and the police
+    wrprek:
+      fi: Rekisteröi autovuokraamon luottavaksi osapuoleksi
+      en: Registers the car rental company as a relying party
+    varmenne:
+      fi: Autovuokraamon pääsyvarmenne
+      en: The car rental company’s access certificate
+    komissio:
+      fi: Julkaisee jäsenvaltioiden ilmoittamat mobiiliajokortin myöntäjät
+      en: Publishes the mobile driving licence issuers notified by Member States
+    tl:
+      fi: PID-tarjoajien luotettavat listat
+      en: Trusted lists of PID providers
+    laite:
+      fi: Puhelimen suojattu avainsäilö sekä NFC- ja Bluetooth-yhteydet
+      en: The phone’s secure key storage and NFC and Bluetooth connections
+    ohjelmisto:
+      fi: Autovuokraamon ja poliisin todennussovellukset
+      en: Verification applications of the car rental company and the police
+  cast_order:
+    - haltija
+    - eudilompakko
+    - lahde
+    - myontaja
+    - pubeaa
+    - pid
+    - skeema
+    - todentaja
+    - wrprek
+    - varmenne
+    - komissio
+    - tl
+    - laite
+    - ohjelmisto
+  steps:
+    - fi: Kuljettajalla on EUDI-lompakossaan henkilön tunnistetiedot (PID) ja ajokorttiviranomaisen myöntämä mobiiliajokortti.
+      en: The driver’s EUDI Wallet holds person identification data (PID) and a mobile driving licence issued by the driving licence authority.
+    - fi: Kuljettaja varaa auton verkossa. Autovuokraamo pyytää henkilön tunnistetiedot ja ajo-oikeuden. Lompakko näyttää, kuka tietoja pyytää, ja kuljettaja hyväksyy jakamisen.
+      en: The driver books a car online. The car rental company requests the person identification data and the right to drive. The wallet shows who is requesting the data, and the driver approves sharing.
+    - fi: Autovuokraamo tarkistaa todisteiden aitouden ja voimassaolon sekä sen, että myöntäjä on jäsenvaltion ilmoittama, ja hyväksyy varauksen.
+      en: The car rental company checks the authenticity and validity of the credentials and that the issuer has been notified by a Member State, and approves the booking.
+    - fi: Noutopisteessä vuokraamo tarkistaa varauksen ja tunnistaa kuljettajan lähitunnistuksella. Kuljettaja esittää lompakosta QR-koodin, ja tiedot siirtyvät NFC- tai Bluetooth-yhteydellä. Virkailija vertaa kuvaa kuljettajaan ja luovuttaa avaimet.
+      en: At the pick-up point, the rental company checks the booking and identifies the driver in proximity. The driver shows a QR code from the wallet, and the data is transferred over NFC or Bluetooth. The clerk compares the photo with the driver and hands over the keys.
+    - fi: Tienvarsitarkastuksessa poliisi pyytää ajokorttia. Kuljettaja näyttää QR-koodin, ja poliisi tarkistaa ajo-oikeuden voimassaolon ja ajoneuvoluokat. Tarkistus toimii myös ilman verkkoyhteyttä.
+      en: At a roadside check, the police ask for the driving licence. The driver shows a QR code, and the police check the validity of the right to drive and the vehicle categories. The check also works without a network connection.
+  value:
+    - who:
+        fi: Kuljettaja
+        en: Driver
+      text:
+        fi: Ajokortti on aina mukana puhelimessa. Autovuokraus nopeutuu, ja vuokraamolle jaetaan vain pyydetyt tiedot.
+        en: The driving licence is always at hand on the phone. Car rental is faster, and only the requested data is shared with the rental company.
+    - who:
+        fi: Autovuokraamo
+        en: Car rental company
+      text:
+        fi: Ajo-oikeuden tarkistus voidaan nopeuttaa tai automatisoida, ja väärennetyn ajokortin riski pienenee.
+        en: Checking the right to drive can be faster or automated, and the risk of a forged licence decreases.
+    - who:
+        fi: Poliisi
+        en: Police
+      text:
+        fi: Tienvarsitarkastus nopeutuu, eikä ajokortti jää kuljettajalta niin helposti kotiin.
+        en: Roadside checks are faster, and drivers are less likely to leave their licence at home.
+    - who:
+        fi: Ajokorttiviranomainen
+        en: Driving licence authority
+      text:
+        fi: Ohjekirjan mukaan mobiiliajokortit voivat alentaa fyysisten korttien kustannuksia merkittävästi. Yksittäiselle henkilölle fyysisen kortin hakeminen maksaa 15–30 euroa.
+        en: According to the manual, mobile driving licences could significantly lower the cost of physical cards. Requesting a physical card costs an individual €15–30.
+  sections:
+    - title:
+        fi: Sääntely
+        en: Regulation
+      text:
+        fi: Uusi ajokorttidirektiivi säätää mobiiliajokorttien myöntämisestä EUDI-lompakkoihin ja niiden vastavuoroisesta tunnustamisesta, viittaa ISO/IEC 18013-5 -standardiin ja velvoittaa jäsenvaltiot ilmoittamaan komissiolle valtuutetut myöntäjät. Tekniset yksityiskohdat määritellään täytäntöönpanosäädöksessä. Autovuokraamo rekisteröityy EUDI-lompakkoon luottavaksi osapuoleksi ennen kuin se voi pyytää tietoja.
+        en: The new Driving Licence Directive provides for issuing mobile driving licences to EUDI Wallets and their mutual recognition, refers to the ISO/IEC 18013-5 standard and requires Member States to notify the Commission of authorised issuers. The technical details will be laid down in an implementing act. The car rental company registers as an EUDI Wallet relying party before it can request data.
+    - title:
+        fi: Miksi tarvitaan ekosysteemiä
+        en: Why an ecosystem is needed
+      text:
+        fi: "Mobiiliajokortin luottamusketju on kokonaan EU-sääntelyssä: jäsenvaltio ilmoittaa myöntäjän, komissio julkaisee listan, ja todentaja tarkistaa allekirjoituksen. Erillistä luottamusrekisteriä ei tarvita itse ajokortin tarkistamiseen. Ekosysteemin sääntökirjasta voi olla hyötyä vuokra-alan omissa todisteissa, kuten varausvahvistuksessa, jonka noutopiste tarkistaa, tai jos vuokraamot haluavat sopia yhteisistä tarkistuskäytännöistä ja vastuista."
+        en: "The trust chain of the mobile driving licence lies entirely within EU regulation: the Member State notifies the issuer, the Commission publishes the list, and the verifier checks the signature. No separate trust registry is needed to check the licence itself. An ecosystem rulebook can help with the rental sector’s own credentials, such as the booking confirmation that the pick-up point checks, or if rental companies want to agree on common checking practices and responsibilities."
+  expert:
+    fi: "Uusi ajokorttidirektiivi (mobiiliajokortti, ISO/IEC 18013-5/-7, myöntäjien ilmoittaminen). EUDI-kehys: asetus 2024/1183; luottavien osapuolten rekisteröinti art. 5b; lähi- ja etätunnistus täytäntöönpanoasetuksissa 2024/2979 ja 2024/2982. Valvottu ja valvomaton lähitunnistus: ARF, liite 4. Pilotti: LSP POTENTIAL."
+    en: "New Driving Licence Directive (mobile driving licence, ISO/IEC 18013-5/-7, notification of issuers). EUDI framework: Regulation 2024/1183; registration of relying parties Art. 5b; proximity and remote presentation in Implementing Regulations 2024/2979 and 2024/2982. Supervised and unsupervised proximity flows: ARF, Annex 4. Pilot: LSP POTENTIAL."
+  note:
+    fi: Kuvaus perustuu komission käyttötapausohjekirjaan ja on yleistetty malli eikä kuvaa yksittäistä toteutusta.
+    en: The description is based on the Commission’s use case manual and is a generalised model that does not describe any single implementation.
+trust_chain:
+  name:
+    fi: Mobiiliajokortti
+    en: Mobile driving licence
+  note:
+    fi: Neljä kysymystä, joihin vastaa EU:n luottamusinfra. Kuvaus on yleistetty.
+    en: Four questions answered by the EU trust infrastructure. The description is generalised.
+  links:
+    - question:
+        fi: 1. Voinko luottaa pyytäjään?
+        en: 1. Can I trust the requester?
+      answer:
+        fi: Lompakko tarkistaa autovuokraamon pääsyvarmenteen ja rekisteröinnin ennen tietojen jakamista. Kuljettaja näkee, kuka tietoja pyytää ja mitä.
+        en: The wallet checks the car rental company’s access certificate and registration before sharing data. The driver sees who is requesting data and which data.
+    - question:
+        fi: 2. Onko ajokortti aito?
+        en: 2. Is the driving licence genuine?
+      answer:
+        fi: Todentaja tarkistaa mobiiliajokortin allekirjoituksen ja sen, että myöntäjä on jäsenvaltion komissiolle ilmoittama ajokorttiviranomainen.
+        en: The verifier checks the mobile driving licence’s signature and that the issuer is a driving licence authority notified to the Commission by a Member State.
+    - question:
+        fi: 3. Onko esittäjä kortin haltija?
+        en: 3. Is the presenter the holder of the licence?
+      answer:
+        fi: Todiste on sidottu lompakon laitteeseen. Paikan päällä virkailija tai poliisi vertaa todisteen kuvaa henkilöön, ja etänä vuokraamo voi verrata ajokorttia samasta lompakosta esitettyyn PID-todisteeseen.
+        en: The credential is bound to the wallet’s device. On site, the clerk or police officer compares the credential’s photo with the person, and remotely the rental company can compare the licence with the PID presented from the same wallet.
+    - question:
+        fi: 4. Onko ajo-oikeus voimassa?
+        en: 4. Is the right to drive valid?
+      answer:
+        fi: Todentaja tarkistaa todisteen voimassaolon ja ajoneuvoluokat. Lähitunnistus toimii myös ilman verkkoyhteyttä.
+        en: The verifier checks the credential’s validity and vehicle categories. Proximity verification also works without a network connection.
+flows:
+  title:
+    fi: Mobiiliajokortti
+    en: Mobile driving licence
+  intro:
+    fi: "Arvo syntyy pääosin säästöinä ja nopeampana asiointina: vuokraamo ja poliisi tarkistavat ajo-oikeuden automaattisesti, ja kuljettajalla on kortti aina mukana. Luottamus perustuu EU:n infraan, joten uusia maksuja syntyy lähinnä todennusratkaisuista. Kuvaus on yleistetty malli."
+    en: "Value arises mainly as savings and faster service: the rental company and the police check the right to drive automatically, and the driver always has the licence at hand. Trust is based on the EU infrastructure, so new payments arise mainly from verification solutions. The description is a generalised model."
+  nodes:
+    - id: komissio
+      x: 450
+      "y": 55
+      label:
+        fi: Komissio
+        en: Commission
+      sub:
+        fi: ilmoitetut myöntäjät
+        en: notified issuers
+    - id: wrprek
+      x: 770
+      "y": 55
+      label:
+        fi: Rekisterinpitäjä
+        en: Registrar
+      sub:
+        fi: luottavat osapuolet
+        en: relying parties
+    - id: akv
+      x: 130
+      "y": 190
+      label:
+        fi: Ajokorttiviranomainen
+        en: Driving licence authority
+      sub:
+        fi: mobiiliajokortti
+        en: mobile driving licence
+    - id: pidt
+      x: 130
+      "y": 390
+      label:
+        fi: PID-tarjoaja
+        en: PID provider
+    - id: kuljettaja
+      x: 450
+      "y": 300
+      label:
+        fi: Kuljettaja
+        en: Driver
+      sub:
+        fi: haltija
+        en: holder
+    - id: poliisi
+      x: 770
+      "y": 200
+      label:
+        fi: Poliisi
+        en: Police
+      sub:
+        fi: tienvarsitarkastus
+        en: roadside check
+    - id: vuokraamo
+      x: 770
+      "y": 350
+      label:
+        fi: Autovuokraamo
+        en: Car rental company
+    - id: lompakko
+      x: 450
+      "y": 485
+      label:
+        fi: EUDI-lompakon tarjoaja
+        en: EUDI Wallet provider
+    - id: ohj
+      x: 770
+      "y": 485
+      label:
+        fi: Todennusratkaisu
+        en: Verification solution
+  flows:
+    - from: akv
+      to: kuljettaja
+      type: data
+      status: ehdotus
+      name:
+        fi: Mobiiliajokortti
+        en: Mobile driving licence
+      description:
+        fi: Ajokorttiviranomainen myöntää ajo-oikeuden todisteen ajokorttirekisterin perusteella. Direktiivin mukaan mobiiliajokortit myönnetään EUDI-lompakkoihin.
+        en: The driving licence authority issues a credential of the right to drive based on the driving licence register. Under the directive, mobile driving licences are issued to EUDI Wallets.
+    - from: pidt
+      to: kuljettaja
+      type: data
+      status: voimassa
+      name:
+        fi: Henkilön tunnistetiedot
+        en: Person identification data
+      description:
+        fi: Jäsenvaltion nimeämä PID-tarjoaja myöntää tunnistetiedot lompakkoon.
+        en: A PID provider designated by the Member State issues the identification data to the wallet.
+    - from: kuljettaja
+      to: vuokraamo
+      type: data
+      status: ehdotus
+      name:
+        fi: PID ja ajo-oikeus
+        en: PID and right to drive
+      description:
+        fi: Varauksen yhteydessä etänä ja noutopisteessä lähitunnistuksella. Kuljettaja jakaa vain pyydetyt tiedot.
+        en: Remotely when booking and in proximity at the pick-up point. The driver shares only the requested data.
+    - from: kuljettaja
+      to: poliisi
+      type: data
+      status: ehdotus
+      name:
+        fi: Ajokortti tienvarsitarkastuksessa
+        en: Driving licence at a roadside check
+      description:
+        fi: Lähitunnistus QR-koodilla sekä NFC- tai Bluetooth-yhteydellä, myös ilman verkkoyhteyttä.
+        en: Proximity presentation with a QR code and NFC or Bluetooth, also without a network connection.
+    - from: akv
+      to: komissio
+      type: data
+      status: ehdotus
+      name:
+        fi: Valtuutettujen myöntäjien ilmoittaminen
+        en: Notification of authorised issuers
+      description:
+        fi: Jäsenvaltio ilmoittaa komissiolle mobiiliajokortin myöntäjät, ja komissio julkaisee listan.
+        en: The Member State notifies the Commission of the mobile driving licence issuers, and the Commission publishes the list.
+    - from: vuokraamo
+      to: komissio
+      type: data
+      status: ehdotus
+      bend: 40
+      name:
+        fi: "Kysely: onko myöntäjä ilmoitettu"
+        en: "Query: has the issuer been notified"
+      description:
+        fi: Todentaja tarkistaa, että ajokortin allekirjoittaja on ilmoitettu myöntäjä.
+        en: The verifier checks that the signer of the licence is a notified issuer.
+    - from: vuokraamo
+      to: wrprek
+      type: data
+      status: voimassa
+      bend: -40
+      name:
+        fi: Luottavan osapuolen rekisteröinti
+        en: Relying party registration
+      description:
+        fi: Vuokraamo rekisteröityy ja kertoo, mitä tietoja se pyytää ja mihin tarkoitukseen.
+        en: The rental company registers and states which data it requests and for what purpose.
+    - from: vuokraamo
+      to: vuokraamo
+      type: saasto
+      status: lahde
+      name:
+        fi: Ajo-oikeuden tarkistus nopeutuu
+        en: Checking the right to drive is faster
+      pill:
+        fi: "Säästö: nopeampi vuokraus"
+        en: "Saving: faster rental"
+      description:
+        fi: Ohjekirjan mukaan Euroopassa vuokrataan vuosittain 40–70 miljoonaa autoa, joissa ajo-oikeus on tarkistettava. Prosessi voidaan nopeuttaa tai automatisoida.
+        en: According to the manual, 40–70 million cars are rented in Europe each year, each requiring a check of the right to drive. The process can be faster or automated.
+    - from: poliisi
+      to: poliisi
+      type: saasto
+      status: lahde
+      name:
+        fi: Tarkastus nopeutuu
+        en: Checks are faster
+      pill:
+        fi: "Säästö: nopeampi tarkastus"
+        en: "Saving: faster checks"
+      description:
+        fi: Tienvarsitarkastus nopeutuu, ja kotiin unohtuneita ajokortteja on vähemmän.
+        en: Roadside checks are faster, and fewer licences are left at home.
+    - from: akv
+      to: akv
+      type: saasto
+      status: lahde
+      name:
+        fi: Fyysisten korttien kustannukset
+        en: Cost of physical cards
+      pill:
+        fi: "Säästö: vähemmän fyysisiä kortteja"
+        en: "Saving: fewer physical cards"
+      description:
+        fi: Ohjekirjan mukaan mobiiliajokortit voivat alentaa fyysisten ajokorttien kustannuksia merkittävästi.
+        en: According to the manual, mobile driving licences could significantly lower the cost of physical driving licences.
+    - from: kuljettaja
+      to: kuljettaja
+      type: saasto
+      status: lahde
+      pill_position: below
+      name:
+        fi: Kortti aina mukana
+        en: Licence always at hand
+      pill:
+        fi: "Hyöty: ei unohtuvaa korttia"
+        en: "Benefit: no forgotten card"
+      description:
+        fi: Ajokortti on aina puhelimessa. Ohjekirjan mukaan fyysisen kortin hakeminen maksaa yksittäiselle henkilölle 15–30 euroa.
+        en: The licence is always on the phone. According to the manual, requesting a physical card costs an individual €15–30.
+    - from: kuljettaja
+      to: akv
+      type: raha
+      status: kaytanto
+      bend: 40
+      name:
+        fi: Ajokortin maksu
+        en: Driving licence fee
+      description:
+        fi: Olemassa oleva maksu ajokortista. Ohjekirja ei kerro, peritäänkö mobiiliajokortista erillistä maksua.
+        en: An existing fee for the driving licence. The manual does not say whether a separate fee is charged for the mobile driving licence.
+    - from: vuokraamo
+      to: ohj
+      type: raha
+      model: C
+      status: havainnollistava
+      name:
+        fi: Todennusratkaisun hankinta
+        en: Procuring the verification solution
+      description:
+        fi: Vuokraamo hankkii verkkopalveluunsa ja noutopisteisiinsä ratkaisun, joka tarkistaa PID-todisteen ja mobiiliajokortin.
+        en: The rental company procures a solution for its online service and pick-up points that checks the PID and the mobile driving licence.
+    - from: akv
+      to: poliisi
+      type: reuna
+      status: ehdotus
+      name:
+        fi: Vastavuoroinen tunnustaminen
+        en: Mutual recognition
+      description:
+        fi: Direktiivin mukaan jäsenvaltioiden on hyväksyttävä toistensa myöntämät mobiiliajokortit.
+        en: Under the directive, Member States must accept mobile driving licences issued by each other.
+    - from: akv
+      to: akv
+      type: reuna
+      status: ehdotus
+      pill_position: below
+      name:
+        fi: Myönnettävä EUDI-lompakkoon
+        en: Must be issued to the EUDI Wallet
+      pill:
+        fi: "Velvoite: myönnä lompakkoon"
+        en: "Obligation: issue to the wallet"
+      description:
+        fi: Direktiivi velvoittaa myöntämään mobiiliajokortit EUDI-lompakkoihin.
+        en: The directive requires mobile driving licences to be issued to EUDI Wallets.
+    - from: kuljettaja
+      to: lompakko
+      type: reuna
+      status: voimassa
+      name:
+        fi: Lompakko maksuton haltijalle
+        en: Wallet free of charge for the holder
+      description:
+        fi: EUDI-lompakko on luonnollisille henkilöille maksuton.
+        en: The EUDI Wallet is free of charge for natural persons.
+  extra:
+    title:
+      fi: Mitä tästä voi oppia
+      en: What can be learned
+    text:
+      fi: Kun todisteella on oma alakohtainen säädös ja vakiintunut kansainvälinen standardi, EU:n luottamusinfra riittää, eikä erillistä luottamusrekisteriä tarvita. Mobiiliajokortti on myös hyvä esimerkki lähitunnistuksesta, joka toimii ilman verkkoyhteyttä. Ekosysteemin sääntökirjalle jää tilaa toimialan omissa todisteissa, kuten vuokraamon varausvahvistuksessa.
+      en: When a credential has its own sector-specific legislation and an established international standard, the EU trust infrastructure is enough, and no separate trust registry is needed. The mobile driving licence is also a good example of proximity verification that works without a network connection. An ecosystem rulebook still has a role in the sector’s own credentials, such as the rental company’s booking confirmation.

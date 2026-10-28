@@ -1,0 +1,355 @@
+# Käyttötapaus. Kaikki näkymät (kuvaus, roolit kartalla, rahavirrat, luottamusketju) rakentuvat tästä tiedostosta.
+id: allekirjoitus
+name:
+  fi: Sähköinen allekirjoitus lompakolla
+  en: Electronic signature with the wallet
+short:
+  fi: Kuluttaja allekirjoittaa sopimuksen hyväksytyllä sähköisellä allekirjoituksella EUDI-lompakon ja etäallekirjoituspalvelun avulla.
+  en: A consumer signs a contract with a qualified electronic signature using the EUDI Wallet and a remote signing service.
+wallets:
+  - eudi
+driver: mahdollistava
+status: voimassa
+detail:
+  title:
+    fi: Sähköinen allekirjoitus lompakolla
+    en: Electronic signature with the wallet
+  highlight_label:
+    fi: Sähköinen allekirjoitus
+    en: Electronic signature
+  lead:
+    fi: Kuluttaja allekirjoittaa sopimuksen lompakolla. Hyväksytyllä sähköisellä allekirjoituksella on sama oikeusvaikutus kuin käsin kirjoitetulla allekirjoituksella.
+    en: A consumer signs a contract with the wallet. A qualified electronic signature has the same legal effect as a handwritten signature.
+  status: voimassa
+  intro:
+    - fi: "Hyväksytyllä sähköisellä allekirjoituksella (QES) on sama oikeudellinen pätevyys kuin käsin kirjoitetulla allekirjoituksella kaikissa EU-maissa. Allekirjoitus voidaan luoda kahdella tavalla: sertifioitu lompakko allekirjoittaa itse, tai hyväksytyn luottamuspalveluntarjoajan (QTSP) ylläpitämä etäallekirjoituslaite allekirjoittaa käyttäjän puolesta. Etämallissa lompakko toimii käyttöliittymänä: se välittää käyttäjän hyväksynnän palvelulle ja palauttaa allekirjoitetun asiakirjan."
+      en: "A qualified electronic signature (QES) has the same legal validity as a handwritten signature in all EU countries. The signature can be created in two ways: the certified wallet signs itself, or a remote signature creation device operated by a qualified trust service provider (QTSP) signs on the user’s behalf. In the remote model, the wallet acts as the user interface: it passes the user’s approval to the service and returns the signed document."
+    - fi: "Komission ohjekirja mainitsee esimerkkeinä työsopimuksen, verkossa avattavan pankkitilin, veroilmoituksen ja todistushakemukset. EUDI-lompakon on mahdollistettava luonnollisille henkilöille maksuton hyväksytty allekirjoitus muihin kuin ammatillisiin tarkoituksiin."
+      en: "The Commission’s manual gives an employment contract, opening a bank account online, filing a tax return and applying for certificates as examples. The EUDI Wallet must enable free qualified signatures for natural persons for non-professional purposes."
+  cast:
+    haltija:
+      fi: Kuluttaja eli allekirjoittaja
+      en: Consumer, i.e. the signatory
+    eudilompakko:
+      fi: Kuluttajan EUDI-lompakko
+      en: The consumer’s EUDI Wallet
+    pid:
+      fi: Tunnistetiedot allekirjoittajan tunnistamiseen
+      en: Identification data for identifying the signatory
+    qes:
+      fi: Hyväksytty luottamuspalveluntarjoaja – etäallekirjoitus
+      en: Qualified trust service provider – remote signing
+    laite:
+      fi: Etäallekirjoituslaite tai lompakon suojattu laitteisto
+      en: Remote signature creation device or the wallet’s secure hardware
+    todentaja:
+      fi: Energiayhtiö tai vuokranantaja, joka vastaanottaa allekirjoitetun sopimuksen
+      en: Energy company or landlord receiving the signed contract
+    velvlo:
+      fi: Julkiset palvelut, joissa allekirjoitusten on kelvattava
+      en: Public services where the signatures must be accepted
+    tl:
+      fi: EU:n luotettavat listat hyväksytyistä luottamuspalveluntarjoajista
+      en: EU trusted lists of qualified trust service providers
+    valvonta:
+      fi: Valvoo luottamuspalveluntarjoajia
+      en: Supervises trust service providers
+    cab:
+      fi: Arvioi luottamuspalveluntarjoajat ja allekirjoituslaitteet
+      en: Assesses trust service providers and signature creation devices
+    luottekos:
+      fi: Mahdollinen edustusoikeustodisteiden ekosysteemi
+      en: Possible ecosystem for credentials of power of representation
+  cast_order:
+    - haltija
+    - eudilompakko
+    - pid
+    - qes
+    - laite
+    - todentaja
+    - velvlo
+    - tl
+    - valvonta
+    - cab
+    - luottekos
+  steps:
+    - fi: Kuluttaja tekee energiasopimuksen verkkopalvelussa. Palvelu näyttää sopimuksen ja tarjoaa allekirjoitusta käyttämänsä luottamuspalveluntarjoajan kautta.
+      en: The consumer makes an energy contract in an online service. The service shows the contract and offers signing through the trust service provider it uses.
+    - fi: Kuluttaja lukee sopimuksen ja skannaa QR-koodin lompakollaan.
+      en: The consumer reads the contract and scans a QR code with their wallet.
+    - fi: Luottamuspalveluntarjoaja tunnistaa allekirjoittajan lompakon tunnistetiedoilla, ellei tällä ole jo hyväksyttyä varmennetta.
+      en: The trust service provider identifies the signatory with the identification data in the wallet, unless the signatory already holds a qualified certificate.
+    - fi: Kuluttaja hyväksyy allekirjoituksen PIN-koodilla tai biometrisesti. Lompakko lähettää kryptografisen todisteen hyväksynnästä palvelulle.
+      en: The consumer approves the signature with a PIN or biometrics. The wallet sends cryptographic proof of the approval to the service.
+    - fi: Luottamuspalveluntarjoaja luo allekirjoituksen etäallekirjoituslaitteella ja palauttaa allekirjoitetun asiakirjan verkkopalveluun.
+      en: The trust service provider creates the signature with the remote signature creation device and returns the signed document to the online service.
+    - fi: Verkkopalvelu tarkistaa allekirjoituksen ja varmenteen EU:n luotettavia listoja vasten ja aktivoi sopimuksen.
+      en: The online service checks the signature and the certificate against the EU trusted lists and activates the contract.
+  value:
+    - who:
+        fi: Kuluttaja
+        en: Consumer
+      text:
+        fi: Allekirjoittaminen onnistuu ilman lisälaitteita. Ei-ammatillisiin tarkoituksiin hyväksytty allekirjoitus on maksuton, ja tarve allekirjoittaa paperilla vähenee.
+        en: Signing works without extra hardware. A qualified signature for non-professional purposes is free of charge, and the need to sign on paper decreases.
+    - who:
+        fi: Palveluntarjoaja
+        en: Service provider
+      text:
+        fi: Sopimusten solmiminen ja asiakkaaksi ottaminen voidaan automatisoida, käsittelykulut pienenevät, ja allekirjoitus on pätevä myös rajojen yli.
+        en: Concluding contracts and onboarding customers can be automated, handling costs decrease, and the signature is valid across borders as well.
+    - who:
+        fi: Luottamuspalveluntarjoaja
+        en: Trust service provider
+      text:
+        fi: Lompakko tuo allekirjoittajat valmiiksi tunnistettuina, ja palvelu voi keskittyä allekirjoitusten luomiseen ja säilyttämiseen.
+        en: The wallet brings signatories who are already identified, and the service can focus on creating and preserving signatures.
+    - who:
+        fi: Viranomaiset
+        en: Authorities
+      text:
+        fi: Täysin sähköiset julkiset palvelut helpottuvat, toisessa jäsenvaltiossa allekirjoitetut asiakirjat tunnustetaan, ja paperiprosessien kulut pienenevät.
+        en: Fully online public services become easier, documents signed in another Member State are recognised, and the costs of paper processes decrease.
+  sections:
+    - title:
+        fi: Sääntely
+        en: Regulation
+      text:
+        fi: Allekirjoitukset ovat eIDAS-asetuksen vakiintunutta aluetta. Hyväksytyn allekirjoituksen oikeusvaikutus, luottamuspalveluntarjoajien valvonta ja luotettavat listat ovat olleet voimassa vuodesta 2016. Uudistettu asetus lisää lompakon allekirjoitustoiminnot. Täytäntöönpanosäädösten mukaan lompakon on voitava käyttää allekirjoituslaitteisiin liitettyjä hyväksyttyjä varmenteita ja allekirjoitussovelluksia. Etäallekirjoituslaitteiden hallinnasta on oma täytäntöönpanoasetuksensa.
+        en: Signatures are an established area of the eIDAS Regulation. The legal effect of qualified signatures, the supervision of trust service providers and the trusted lists have applied since 2016. The amended regulation adds signing functions to the wallet. Under the implementing acts, the wallet must be able to use qualified certificates linked to signature creation devices and signature creation applications. The management of remote signature creation devices has its own implementing regulation.
+    - title:
+        fi: Tarvitaanko ekosysteemiä
+        en: Is an ecosystem needed
+      text:
+        fi: "Hyväksytyn allekirjoituksen pätevyyteen ei tarvita luottamusrekisteriä eikä ekosysteemin sääntökirjaa. eIDAS-kehys kattaa sen kokonaan: luottamuspalveluntarjoaja on valvottu ja luotettavalla listalla, ja vastaanottaja voi tarkistaa allekirjoituksen vakiomenettelyllä. Allekirjoitus ei kuitenkaan kerro, saako allekirjoittaja sitoa yrityksen tai toisen henkilön. Kun sopimus allekirjoitetaan yrityksen puolesta, tarvitaan lisäksi todiste edustusoikeudesta, esimerkiksi yrityslompakon valtuutus. Tällaisten todisteiden myöntäjistä ja vastuista voidaan sopia ekosysteemissä."
+        en: "The validity of a qualified signature does not require a trust registry or an ecosystem rulebook. The eIDAS framework covers it fully: the trust service provider is supervised and on a trusted list, and the recipient can check the signature with a standard procedure. The signature does not, however, show whether the signatory may bind a company or another person. When a contract is signed on behalf of a company, a credential of power of representation is also needed, for example a mandate from the business wallet. The issuers of such credentials and their responsibilities can be agreed in an ecosystem."
+  expert:
+    fi: "eIDAS (EU) N:o 910/2014 sellaisena kuin se on muutettuna asetuksella (EU) 2024/1183: allekirjoituksen oikeusvaikutus art. 25, lompakon maksuton hyväksytty allekirjoitus ei-ammatillisiin tarkoituksiin art. 5a(5)(g), luotettavat listat art. 22, julkisen sektorin hyväksymät allekirjoitusmuodot art. 27. Täytäntöönpano: päätökset (EU) 2015/1505 (luotettavat listat) ja 2015/1506 (allekirjoitusmuodot), asetukset (EU) 2024/2979 (lompakon toiminnot), 2024/2981 (lompakon sertifiointi) ja 2025/1567 (etäallekirjoituslaitteet). Formaatit: ETSI PAdES, XAdES, CAdES ja ASiC. Pilotit: POTENTIAL ja NOBID."
+    en: "eIDAS Regulation (EU) No 910/2014 as amended by Regulation (EU) 2024/1183: legal effect of signatures Art. 25, free qualified signature in the wallet for non-professional purposes Art. 5a(5)(g), trusted lists Art. 22, signature formats accepted by the public sector Art. 27. Implementing acts: Decisions (EU) 2015/1505 (trusted lists) and 2015/1506 (signature formats), Regulations (EU) 2024/2979 (wallet functions), 2024/2981 (wallet certification) and 2025/1567 (remote signature creation devices). Formats: ETSI PAdES, XAdES, CAdES and ASiC. Pilots: POTENTIAL and NOBID."
+  note:
+    fi: Kuvaus perustuu komission käyttötapausohjekirjaan ja on yleistetty malli eikä kuvaa yksittäistä toteutusta. Energiasopimus on esimerkki.
+    en: The description is based on the Commission’s use case manual and is a generalised model that does not describe any single implementation. The energy contract is an example.
+trust_chain:
+  name:
+    fi: Sähköinen allekirjoitus
+    en: Electronic signature
+  note:
+    fi: Kolmeen ensimmäiseen kysymykseen vastaa eIDAS-kehys. Neljäs jää sen ulkopuolelle.
+    en: The eIDAS framework answers the first three questions. The fourth falls outside it.
+  links:
+    - question:
+        fi: 1. Kuka allekirjoitti?
+        en: 1. Who signed?
+      answer:
+        fi: Luottamuspalveluntarjoaja tunnistaa allekirjoittajan lompakon tunnistetiedoilla ja myöntää hyväksytyn varmenteen. Varmenteessa on allekirjoittajan nimi.
+        en: The trust service provider identifies the signatory with the identification data in the wallet and issues a qualified certificate, which contains the signatory’s name.
+    - question:
+        fi: 2. Onko varmenne hyväksytty?
+        en: 2. Is the certificate qualified?
+      answer:
+        fi: Vastaanottaja tarkistaa EU:n luotettavalta listalta, että varmenteen myöntäjä on valvottu hyväksytty luottamuspalveluntarjoaja.
+        en: The recipient checks from the EU trusted list that the certificate issuer is a supervised qualified trust service provider.
+    - question:
+        fi: 3. Luotiinko allekirjoitus sertifioidulla laitteella?
+        en: 3. Was the signature created with a certified device?
+      answer:
+        fi: Allekirjoituslaitteen ja lompakon on oltava sertifioituja. Arviointilaitos tarkistaa vaatimustenmukaisuuden, ja valvontaviranomainen valvoo luottamuspalveluntarjoajaa.
+        en: The signature creation device and the wallet must be certified. A conformity assessment body checks conformity, and the supervisory body supervises the trust service provider.
+    - question:
+        fi: 4. Saako allekirjoittaja sitoa yrityksen?
+        en: 4. May the signatory bind a company?
+      answer:
+        fi: Allekirjoitus ei kerro edustusoikeudesta. Se on osoitettava erillisellä todisteella, esimerkiksi yrityslompakon valtuutuksella. Sen myöntäjistä voidaan sopia ekosysteemissä.
+        en: The signature says nothing about power of representation. It must be shown with a separate credential, for example a mandate from the business wallet, whose issuers can be agreed in an ecosystem.
+flows:
+  title:
+    fi: Sähköinen allekirjoitus
+    en: Electronic signature
+  intro:
+    fi: "Arvo syntyy pääosin säästöinä, kun paperiset ja manuaaliset vaiheet jäävät pois. Kuluttajalle allekirjoitus on ei-ammatillisessa käytössä maksuton. Palveluntarjoaja ostaa allekirjoituspalvelun luottamuspalveluntarjoajalta kuten nykyisinkin. Kuvaus on yleistetty malli."
+    en: "Value arises mainly as savings when paper-based and manual steps are dropped. For the consumer, signing is free of charge for non-professional use. The service provider buys the signing service from a trust service provider, as it does today. The description is a generalised model."
+  nodes:
+    - id: cab
+      x: 130
+      "y": 55
+      label:
+        fi: Arviointilaitos
+        en: Conformity assessment body
+    - id: valvonta
+      x: 450
+      "y": 55
+      label:
+        fi: Valvontaviranomainen
+        en: Supervisory body
+    - id: tl
+      x: 770
+      "y": 55
+      label:
+        fi: Luotettavat listat
+        en: Trusted lists
+      sub:
+        fi: jäsenvaltiot ja komissio
+        en: Member States and Commission
+    - id: kuluttaja
+      x: 130
+      "y": 300
+      label:
+        fi: Kuluttaja
+        en: Consumer
+      sub:
+        fi: allekirjoittaja
+        en: signatory
+    - id: qtsp
+      x: 450
+      "y": 250
+      label:
+        fi: Luottamuspalvelu
+        en: Trust service provider
+      sub:
+        fi: etäallekirjoitus
+        en: remote signing
+    - id: palvelu
+      x: 770
+      "y": 300
+      label:
+        fi: Energiayhtiö
+        en: Energy company
+      sub:
+        fi: vastaanottaja
+        en: recipient
+    - id: lompakko
+      x: 450
+      "y": 480
+      label:
+        fi: EUDI-lompakon tarjoaja
+        en: EUDI Wallet provider
+  flows:
+    - from: palvelu
+      to: kuluttaja
+      type: data
+      status: kaytanto
+      bend: 40
+      name:
+        fi: Sopimus allekirjoitettavaksi
+        en: Contract for signing
+      description:
+        fi: Verkkopalvelu näyttää sopimuksen ja QR-koodin, jonka kuluttaja skannaa lompakollaan.
+        en: The online service shows the contract and a QR code, which the consumer scans with the wallet.
+    - from: kuluttaja
+      to: qtsp
+      type: data
+      status: voimassa
+      name:
+        fi: Allekirjoituksen hyväksyntä
+        en: Approval of the signature
+      description:
+        fi: Lompakko tunnistaa kuluttajan ja lähettää kryptografisen todisteen hyväksynnästä etäallekirjoituspalvelulle.
+        en: The wallet authenticates the consumer and sends cryptographic proof of the approval to the remote signing service.
+    - from: qtsp
+      to: palvelu
+      type: data
+      status: voimassa
+      name:
+        fi: Allekirjoitettu asiakirja
+        en: Signed document
+      description:
+        fi: Hyväksytyllä allekirjoituksella varustettu sopimus palautetaan verkkopalveluun.
+        en: The contract with a qualified signature is returned to the online service.
+    - from: palvelu
+      to: tl
+      type: data
+      status: voimassa
+      name:
+        fi: "Kysely: onko varmenne hyväksytty"
+        en: "Query: is the certificate qualified"
+      description:
+        fi: Vastaanottaja tarkistaa allekirjoituksen vakiomenettelyllä EU:n luotettavia listoja vasten.
+        en: The recipient checks the signature with a standard procedure against the EU trusted lists.
+    - from: valvonta
+      to: tl
+      type: data
+      status: voimassa
+      name:
+        fi: Hyväksytty asema listalle
+        en: Qualified status to the list
+      description:
+        fi: Kun valvontaviranomainen on myöntänyt hyväksytyn aseman, palveluntarjoaja merkitään luotettavalle listalle.
+        en: Once the supervisory body has granted qualified status, the provider is entered on the trusted list.
+    - from: kuluttaja
+      to: kuluttaja
+      type: saasto
+      status: lahde
+      name:
+        fi: Ei lisälaitteita eikä paperia
+        en: No extra hardware or paper
+      pill:
+        fi: "Hyöty: allekirjoitus puhelimella"
+        en: "Benefit: signing on the phone"
+      description:
+        fi: Ohjekirjan mukaan allekirjoittaminen onnistuu ilman erillisiä laitteita, ja paperisten allekirjoitusten tarve vähenee.
+        en: According to the manual, signing works without separate devices, and the need for paper signatures decreases.
+    - from: palvelu
+      to: palvelu
+      type: saasto
+      status: lahde
+      name:
+        fi: Sopimukset automatisoituvat
+        en: Contracts are automated
+      pill:
+        fi: "Säästö: pienemmät käsittelykulut"
+        en: "Saving: lower handling costs"
+      description:
+        fi: Ohjekirjan mukaan sopimusten solmiminen ja asiakkaaksi ottaminen voidaan automatisoida, mikä pienentää käsittelykuluja.
+        en: According to the manual, concluding contracts and onboarding customers can be automated, which lowers handling costs.
+    - from: palvelu
+      to: qtsp
+      type: raha
+      model: A
+      status: havainnollistava
+      bend: -40
+      name:
+        fi: Allekirjoituspalvelu
+        en: Signing service
+      description:
+        fi: Palveluntarjoaja maksaa luottamuspalveluntarjoajalle esimerkiksi allekirjoituskohtaisesti tai sopimuksen mukaan. Sääntely ei määrää hintoja.
+        en: The service provider pays the trust service provider, for example per signature or under a contract. The regulation does not set prices.
+    - from: qtsp
+      to: cab
+      type: raha
+      status: voimassa
+      name:
+        fi: Vaatimustenmukaisuuden arviointi
+        en: Conformity assessment
+      description:
+        fi: Hyväksytty luottamuspalveluntarjoaja teettää arvioinnin säännöllisesti omalla kustannuksellaan.
+        en: A qualified trust service provider has a conformity assessment carried out regularly at its own expense.
+    - from: kuluttaja
+      to: lompakko
+      type: reuna
+      status: voimassa
+      name:
+        fi: Hyväksytty allekirjoitus maksuton
+        en: Qualified signature free of charge
+      pill:
+        fi: "Velvoite: maksuton ei-ammatilliseen käyttöön"
+        en: "Obligation: free for non-professional use"
+      description:
+        fi: EUDI-lompakon on mahdollistettava luonnollisille henkilöille maksuton hyväksytty allekirjoitus muihin kuin ammatillisiin tarkoituksiin. Jäsenvaltio voi rajata maksuttomuutta kohtuullisesti.
+        en: The EUDI Wallet must enable free qualified signatures for natural persons for non-professional purposes. A Member State may set proportionate limits on the free use.
+    - from: valvonta
+      to: qtsp
+      type: reuna
+      status: voimassa
+      name:
+        fi: Luottamuspalvelun valvonta
+        en: Supervision of the trust service
+      description:
+        fi: Valvontaviranomainen valvoo hyväksyttyjä luottamuspalveluntarjoajia ja voi poistaa hyväksytyn aseman.
+        en: The supervisory body supervises qualified trust service providers and can withdraw qualified status.
+  extra:
+    title:
+      fi: Mitä tästä voi oppia
+      en: What can be learned
+    text:
+      fi: Kun luottamusinfra on jo säännelty, uutta ekosysteemiä ei tarvita. Lompakko tuo allekirjoitukseen helpon tunnistamisen ja käyttöliittymän. Maksuttomuus kuluttajalle siirtää kustannukset allekirjoituksen vastaanottajalle ja julkiselle rahoitukselle. Seuraava kysymys on edustusoikeus, jota allekirjoitus yksin ei ratkaise.
+      en: When the trust infrastructure is already regulated, no new ecosystem is needed. The wallet brings easy identification and a user interface to signing. Making it free for consumers shifts the costs to the recipients of signatures and to public funding. The next question is power of representation, which a signature alone does not settle.

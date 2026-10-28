@@ -1,0 +1,360 @@
+# Käyttötapaus. Kaikki näkymät (kuvaus, roolit kartalla, rahavirrat, luottamusketju) rakentuvat tästä tiedostosta.
+id: sairaanhoitokortti
+name:
+  fi: Eurooppalainen sairaanhoitokortti
+  en: European Health Insurance Card
+short:
+  fi: Vakuuttava laitos myöntää EU-sairaanhoitokortin lompakkoon, ja terveydenhuollon palveluntarjoaja tarkistaa sen toisessa maassa.
+  en: The insuring institution issues the European Health Insurance Card to the wallet, and a healthcare provider checks it in another country.
+wallets:
+  - eudi
+driver: tarve
+status: kaytanto
+detail:
+  title:
+    fi: Eurooppalainen sairaanhoitokortti
+    en: European Health Insurance Card
+  highlight_label:
+    fi: EU-sairaanhoitokortti
+    en: European Health Insurance Card
+  lead:
+    fi: Matkailija todistaa oikeutensa välttämättömään hoitoon toisessa maassa digitaalisella EU-sairaanhoitokortilla.
+    en: A traveller proves their entitlement to necessary care in another country with a digital European Health Insurance Card.
+  status: kaytanto
+  intro:
+    - fi: EU-sairaanhoitokortilla (EHIC) saa tilapäisen oleskelun aikana lääketieteellisesti välttämätöntä julkista hoitoa EU-maissa, Islannissa, Liechtensteinissa, Norjassa, Sveitsissä ja Yhdistyneessä kuningaskunnassa samoin kustannuksin ja ehdoin kuin paikalliset asukkaat. Kortteja oli vuonna 2023 liikkeellä 253 miljoonaa. Nykyisin kortti tarkistetaan pääosin silmämääräisesti tai muovikortista tekstintunnistuksella, ja palveluntarjoaja ottaa siitä kopion korvausvaatimusta varten.
+      en: With the European Health Insurance Card (EHIC), people on a temporary stay receive medically necessary state-provided healthcare in the EU countries, Iceland, Liechtenstein, Norway, Switzerland and the United Kingdom under the same costs and conditions as local residents. In 2023, 253 million cards were in circulation. Today the card is checked mainly by visual inspection or by text recognition from the plastic card, and the provider keeps a copy for the reimbursement claim.
+    - fi: "Digitaalinen kortti EUDI-lompakossa korvaa muovikortin ja kopion: palveluntarjoaja tarkistaa kortin voimassaolon heti, ja kadonneen tai mitätöidyn kortin voi peruuttaa reaaliajassa."
+      en: "A digital card in the EUDI Wallet replaces the plastic card and the copy: the provider checks the card’s validity immediately, and a lost or invalid card can be revoked in real time."
+  cast:
+    lahde:
+      fi: Vakuuttavan maan sosiaaliturvarekisteri
+      en: Social security register of the insuring country
+    myontaja:
+      fi: Vakuuttava laitos, esim. Kela
+      en: Insuring institution, e.g. Kela
+    pubeaa:
+      fi: Vakuuttava laitos (eIDAS-kehyksessä)
+      en: Insuring institution (in the eIDAS framework)
+    haltija:
+      fi: Vakuutettu matkailija tai hänen perheenjäsenensä
+      en: Insured traveller or a family member
+    eudilompakko:
+      fi: Haltijan EUDI-lompakko
+      en: The holder’s EUDI Wallet
+    pid:
+      fi: Henkilön tunnistetiedot samassa esityksessä
+      en: Person identification data in the same presentation
+    todentaja:
+      fi: Terveydenhuollon palveluntarjoaja toisessa maassa
+      en: Healthcare provider in another country
+    wrprek:
+      fi: Palveluntarjoaja rekisteröityy luottavaksi osapuoleksi
+      en: The provider registers as a relying party
+    varmenne:
+      fi: Palveluntarjoajan pääsyvarmenne
+      en: The provider’s access certificate
+    tl:
+      fi: Luotettavat listat PuB-EAA-tarjoajista
+      en: Trusted lists of PuB-EAA providers
+    skeema:
+      fi: DC4EU:n määrittelemä EHIC-todistetyyppi
+      en: EHIC credential type defined by DC4EU
+    luottekos:
+      fi: Sosiaaliturvatodisteiden ekosysteemi
+      en: Social security credentials ecosystem
+  cast_order:
+    - lahde
+    - myontaja
+    - pubeaa
+    - haltija
+    - eudilompakko
+    - pid
+    - todentaja
+    - wrprek
+    - varmenne
+    - tl
+    - skeema
+    - luottekos
+  steps:
+    - fi: Vakuuttava laitos myöntää sairaanhoitokortin haltijan EUDI-lompakkoon.
+      en: The insuring institution issues the health insurance card to the holder’s EUDI Wallet.
+    - fi: Haltija sairastuu tilapäisen oleskelun aikana toisessa maassa ja hakeutuu hoitoon.
+      en: The holder falls ill during a temporary stay in another country and seeks care.
+    - fi: Vastaanotossa palveluntarjoaja pyytää sairaanhoitokorttia ja näyttää QR-koodin, jonka haltija skannaa lompakollaan.
+      en: At reception, the provider requests the health insurance card and displays a QR code, which the holder scans with the wallet.
+    - fi: Lompakko tarkistaa palveluntarjoajan henkilöllisyyden ja pyytää haltijan suostumuksen. Sen jälkeen se lähettää sairaanhoitokortin ja henkilön tunnistetiedot.
+      en: The wallet checks the provider’s identity and asks for the holder’s consent. It then sends the health insurance card and the person identification data.
+    - fi: Palveluntarjoaja tarkistaa kortin aitouden ja voimassaolon sekä sen, ettei korttia ole peruutettu.
+      en: The provider checks the card’s authenticity and validity and that the card has not been revoked.
+    - fi: Haltija saa hoidon hoitomaan ehdoin. Palveluntarjoaja välittää korvaustiedot sosiaaliturvalaitoksille, ja vakuuttava laitos korvaa kulut hoitomaan hinnoin.
+      en: The holder receives care under the conditions of the host country. The provider passes the reimbursement data to the social security institutions, and the insuring institution reimburses the costs at the host country’s rates.
+  value:
+    - who:
+        fi: Haltija
+        en: Holder
+      text:
+        fi: Kortti on aina mukana puhelimessa, paperityö vähenee, ja korvaukset käsitellään nopeammin.
+        en: The card is always on the phone, there is less paperwork, and reimbursements are processed faster.
+    - who:
+        fi: Terveydenhuollon palveluntarjoaja
+        en: Healthcare provider
+      text:
+        fi: Kortin voimassaolo ja vakuutusturva tarkistetaan heti. Käsin tarkistaminen ja jälkiselvittely vähenevät, ja korvausvaatimukset ratkeavat nopeammin.
+        en: The card’s validity and coverage are checked immediately. Manual checking and follow-up decrease, and reimbursement claims are settled faster.
+    - who:
+        fi: Vakuuttava laitos
+        en: Insuring institution
+      text:
+        fi: Väärinkäytökset vähenevät, koska todiste on tarkistettava ja kadonneen tai mitätöidyn kortin voi peruuttaa heti.
+        en: Misuse decreases, because the credential can be verified and a lost or invalid card can be revoked immediately.
+    - who:
+        fi: Yhteiskunta
+        en: Society
+      text:
+        fi: Vuodessa tehdään noin 2,2 miljoonaa sairaanhoitokorttiin perustuvaa korvausvaatimusta. Sosiaaliturvalaitosten välinen yhteentoimivuus paranee rajojen yli.
+        en: Around 2.2 million reimbursement claims based on the health insurance card are made every year. Interoperability between social security institutions improves across borders.
+  sections:
+    - title:
+        fi: Sääntely
+        en: Regulation
+      text:
+        fi: Oikeus sairaanhoitokorttiin perustuu sosiaaliturvajärjestelmien yhteensovittamista koskevaan asetukseen ja sen täytäntöönpanoasetukseen. Kortin muodon ja korvausmenettelyt määrittävät hallintotoimikunnan päätökset. Kortin myöntäminen EUDI-lompakkoon ei ole unionin oikeudessa velvoitettua eikä kiellettyä, joten käyttöönotto riippuu laitosten omasta tarpeesta. Komission vuoden 2026 työohjelmaan sisältyy ehdotus eurooppalaisesta sosiaaliturvapassista (ESSPASS), jonka tavoitteena on digitalisoida sosiaaliturvatodistukset.
+        en: The entitlement to the health insurance card is based on the regulation on the coordination of social security systems and its implementing regulation. Decisions of the Administrative Commission define the card’s design and the reimbursement procedures. Issuing the card to the EUDI Wallet is neither mandated nor prohibited by Union law, so adoption depends on the institutions’ own needs. The Commission’s 2026 work programme includes a proposal for a European Social Security Pass (ESSPASS), which aims to digitalise social security attestations.
+    - title:
+        fi: Miksi tarvitaan ekosysteemiä
+        en: Why an ecosystem is needed
+      text:
+        fi: "Kortin aitous ratkeaa eIDAS-kehyksessä: vakuuttava laitos on julkinen elin, jonka tiedot löytyvät luotettavilta listoilta, ja palveluntarjoaja tunnistautuu pääsyvarmenteella. Tähän ei tarvita erillistä luottamusrekisteriä. Ekosysteemiä tarvitaan sen sijaan yhteisiin sopimuksiin: mikä todistetyyppi on käytössä, miten peruutus toimii ja miten korvaustiedot kulkevat. Sama myöntäjä voi antaa muitakin sosiaaliturvaan perustuvia todisteita, kuten Kela–HSL-käyttötapauksen eläkeläisstatuksen. Yhteinen sääntökirja ja yhteentoimivuusprofiili tekevät seuraavan todisteen käyttöönotosta halvempaa."
+        en: "The card’s authenticity is resolved in the eIDAS framework: the insuring institution is a public body found on the trusted lists, and the provider identifies itself with an access certificate. No separate trust registry is needed for this. An ecosystem is needed instead for shared agreements: which credential type is used, how revocation works and how reimbursement data flows. The same issuer can also issue other credentials based on social security, such as the pensioner status in the Kela–HSL use case. A shared rulebook and interoperability profile make it cheaper to introduce the next credential."
+  expert:
+    fi: "Asetus (EY) N:o 883/2004 art. 19 ja 27(1) sekä asetus (EY) N:o 987/2009 art. 25(A) ja (C); hallintotoimikunnan päätökset S1 ja S2 (2009) ja S11 (2020). Todisteen muoto IETF SD-JWT VC, tietomalli W3C VCDM 2.0, myöntäminen OpenID4VCI. eIDAS-kehyksessä vakuuttava laitos voi olla PuB-EAA-tarjoaja (asetus 910/2014 sellaisena kuin se on muutettuna, art. 3(46) ja 45f). Luku: 253 miljoonaa korttia (2023)."
+    en: "Regulation (EC) No 883/2004 Art. 19 and 27(1) and Regulation (EC) No 987/2009 Art. 25(A) and (C); Administrative Commission decisions S1 and S2 (2009) and S11 (2020). Credential format IETF SD-JWT VC, data model W3C VCDM 2.0, issuance OpenID4VCI. In the eIDAS framework, the insuring institution can be a PuB-EAA provider (Regulation 910/2014 as amended, Art. 3(46) and 45f). Figure: 253 million cards (2023)."
+  note:
+    fi: Kuvaus perustuu komission käyttötapausohjekirjaan ja on yleistetty malli. Se ei kuvaa yksittäisen maan toteutusta. Kela mainitaan esimerkkinä kortin myöntäjästä Suomessa.
+    en: The description is based on the Commission’s use case manual and is a generalised model. It does not describe any single country’s implementation. Kela is mentioned as an example of the card issuer in Finland.
+trust_chain:
+  name:
+    fi: EU-sairaanhoitokortti
+    en: European Health Insurance Card
+  note:
+    fi: Neljä kysymystä, joihin vastaavat eri osat luottamusinfrasta. Kuvaus on yleistetty.
+    en: Four questions answered by different parts of the trust infrastructure. The description is generalised.
+  links:
+    - question:
+        fi: 1. Kenelle kortti näytetään?
+        en: 1. Who is the card shown to?
+      answer:
+        fi: Lompakko tarkistaa palveluntarjoajan pääsyvarmenteesta ennen tietojen jakamista ja näyttää haltijalle, kuka tietoja pyytää.
+        en: Before sharing data, the wallet checks the provider’s access certificate and shows the holder who is requesting the data.
+    - question:
+        fi: 2. Onko kortti aito?
+        en: 2. Is the card genuine?
+      answer:
+        fi: Palveluntarjoaja tarkistaa todisteen allekirjoituksen ja sen, että allekirjoittaja on luotettavilla listoilla oleva vakuuttava laitos.
+        en: The provider checks the credential’s signature and that the signer is an insuring institution on the trusted lists.
+    - question:
+        fi: 3. Onko kortti yhä voimassa?
+        en: 3. Is the card still valid?
+      answer:
+        fi: Palveluntarjoaja tarkistaa peruutustiedon. Kadonneen, varastetun tai mitätöidyn kortin vakuuttava laitos voi peruuttaa heti.
+        en: The provider checks the revocation status. The insuring institution can immediately revoke a lost, stolen or invalid card.
+    - question:
+        fi: 4. Kuka maksaa hoidon?
+        en: 4. Who pays for the care?
+      answer:
+        fi: Hoitomaan laitos korvaa hoidon ja laskuttaa vakuuttavaa laitosta yhteyslaitosten välityksellä. Kortti osoittaa, mikä laitos vastaa kuluista.
+        en: The host country’s institution covers the care and claims the costs from the insuring institution via the liaison bodies. The card shows which institution is liable for the costs.
+flows:
+  title:
+    fi: EU-sairaanhoitokortti
+    en: European Health Insurance Card
+  intro:
+    fi: "Arvo syntyy säästöinä ja nopeampana korvausten käsittelynä. Hoidon rahavirrat ovat olemassa olevia: vakuuttava laitos korvaa kulut hoitomaan hinnoin. Lompakko muuttaa sen, miten oikeus hoitoon todistetaan ja tarkistetaan. Kuvaus on yleistetty malli."
+    en: "Value arises as savings and faster processing of reimbursements. The money flows for care already exist: the insuring institution reimburses the costs at the host country’s rates. The wallet changes how the entitlement to care is proven and checked. The description is a generalised model."
+  nodes:
+    - id: tl
+      x: 450
+      "y": 55
+      label:
+        fi: Luotettavat listat
+        en: Trusted lists
+      sub:
+        fi: PuB-EAA-tarjoajat
+        en: PuB-EAA providers
+    - id: vakuuttava
+      x: 130
+      "y": 200
+      label:
+        fi: Vakuuttava laitos
+        en: Insuring institution
+      sub:
+        fi: myöntäjä, esim. Kela
+        en: issuer, e.g. Kela
+    - id: hoitaja
+      x: 770
+      "y": 200
+      label:
+        fi: Palveluntarjoaja
+        en: Healthcare provider
+      sub:
+        fi: hoitomaassa
+        en: in the host country
+    - id: haltija
+      x: 450
+      "y": 345
+      label:
+        fi: Matkailija
+        en: Traveller
+      sub:
+        fi: haltija
+        en: holder
+    - id: hoitomaa
+      x: 770
+      "y": 485
+      label:
+        fi: Hoitomaan laitos
+        en: Host country institution
+      sub:
+        fi: sosiaaliturva
+        en: social security
+    - id: lompakko
+      x: 450
+      "y": 485
+      label:
+        fi: EUDI-lompakon tarjoaja
+        en: EUDI Wallet provider
+  flows:
+    - from: vakuuttava
+      to: haltija
+      type: data
+      status: kaytanto
+      name:
+        fi: Digitaalinen sairaanhoitokortti
+        en: Digital health insurance card
+      description:
+        fi: Vakuuttava laitos myöntää kortin lompakkoon. DC4EU-pilotissa todiste on SD-JWT VC -muodossa.
+        en: The insuring institution issues the card to the wallet. In the DC4EU pilot, the credential is in SD-JWT VC format.
+    - from: haltija
+      to: hoitaja
+      type: data
+      status: kaytanto
+      name:
+        fi: Kortin ja tunnistetietojen esittäminen
+        en: Presenting the card and identification data
+      description:
+        fi: Haltija skannaa vastaanoton QR-koodin ja jakaa sairaanhoitokortin ja henkilön tunnistetiedot suostumuksellaan.
+        en: The holder scans the QR code at reception and shares the health insurance card and the person identification data with their consent.
+    - from: hoitaja
+      to: tl
+      type: data
+      status: voimassa
+      name:
+        fi: "Tarkistus: onko myöntäjä luotettu"
+        en: "Check: is the issuer trusted"
+      description:
+        fi: Palveluntarjoaja tarkistaa, että kortin allekirjoittaja on luotettavilla listoilla.
+        en: The provider checks that the card’s signer is on the trusted lists.
+    - from: hoitaja
+      to: hoitomaa
+      type: data
+      status: voimassa
+      name:
+        fi: Korvaustiedot
+        en: Reimbursement data
+      description:
+        fi: Palveluntarjoaja välittää korvaustiedot sosiaaliturvalaitoksille. Digitaalinen kortti korvaa paperikopion.
+        en: The provider passes the reimbursement data to the social security institutions. The digital card replaces the paper copy.
+    - from: hoitaja
+      to: hoitaja
+      type: saasto
+      status: kaytanto
+      name:
+        fi: Tarkistus ilman käsityötä
+        en: Checking without manual work
+      pill:
+        fi: "Säästö: ei käsin tarkistusta"
+        en: "Saving: no manual checks"
+      description:
+        fi: Kortin voimassaolo ja vakuutusturva tarkistetaan heti, eikä kopiota tarvitse ottaa tai selvitellä jälkikäteen.
+        en: The card’s validity and coverage are checked immediately, and no copy needs to be taken or followed up afterwards.
+    - from: vakuuttava
+      to: vakuuttava
+      type: saasto
+      status: lahde
+      name:
+        fi: Väärinkäytökset vähenevät
+        en: Less misuse
+      pill:
+        fi: "Hyöty: peruutus reaaliajassa"
+        en: "Benefit: real-time revocation"
+      description:
+        fi: Ohjekirjan mukaan tarkistettavat todisteet ja reaaliaikainen peruutus vähentävät väärinkäytöksiä. Korttiin perustuvia korvausvaatimuksia tehdään noin 2,2 miljoonaa vuodessa.
+        en: According to the manual, verifiable credentials and real-time revocation reduce misuse. Around 2.2 million reimbursement claims based on the card are made every year.
+    - from: haltija
+      to: haltija
+      type: saasto
+      status: kaytanto
+      pill_position: below
+      name:
+        fi: Kortti aina mukana
+        en: The card is always at hand
+      pill:
+        fi: "Hyöty: vähemmän paperia"
+        en: "Benefit: less paper"
+      description:
+        fi: Kortti on puhelimessa, eikä muovikorttia tai väliaikaista todistusta tarvitse kuljettaa mukana.
+        en: The card is on the phone, and there is no need to carry the plastic card or a provisional certificate.
+    - from: hoitomaa
+      to: hoitaja
+      type: raha
+      status: voimassa
+      bend: 40
+      name:
+        fi: Hoidon korvaus
+        en: Payment for care
+      description:
+        fi: Olemassa oleva rahavirta. Hoitomaan järjestelmä korvaa hoidon samoin ehdoin kuin paikalliselle asukkaalle.
+        en: An existing money flow. The host country’s system covers the care under the same conditions as for a local resident.
+    - from: vakuuttava
+      to: hoitomaa
+      type: raha
+      status: voimassa
+      bend: 60
+      name:
+        fi: Kulujen korvaus maiden välillä
+        en: Reimbursement between countries
+      description:
+        fi: Vakuuttavan maan yhteyslaitos korvaa kulut hoitomaan hinnoin. Lompakko ei muuta tätä rahavirtaa.
+        en: The liaison body of the insuring country reimburses the costs at the host country’s rates. The wallet does not change this money flow.
+    - from: vakuuttava
+      to: vakuuttava
+      type: reuna
+      status: voimassa
+      pill_position: below
+      name:
+        fi: Lompakkoon myöntäminen vapaaehtoista
+        en: Issuing to the wallet is voluntary
+      pill:
+        fi: "Ei velvoitetta eikä kieltoa"
+        en: "Neither mandated nor prohibited"
+      description:
+        fi: Unionin oikeus ei velvoita eikä kiellä myöntämästä korttia EUDI-lompakkoon. Suunniteltu ESSPASS-ehdotus voi muuttaa tilanteen.
+        en: Union law neither mandates nor prohibits issuing the card to the EUDI Wallet. The planned ESSPASS proposal may change this.
+    - from: haltija
+      to: lompakko
+      type: reuna
+      status: voimassa
+      name:
+        fi: Lompakko maksuton haltijalle
+        en: Wallet free of charge for the holder
+      description:
+        fi: EUDI-lompakko on luonnollisille henkilöille maksuton.
+        en: The EUDI Wallet is free of charge for natural persons.
+  extra:
+    title:
+      fi: Mitä tästä voi oppia
+      en: What can be learned
+    text:
+      fi: Kun käyttötapauksella ei ole omaa velvoitetta, käyttöönotto riippuu siitä, säästävätkö myöntäjä ja todentajat vaivaa. Sairaanhoitokortti hyödyntää eIDAS-luottamusinfraa sellaisenaan, mutta todistetyypistä, peruutuksesta ja korvaustietojen kulusta on sovittava yhteisesti. Saman myöntäjän muut todisteet, kuten Kela–HSL-käyttötapauksen eläkeläisstatus, voivat käyttää samoja sopimuksia.
+      en: When a use case has no obligation of its own, adoption depends on whether the issuer and the verifiers save effort. The health insurance card uses the eIDAS trust infrastructure as it is, but the credential type, revocation and the flow of reimbursement data must be agreed jointly. Other credentials from the same issuer, such as the pensioner status in the Kela–HSL use case, can use the same agreements.

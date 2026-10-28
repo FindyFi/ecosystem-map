@@ -1,5 +1,5 @@
 # Yleistiedot. Päivitä updated aina, kun sisältöä muutetaan.
-updated: "2026-10-20"
+updated: "2026-10-28"
 # Julkinen osoite; käytetään sivun kanonisena osoitteena.
 url: https://ecosystem.findy.fi/
 default_lang: fi
@@ -11,4 +11,4 @@ contact:
   fi: https://findynet.fi/yhteys/
   en: https://findynet.fi/yhteys/
 # Käyttötapausten järjestys näkymissä (tiedostot data/usecases/<id>.yaml).
-usecase_order: [kela, hankinta]
+usecase_order: [kela, hankinta, ikaraja, ajokortti, allekirjoitus, maksu, eresepti, sairaanhoitokortti, matkustus]

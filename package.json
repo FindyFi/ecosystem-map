@@ -1,6 +1,6 @@
 {
   "name": "findynet-ekosysteemikartta",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Digitaalisten todisteiden ekosysteemikartta – Findynet",
   "private": true,
   "type": "commonjs",

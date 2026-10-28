@@ -1,0 +1,399 @@
+# Käyttötapaus. Kaikki näkymät (kuvaus, roolit kartalla, rahavirrat, luottamusketju) rakentuvat tästä tiedostosta.
+id: maksu
+name:
+  fi: Maksun vahvistaminen lompakolla
+  en: Payment authentication with the wallet
+short:
+  fi: Maksaja vahvistaa maksun EUDI-lompakolla ja voi samalla todistaa esimerkiksi ikänsä kauppiaalle.
+  en: The payer authenticates a payment with the EUDI Wallet and can at the same time prove, for example, their age to the merchant.
+wallets:
+  - eudi
+driver: pakottava
+status: voimassa
+detail:
+  title:
+    fi: Maksun vahvistaminen lompakolla
+    en: Payment authentication with the wallet
+  highlight_label:
+    fi: Maksun vahvistaminen
+    en: Payment authentication
+  lead:
+    fi: Maksaja tekee maksupalvelusääntelyn edellyttämän vahvan tunnistamisen EUDI-lompakolla verkkokaupassa tai myymälän kassalla.
+    en: The payer performs the strong customer authentication required by payment services regulation with the EUDI Wallet, in an online shop or at a shop checkout.
+  status: voimassa
+  intro:
+    - fi: Euroalueella tehtiin vuonna 2024 noin 150 miljardia käteisetöntä maksutapahtumaa, ja 86 % EU:n aikuisista on ostanut verkosta viimeisen vuoden aikana. Maksupalvelusääntely edellyttää, että maksaja tunnistetaan vahvasti. Nykyisin tähän käytetään kunkin pankin omaa sovellusta tai tunnistusvälinettä, ja ikärajoitettujen tuotteiden ostossa ikä tarkistetaan erikseen.
+      en: Around 150 billion non-cash transactions were made in the euro area in 2024, and 86% of adults in the EU have bought something online in the last year. Payment services regulation requires the payer to be strongly authenticated. Today this is done with each bank’s own app or authentication means, and age is checked separately when buying age-restricted products.
+    - fi: "EUDI-lompakossa pankin myöntämä SCA-attestaatio sitoo lompakon maksajaan ja tiliin. Maksaja vahvistaa maksun PIN-koodilla tai biometrialla ja voi samassa vaiheessa jakaa kauppiaalle vain tarvittavat tiedot, kuten täysi-ikäisyyden. Käyttötapaus toimii olemassa olevan maksuinfran, kuten SEPA-tilisiirtojen, pikamaksujen ja korttimaksujen, päällä eikä korvaa sitä."
+      en: "In the EUDI Wallet, an SCA attestation issued by the bank binds the wallet to the payer and the account. The payer confirms the payment with a PIN or biometrics and can, in the same step, share only the necessary data with the merchant, such as being of age. The use case works on top of existing payment infrastructure, such as SEPA credit transfers, instant payments and card payments, and does not replace it."
+  cast:
+    haltija:
+      fi: Maksaja
+      en: Payer
+    eudilompakko:
+      fi: Maksajan EUDI-lompakko
+      en: The payer’s EUDI Wallet
+    pid:
+      fi: Henkilön tunnistetiedot ja ikätieto
+      en: Person identification data and age
+    lahde:
+      fi: Pankin asiakas- ja tilitiedot
+      en: The bank’s customer and account data
+    myontaja:
+      fi: Pankki tai muu maksupalveluntarjoaja
+      en: Bank or other payment service provider
+    eaa:
+      fi: SCA-attestaatio, joka sitoo lompakon maksajaan ja tiliin
+      en: SCA attestation binding the wallet to the payer and the account
+    skeema:
+      fi: SCA-attestaation sääntökirjat
+      en: SCA attestation rulebooks
+    todentaja:
+      fi: Pankki vahvistaa maksun, kauppias tarkistaa iän
+      en: The bank authenticates the payment, the merchant checks the age
+    velvlo:
+      fi: Maksupalveluntarjoaja, jonka on hyväksyttävä lompakko
+      en: Payment service provider that must accept the wallet
+    wrprek:
+      fi: Pankki ja kauppias rekisteröityvät luottaviksi osapuoliksi
+      en: The bank and the merchant register as relying parties
+    varmenne:
+      fi: Pankin ja kauppiaan pääsyvarmenteet
+      en: Access certificates of the bank and the merchant
+    tl:
+      fi: Luotetut PID-tarjoajat
+      en: Trusted PID providers
+  cast_order:
+    - haltija
+    - eudilompakko
+    - pid
+    - myontaja
+    - lahde
+    - eaa
+    - skeema
+    - todentaja
+    - velvlo
+    - wrprek
+    - varmenne
+    - tl
+  steps:
+    - fi: Maksaja liittää pankkinsa EUDI-lompakkoon. Pankki tunnistaa asiakkaan ja myöntää lompakkoon SCA-attestaation, joka sitoo lompakon maksajaan ja tiliin.
+      en: The payer links their bank to the EUDI Wallet. The bank identifies the customer and issues an SCA attestation to the wallet, binding the wallet to the payer and the account.
+    - fi: Maksaja valitsee verkkokaupassa tai myymälän kassalla maksun vahvistamisen lompakolla. Kassa tai maksukäyttöliittymä luo maksupyynnön ja näyttää QR-koodin, jonka maksaja lukee lompakolla.
+      en: In an online shop or at a shop checkout, the payer chooses to authenticate the payment with the wallet. The checkout or payment interface creates a payment request and shows a QR code, which the payer scans with the wallet.
+    - fi: Lompakko tarkistaa pyytäjän ja näyttää kauppiaan nimen, summan, pyydetyt tiedot ja suostumuksen tiedot.
+      en: The wallet checks the requester and shows the merchant’s name, the amount, the requested data and the consent details.
+    - fi: Maksaja vahvistaa maksun PIN-koodilla tai biometrialla. Lompakko esittää SCA-attestaation maksun vahvistukseksi ja tarvittaessa ikätiedon kauppiaalle samassa vaiheessa.
+      en: The payer confirms the payment with a PIN or biometrics. The wallet presents the SCA attestation to authenticate the payment and, where needed, the age data to the merchant in the same step.
+    - fi: Pankki tarkistaa vahvistuksen ja toteuttaa maksun olemassa olevassa maksuinfrassa. Kauppias tarkistaa ikätiedon aitouden ja myöntäjän.
+      en: The bank checks the authentication and executes the payment in the existing payment infrastructure. The merchant checks the authenticity and issuer of the age data.
+    - fi: Maksu onnistuu, ja maksaja saa tuotteen. Pankkitunnuksia tai tilitietoja ei jaettu kauppiaalle.
+      en: The payment succeeds and the payer receives the product. No bank credentials or account details were shared with the merchant.
+  value:
+    - who:
+        fi: Maksaja
+        en: Payer
+      text:
+        fi: Yksi lompakko käy eri pankkien ja kauppojen kanssa. Kauppias saa vain tarvittavat tiedot, eikä pankkitunnuksia tai salasanoja jaeta kauppiaalle.
+        en: One wallet works with different banks and shops. The merchant receives only the necessary data, and no bank credentials or passwords are shared with the merchant.
+    - who:
+        fi: Pankki ja maksupalveluntarjoaja
+        en: Bank and payment service provider
+      text:
+        fi: Sertifioitu lompakko voi keventää omien tunnistusratkaisujen ylläpitoa ja helpottaa vaatimustenmukaisuutta ja auditointia. Petosriski voi pienentyä.
+        en: A certified wallet can reduce the upkeep of own authentication solutions and make compliance and auditing easier. Fraud risk can decrease.
+    - who:
+        fi: Kauppias
+        en: Merchant
+      text:
+        fi: Ikärajoitettujen tuotteiden ikätarkistus luotettavasti samassa vaiheessa kuin maksu. EU:ssa noin 8 miljoonaa yritystä myi verkossa vuonna 2023.
+        en: Reliable age checks for age-restricted products in the same step as the payment. Around 8 million enterprises in the EU made an online sale in 2023.
+    - who:
+        fi: Yhteiskunta
+        en: Society
+      text:
+        fi: Vahva tunnistaminen yhdenmukaistuu eIDAS-luottamuskehyksen kautta, maksujen vahvistukset ovat kryptografisesti jäljitettäviä, ja rajat ylittävä yhteentoimivuus paranee.
+        en: Strong authentication is harmonised through the eIDAS trust framework, payment authentications are cryptographically traceable, and cross-border interoperability improves.
+  sections:
+    - title:
+        fi: Sääntely
+        en: Regulation
+      text:
+        fi: Vahvan tunnistamisen vaatimus tulee maksupalveludirektiivistä ja sitä täydentävästä delegoidusta asetuksesta. eIDAS-asetuksen mukaan yksityisten luottavien osapuolten, joilta laki edellyttää vahvaa tunnistamista, kuten maksupalveluntarjoajien, on hyväksyttävä EUDI-lompakko käyttäjän pyynnöstä, ohjekirjan mukaan viimeistään vuoden 2027 lopussa. Käyttö on maksajalle vapaaehtoista. Tekniset määrittelyt, kuten SCA-attestaatioiden sääntökirjat, ovat vielä keskeneräisiä ja tarkentuvat täytäntöönpanosäädöksissä.
+        en: The strong customer authentication requirement comes from the Payment Services Directive and the delegated regulation supplementing it. Under the eIDAS Regulation, private relying parties that are required by law to use strong authentication, such as payment service providers, must accept the EUDI Wallet at the user’s request, according to the manual by the end of 2027 at the latest. Use is voluntary for the payer. Technical specifications, such as the SCA attestation rulebooks, are still being finalised and will be specified in implementing acts.
+    - title:
+        fi: Miksi tarvitaan ekosysteemiä
+        en: Why an ecosystem is needed
+      text:
+        fi: "Maksun vahvistamisessa luottamus tulee pääosin olemassa olevista rakenteista: pankki tarkistaa itse myöntämänsä SCA-attestaation, ja PID:n myöntäjät löytyvät eIDAS-luottamuslistoilta. Erillistä luottamusrekisteriä ei tähän tarvita. Ekosysteemitason sopimista tarvitaan silti SCA-attestaatioiden sääntökirjoissa ja maksutapakohtaisissa käytännöissä, joissa pankkien, kauppiaiden ja maksuinfran on päästävä yhteisiin valintoihin. Jos kauppias haluaa samassa maksussa tarkistaa muita kuin eIDAS-kehyksen todisteita, kuten kanta-asiakkuuden tai alennusoikeuden, niiden myöntäjien valtuutus voidaan tarkistaa luottamusrekisteristä."
+        en: "In payment authentication, trust comes mainly from existing structures: the bank checks the SCA attestation it has issued itself, and PID issuers can be found on the eIDAS trusted lists. A separate trust registry is not needed for this. Agreement at ecosystem level is still needed in the SCA attestation rulebooks and payment-method-specific practices, where banks, merchants and the payment infrastructure must reach common choices. If the merchant wants to check credentials outside the eIDAS framework in the same payment, such as a loyalty membership or a discount entitlement, the authorisation of their issuers can be checked from the trust registry."
+  expert:
+    fi: "eIDAS-asetus (EU) N:o 910/2014, sellaisena kuin se on muutettuna asetuksella (EU) 2024/1183, art. 5f(2): vahvaa tunnistamista edellyttävien yksityisten luottavien osapuolten on hyväksyttävä EUDI-lompakko käyttäjän pyynnöstä. Vahva tunnistaminen: maksupalveludirektiivi (EU) 2015/2366 (PSD2) ja delegoitu asetus (EU) 2018/389; tulossa PSD3 ja maksupalveluasetus (PSR). Pikamaksuasetus (EU) 2024/886. Tekniikka: SD-JWT VC -muotoiset SCA-attestaatiot, myöntäminen OpenID4VCI ja esittäminen OpenID4VP, myöhemmin myös ISO/IEC 18013-5. Pilotit: EWC ja NOBID, jatkotyö WeBuild ja Aptitude."
+    en: "eIDAS Regulation (EU) No 910/2014 as amended by Regulation (EU) 2024/1183, Art. 5f(2): private relying parties required to use strong authentication must accept the EUDI Wallet at the user’s request. Strong customer authentication: Payment Services Directive (EU) 2015/2366 (PSD2) and Delegated Regulation (EU) 2018/389; PSD3 and the Payment Services Regulation (PSR) upcoming. Instant Payments Regulation (EU) 2024/886. Technology: SCA attestations in SD-JWT VC format, issuance with OpenID4VCI and presentation with OpenID4VP, later also ISO/IEC 18013-5. Pilots: EWC and NOBID, follow-up work in WeBuild and Aptitude."
+  note:
+    fi: Kuvaus perustuu komission käyttötapausohjekirjaan ja on yleistetty malli. Tekniset määrittelyt voivat vielä muuttua.
+    en: The description is based on the Commission’s use case manual and is a generalised model. The technical specifications may still change.
+trust_chain:
+  name:
+    fi: Maksun vahvistaminen
+    en: Payment authentication
+  note:
+    fi: Neljä kysymystä, joihin vastaavat eri osat luottamusinfrasta. Kuvaus on yleistetty.
+    en: Four questions answered by different parts of the trust infrastructure. The description is generalised.
+  links:
+    - question:
+        fi: 1. Kuka maksua pyytää?
+        en: 1. Who is requesting the payment?
+      answer:
+        fi: Lompakko tarkistaa ennen tietojen jakamista pyytäjän pääsyvarmenteen ja rekisteröinnin ja näyttää maksajalle kauppiaan nimen ja summan.
+        en: Before sharing data, the wallet checks the requester’s access certificate and registration and shows the payer the merchant’s name and the amount.
+    - question:
+        fi: 2. Onko vahvistus maksajan ja tilin omistajan?
+        en: 2. Does the authentication come from the payer and account holder?
+      answer:
+        fi: Pankki tarkistaa, että vahvistus on tehty sen itse myöntämällä SCA-attestaatiolla, joka on sidottu maksajaan, tiliin ja lompakon avaimeen.
+        en: The bank checks that the authentication was made with the SCA attestation it issued itself, bound to the payer, the account and the wallet’s key.
+    - question:
+        fi: 3. Onko ikätieto aito?
+        en: 3. Is the age data genuine?
+      answer:
+        fi: Kauppias tarkistaa ikätiedon allekirjoituksen ja sen, että myöntäjä löytyy eIDAS-luottamuslistoilta.
+        en: The merchant checks the signature of the age data and that the issuer can be found on the eIDAS trusted lists.
+    - question:
+        fi: 4. Kuka vastaa mistä?
+        en: 4. Who is responsible for what?
+      answer:
+        fi: Maksupalveluntarjoaja vastaa edelleen vahvasta tunnistamisesta maksupalvelusääntelyn mukaisesti. SCA-attestaatioiden sääntökirjat määrittävät, miten attestaatiot rakennetaan eri maksutavoissa.
+        en: The payment service provider remains responsible for strong customer authentication under payment services regulation. The SCA attestation rulebooks define how attestations are structured for different payment methods.
+flows:
+  title:
+    fi: Maksun vahvistaminen lompakolla
+    en: Payment authentication with the wallet
+  intro:
+    fi: "Rahavirrat ovat pääosin olemassa olevia: maksaja maksaa ostoksensa, ja kauppias maksaa maksunvälityksen palkkiot. Uusi arvo syntyy mahdollisina säästöinä tunnistamisessa ja ikätarkistuksessa. Lompakko on maksajalle maksuton, ja havainnoimattomuusvaatimus rajoittaa maksukohtaista laskutusta. Kuvaus on yleistetty malli."
+    en: "Money flows are mainly existing ones: the payer pays for the purchase and the merchant pays the payment processing fees. New value arises as potential savings in authentication and age checks. The wallet is free of charge for the payer, and the unobservability requirement limits per-transaction charging. The description is a generalised model."
+  nodes:
+    - id: listat
+      x: 450
+      "y": 55
+      label:
+        fi: Luotettavat listat
+        en: Trusted lists
+      sub:
+        fi: eIDAS
+        en: eIDAS
+    - id: pidt
+      x: 130
+      "y": 120
+      label:
+        fi: PID-tarjoaja
+        en: PID provider
+      sub:
+        fi: jäsenvaltio
+        en: Member State
+    - id: pankki
+      x: 130
+      "y": 330
+      label:
+        fi: Pankki
+        en: Bank
+      sub:
+        fi: maksupalveluntarjoaja
+        en: payment service provider
+    - id: maksaja
+      x: 450
+      "y": 300
+      label:
+        fi: Maksaja
+        en: Payer
+      sub:
+        fi: lompakon haltija
+        en: wallet holder
+    - id: kauppias
+      x: 770
+      "y": 300
+      label:
+        fi: Kauppias
+        en: Merchant
+      sub:
+        fi: verkko tai myymälä
+        en: online or in store
+    - id: lompakko
+      x: 450
+      "y": 480
+      label:
+        fi: EUDI-lompakon tarjoaja
+        en: EUDI Wallet provider
+    - id: infra
+      x: 770
+      "y": 480
+      label:
+        fi: Maksuinfra
+        en: Payment infrastructure
+      sub:
+        fi: SEPA, pikamaksut, kortit
+        en: SEPA, instant, cards
+  flows:
+    - from: pidt
+      to: maksaja
+      type: data
+      status: voimassa
+      name:
+        fi: Henkilön tunnistetiedot
+        en: Person identification data
+      description:
+        fi: PID sisältää syntymäajan, josta lompakko voi esittää pelkän täysi-ikäisyyden.
+        en: The PID includes the date of birth, from which the wallet can present only the fact of being of age.
+    - from: pankki
+      to: maksaja
+      type: data
+      status: kaytanto
+      name:
+        fi: SCA-attestaatio
+        en: SCA attestation
+      description:
+        fi: Pankki myöntää lompakkoon attestaation, joka sitoo lompakon maksajaan ja tiliin. Rakenne määritellään sääntökirjoissa.
+        en: The bank issues an attestation to the wallet that binds the wallet to the payer and the account. Its structure is defined in rulebooks.
+    - from: kauppias
+      to: maksaja
+      type: data
+      status: kaytanto
+      bend: 40
+      name:
+        fi: Maksupyyntö
+        en: Payment request
+      description:
+        fi: Kassa tai maksukäyttöliittymä luo maksupyynnön ja näyttää QR-koodin.
+        en: The checkout or payment interface creates a payment request and shows a QR code.
+    - from: maksaja
+      to: pankki
+      type: data
+      status: kaytanto
+      name:
+        fi: Maksun vahvistus
+        en: Payment authentication
+      description:
+        fi: Maksaja vahvistaa maksun PIN-koodilla tai biometrialla, ja lompakko esittää SCA-attestaation.
+        en: The payer confirms the payment with a PIN or biometrics, and the wallet presents the SCA attestation.
+    - from: maksaja
+      to: kauppias
+      type: data
+      status: kaytanto
+      name:
+        fi: Ikätieto
+        en: Age data
+      description:
+        fi: Tarvittaessa lompakko jakaa samassa vaiheessa vain sen, että maksaja on täysi-ikäinen.
+        en: Where needed, the wallet shares in the same step only the fact that the payer is of age.
+    - from: kauppias
+      to: listat
+      type: data
+      status: voimassa
+      name:
+        fi: "Kysely: onko myöntäjä luotettu"
+        en: "Query: is the issuer trusted"
+      description:
+        fi: Kauppias tarkistaa ikätiedon myöntäjän eIDAS-luottamuslistoilta.
+        en: The merchant checks the issuer of the age data from the eIDAS trusted lists.
+    - from: maksaja
+      to: maksaja
+      type: saasto
+      status: kaytanto
+      pill_position: below
+      name:
+        fi: Ei pankkitunnuksia kauppiaalle
+        en: No bank credentials to the merchant
+      pill:
+        fi: "Hyöty: yksi lompakko"
+        en: "Benefit: one wallet"
+      description:
+        fi: Sama lompakko käy eri pankkien ja kauppojen kanssa, eikä pankkitunnuksia tai tilitietoja jaeta kauppiaalle.
+        en: The same wallet works with different banks and shops, and no bank credentials or account details are shared with the merchant.
+    - from: pankki
+      to: pankki
+      type: saasto
+      status: havainnollistava
+      name:
+        fi: Tunnistusratkaisujen ylläpito kevenee
+        en: Lighter upkeep of authentication solutions
+      pill:
+        fi: "Säästö: vähemmän omaa tunnistusta"
+        en: "Saving: less own authentication"
+      description:
+        fi: Ohjekirjan mukaan sertifioitu lompakko voi alentaa toimintakuluja, helpottaa auditointia ja pienentää petosriskiä.
+        en: According to the manual, a certified wallet can lower operating costs, make auditing easier and reduce fraud risk.
+    - from: kauppias
+      to: kauppias
+      type: saasto
+      status: havainnollistava
+      name:
+        fi: Ikätarkistus maksun yhteydessä
+        en: Age check with the payment
+      pill:
+        fi: "Säästö: ei erillistä ikätarkistusta"
+        en: "Saving: no separate age check"
+      description:
+        fi: Ikärajoitettujen tuotteiden myynnissä ikä tarkistetaan luotettavasti samassa vaiheessa kuin maksu.
+        en: When selling age-restricted products, age is checked reliably in the same step as the payment.
+    - from: maksaja
+      to: kauppias
+      type: raha
+      status: kaytanto
+      bend: 60
+      name:
+        fi: Ostoksen hinta
+        en: Purchase price
+      description:
+        fi: Olemassa oleva rahavirta; lompakko muuttaa vain sen, miten maksu vahvistetaan.
+        en: An existing money flow; the wallet only changes how the payment is authenticated.
+    - from: kauppias
+      to: infra
+      type: raha
+      status: kaytanto
+      name:
+        fi: Maksunvälityksen palkkiot
+        en: Payment processing fees
+      description:
+        fi: Olemassa olevat palkkiot korttimaksuista ja tilisiirroista säilyvät ennallaan.
+        en: Existing fees for card payments and credit transfers remain unchanged.
+    - from: pankki
+      to: lompakko
+      type: raha
+      model: C
+      status: havainnollistava
+      name:
+        fi: Lompakkointegraatio
+        en: Wallet integration
+      description:
+        fi: Pankki voi hankkia integraation tai välityspalvelun lompakon hyväksymiseen. Ehdotukset eivät määrää hintoja.
+        en: The bank can procure an integration or intermediary service for accepting the wallet. No prices are set.
+    - from: pankki
+      to: pankki
+      type: reuna
+      status: voimassa
+      name:
+        fi: Lompakko on hyväksyttävä
+        en: The wallet must be accepted
+      pill:
+        fi: "Velvoite: hyväksy EUDI-lompakko"
+        en: "Obligation: accept the EUDI Wallet"
+      description:
+        fi: Maksupalveluntarjoajan on hyväksyttävä EUDI-lompakko vahvaan tunnistamiseen käyttäjän pyynnöstä, ohjekirjan mukaan viimeistään vuoden 2027 lopussa.
+        en: The payment service provider must accept the EUDI Wallet for strong customer authentication at the user’s request, according to the manual by the end of 2027 at the latest.
+    - from: maksaja
+      to: lompakko
+      type: reuna
+      status: voimassa
+      name:
+        fi: Lompakko maksuton maksajalle
+        en: Wallet free of charge for the payer
+      description:
+        fi: EUDI-lompakko on luonnollisille henkilöille maksuton, ja lompakon tarjoaja ei saa seurata, missä lompakkoa käytetään.
+        en: The EUDI Wallet is free of charge for natural persons, and the wallet provider may not track where the wallet is used.
+  extra:
+    title:
+      fi: Mitä tästä voi oppia
+      en: What can be learned
+    text:
+      fi: Kun lompakko asettuu olemassa olevan maksuinfran päälle, rahavirrat pysyvät ennallaan, ja arvo syntyy siitä, että tunnistaminen ja muiden tietojen todistaminen yhdistyvät yhteen vaiheeseen. Velvoite hyväksyä lompakko luo pankeille syyn integroitua, mutta maksajat ottavat lompakon käyttöön vain, jos se on yhtä sujuva kuin pankin oma sovellus.
+      en: When the wallet sits on top of the existing payment infrastructure, money flows stay unchanged, and value arises from combining authentication and proving other data into a single step. The obligation to accept the wallet gives banks a reason to integrate, but payers will only adopt the wallet if it is as smooth as the bank’s own app.

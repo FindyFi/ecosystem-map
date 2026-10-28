@@ -102,7 +102,7 @@ wallet.ebw: Yrityslompakko
 wallet.any: Mikä tahansa lompakko
 
 footer.ask: Kysyttävää tai ehdotuksia? Kerro meille.
-footer.contact: Ota yhteyttä Findynetiin
+footer.contact: Ota yhteyttä
 footer.updated: Päivitetty {date}.
 footer.statusLegend: "<b>Lähteet.</b> Tila-merkinnät: <span class=\"tag st-voimassa\">voimassa</span> voimassa oleva sääntely, <span class=\"tag st-ehdotus\">ehdotus</span> lainsäädäntöprosessissa oleva ehdotus, <span class=\"tag st-arf\">ARF</span> arkkitehtuurikehyksen informatiivinen kuvaus, <span class=\"tag st-kaytanto\">käytäntö</span> toimijoiden käytäntö tai pilotti, <span class=\"tag st-lahde\">lähteistetty</span> lähteessä esitetty arvio, <span class=\"tag st-havainnollistava\">havainnollistava</span> mahdollinen malli."
 footer.disclaimer: Yrityslompakkoasetus on lainsäädäntöprosessissa, ja lopullinen sisältö voi poiketa ehdotuksesta. Kuvaus ei ole oikeudellinen neuvo.

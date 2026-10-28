@@ -8,6 +8,18 @@
     en: Implementing Regulation (EU) 2024/2981 on the certification of EUDI Wallets
   url: https://eur-lex.europa.eu/eli/reg_impl/2024/2981/oj
 - title:
+    fi: EUDI Wallet Architecture and Reference Framework 3.0.0 (21.7.2026)
+    en: EUDI Wallet Architecture and Reference Framework 3.0.0 (21 July 2026)
+  url: https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/releases/tag/v3.0.0
+- title:
+    fi: "EUDI-lompakon käyttötapausohjekirjat (Euroopan komissio, 2026)"
+    en: "EUDI Wallet use case manuals (European Commission, 2026)"
+  url: https://ec.europa.eu/digital-building-blocks/sites/spaces/EUDIGITALIDENTITYWALLET/pages/896827987/Use+case+manuals
+- title:
+    fi: Business Models Study Report – EUDI Wallet Ecosystem Sustainability and Business Models (2026)
+    en: Business models study report – EUDI wallet ecosystem sustainability and business models (2026)
+  url: https://data.europa.eu/doi/10.2759/6026327
+- title:
     fi: Komission ehdotus COM(2025) 838 eurooppalaisista yrityslompakoista ja liite
     en: Commission proposal COM(2025) 838 on the establishment of European Business Wallets, with annex
   url: https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52025PC0838
@@ -16,21 +28,13 @@
     en: Staff working document SWD(2025) 837 supporting the impact assessment
   url: https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=SWD:2025:0837:FIN:EN:PDF
 - title:
-    fi: Euroopan parlamentin ITRE-valiokunnan mietintöluonnos 1.4.2026
-    en: European Parliament ITRE committee draft report, 1 April 2026
-  url: https://www.europarl.europa.eu/doceo/document/ITRE-PR-785244_EN.html
-- title:
-    fi: EUDI Wallet Architecture and Reference Framework 3.0.0 (21.7.2026)
-    en: EUDI Wallet Architecture and Reference Framework 3.0.0 (21 July 2026)
-  url: https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/releases/tag/v3.0.0
-- title:
-    fi: Business Models Study Report – EUDI Wallet Ecosystem Sustainability and Business Models (2026)
-    en: Business models study report – EUDI wallet ecosystem sustainability and business models (2026)
-  url: https://data.europa.eu/doi/10.2759/6026327
-- title:
     fi: "ESMT Berlin: Know Your Supplier -säästölaskelma (2024)"
     en: "ESMT Berlin: Know Your Supplier cost saving estimation (2024)"
   url: https://data.consilium.europa.eu/doc/document/ST-15701-2025-ADD-2/en/pdf
+- title:
+    fi: Euroopan parlamentin ITRE-valiokunnan mietintöluonnos 1.4.2026
+    en: European Parliament ITRE committee draft report, 1 April 2026
+  url: https://www.europarl.europa.eu/doceo/document/ITRE-PR-785244_EN.html
 - title:
     fi: Findynetin julkiset esitykset (2026)
     en: Findynet public presentations (2026)

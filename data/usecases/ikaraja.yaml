@@ -1,0 +1,345 @@
+# Käyttötapaus. Kaikki näkymät (kuvaus, roolit kartalla, rahavirrat, luottamusketju) rakentuvat tästä tiedostosta.
+id: ikaraja
+name:
+  fi: Ikärajan todentaminen
+  en: Age verification
+short:
+  fi: Käyttäjä todistaa verkkopalvelulle olevansa yli ikärajan paljastamatta syntymäaikaansa tai muita henkilötietojaan.
+  en: The user proves to an online service that they are above the age limit without revealing their date of birth or other personal data.
+wallets:
+  - eudi
+  - any
+driver: pakottava
+status: kaytanto
+detail:
+  title:
+    fi: Ikärajan todentaminen
+    en: Age verification
+  highlight_label:
+    fi: Ikärajan todentaminen
+    en: Age verification
+  lead:
+    fi: Verkkopalvelu varmistaa, että käyttäjä on yli ikärajan, esimerkiksi 18-vuotias. Palvelu saa tiedon vain siitä, täyttyykö ikäraja.
+    en: An online service makes sure that the user is above an age limit, for example 18. The service only learns whether the age limit is met.
+  status: kaytanto
+  intro:
+    - fi: Monen verkkopalvelun on varmistettava käyttäjän ikä, esimerkiksi rahapelien, aikuisviihteen ja ikärajoitettujen tuotteiden myynnissä. Nykyisin ikä tarkistetaan usein käyttäjän omalla ilmoituksella tai pyytämällä kopio henkilöllisyystodistuksesta. Ilmoitus ei ole luotettava, ja asiakirjakopio paljastaa palvelulle paljon enemmän tietoa kuin se tarvitsee. EU:ssa on noin 23 miljoonaa säännöllistä rahapelaajaa, joiden ikä on tarkistettava.
+      en: Many online services must make sure of the user’s age, for example in gambling, adult content and the sale of age-restricted products. Today age is often checked by the user’s own declaration or by asking for a copy of an identity document. A declaration is not reliable, and a copy of a document reveals much more data to the service than it needs. There are around 23 million regular online gamblers in the EU whose age has to be checked.
+    - fi: "Ikätodiste ratkaisee tämän: käyttäjä saa luotetulta myöntäjältä todisteen, josta hän jakaa vain tiedon ikärajan täyttymisestä, esimerkiksi ”yli 18”. Komissio on julkaissut ikätodennuksen malliratkaisun ja avoimen lähdekoodin toteutuksen, jotka toimivat jo ennen EUDI-lompakoiden käyttöönottoa ja yhteen niiden kanssa."
+      en: "An age credential solves this: the user obtains a credential from a trusted issuer and shares only whether the age limit is met, for example “over 18”. The Commission has published an age verification blueprint and an open-source implementation, which work even before the EUDI Wallets are introduced and are interoperable with them."
+  cast:
+    haltija:
+      fi: Verkkopalvelun käyttäjä
+      en: User of the online service
+    lahde:
+      fi: Väestörekisteri tai muu luotettava ikätiedon lähde
+      en: Population register or another reliable source of age data
+    myontaja:
+      fi: Ikätodisteen myöntäjä, esim. väestörekisteriviranomainen
+      en: Issuer of the age credential, e.g. the population register authority
+    lompakko:
+      fi: Ikätodennussovellus tai muu yhteentoimiva lompakko
+      en: Age verification app or another interoperable wallet
+    eudilompakko:
+      fi: EUDI-lompakko, kun se on käytössä
+      en: The EUDI Wallet, once available
+    todentaja:
+      fi: Verkkopalvelu, esim. rahapeli- tai aikuisviihdepalvelu
+      en: Online service, e.g. a gambling or adult content service
+    ohjelmisto:
+      fi: Komission avoimen lähdekoodin toteutus ja kaupalliset ratkaisut
+      en: The Commission’s open-source implementation and commercial solutions
+    tl:
+      fi: Komission luettelo ikätodisteiden myöntäjistä
+      en: The Commission’s list of age credential issuers
+    komissio:
+      fi: Ylläpitää malliratkaisua ja myöntäjäluetteloa
+      en: Maintains the blueprint and the list of issuers
+    wrprek:
+      fi: "Jos EUDI-lompakko: verkkopalvelu rekisteröityy"
+      en: "If the EUDI Wallet is used: the online service registers"
+    varmenne:
+      fi: Verkkopalvelun pääsyvarmenne
+      en: The online service’s access certificate
+  cast_order:
+    - haltija
+    - lahde
+    - myontaja
+    - lompakko
+    - eudilompakko
+    - todentaja
+    - ohjelmisto
+    - tl
+    - komissio
+    - wrprek
+    - varmenne
+  steps:
+    - fi: Käyttäjä hakee lompakkoonsa ikätodisteen luotetulta myöntäjältä, esimerkiksi väestörekisteriviranomaiselta. Myöntäjä tunnistaa käyttäjän ja tarkistaa iän luotettavasta lähteestä.
+      en: The user obtains an age credential for their wallet from a trusted issuer, for example the population register authority. The issuer identifies the user and checks the age from a reliable source.
+    - fi: Käyttäjä yrittää avata ikärajoitetun verkkopalvelun. Palvelu pyytää todistetta siitä, että käyttäjä on yli 18-vuotias.
+      en: The user tries to open an age-restricted online service. The service requests proof that the user is over 18.
+    - fi: Lompakko näyttää, kuka tietoa pyytää ja mitä tietoa pyydetään.
+      en: The wallet shows who is requesting data and which data is requested.
+    - fi: Käyttäjä hyväksyy pyynnön. Lompakko muodostaa myöntäjän todisteesta todisteen, joka kertoo vain ikärajan täyttymisen.
+      en: The user approves the request. From the issuer’s credential, the wallet creates a proof that only shows that the age limit is met.
+    - fi: Palvelu tarkistaa todisteen aitouden ja sen, että myöntäjä on komission luettelossa.
+      en: The service checks the authenticity of the proof and that the issuer is on the Commission’s list.
+    - fi: Käyttäjä pääsee palveluun. Palvelu ei saa käyttäjän nimeä eikä syntymäaikaa.
+      en: The user gets access to the service. The service does not receive the user’s name or date of birth.
+  value:
+    - who:
+        fi: Käyttäjä
+        en: User
+      text:
+        fi: Henkilöllisyystodistusta ei tarvitse ladata palveluihin. Palvelu saa vain tiedon ikärajan täyttymisestä.
+        en: No need to upload an identity document to services. The service only learns whether the age limit is met.
+    - who:
+        fi: Verkkopalvelu
+        en: Online service
+      text:
+        fi: Automaattinen tarkistus maksaa ohjekirjan mukaan 1–5 senttiä, nykyinen tarkistus 1–5 euroa. Asiakastietoja tallennetaan vähemmän, joten tietomurron vaikutukset pienenevät.
+        en: According to the manual, an automated check costs 1–5 cents, compared with 1–5 euros for a current check. Less customer data is stored, so the impact of a data breach is smaller.
+    - who:
+        fi: Viranomaiset
+        en: Authorities
+      text:
+        fi: Ikärajojen valvonta tehostuu, kun palvelut eivät nojaa käyttäjän omaan ilmoitukseen.
+        en: Enforcement of age limits becomes more efficient when services do not rely on the user’s own declaration.
+    - who:
+        fi: Yhteiskunta
+        en: Society
+      text:
+        fi: Alaikäisiä voidaan suojata verkossa ilman, että aikuisten on luovutettava henkilötietojaan. Samaa todistetta voi käyttää myös kaupassa, tapahtumissa ja ikään perustuvissa julkisissa palveluissa.
+        en: Minors can be protected online without adults having to hand over their personal data. The same credential can also be used in shops, at events and in age-based public services.
+  sections:
+    - title:
+        fi: Sääntely
+        en: Regulation
+      text:
+        fi: Digipalvelusäädöksen (DSA) 28 artiklan mukaan alaikäisten saatavilla olevien verkkoalustojen on varmistettava alaikäisten yksityisyyden, turvallisuuden ja suojan korkea taso. Säädös ei määrää tiettyä ikätodennuksen tapaa, mutta luotettava ja yksityisyyttä suojaava ikätodiste on yksi keino täyttää velvoite. Komissio on julkaissut malliratkaisusta toisen version lokakuussa 2025, ja kuusi jäsenvaltiota pilotoi sitä.
+        en: Under Article 28 of the Digital Services Act (DSA), online platforms accessible to minors must ensure a high level of privacy, safety and security of minors. The act does not prescribe a specific method of age verification, but a reliable and privacy-preserving age credential is one way to meet the obligation. The Commission published the second version of the blueprint in October 2025, and six Member States are piloting it.
+    - title:
+        fi: Miksi tarvitaan ekosysteemiä
+        en: Why an ecosystem is needed
+      text:
+        fi: "Ikätodisteen luottamusinfra on pääosin EU-tasolla: jäsenvaltiot ilmoittavat myöntäjät, ja komissio julkaisee niiden luettelon. Erillistä luottamusrekisteriä ei tarvita sen tarkistamiseen, onko myöntäjä luotettu. Kansallinen ekosysteemi voi silti auttaa sopimaan, mitkä palvelut ja kanavat ottavat ikätodisteen käyttöön, ja liittämään samaan malliin muita ikään ja asemaan perustuvia oikeuksia, kuten opiskelija- ja eläkeläisalennuksia."
+        en: "The trust infrastructure for age credentials is mainly at EU level: Member States notify the issuers, and the Commission publishes a list of them. No separate trust registry is needed to check whether an issuer is trusted. A national ecosystem can still help agree which services and channels adopt the age credential, and connect other age- and status-based entitlements, such as student and pensioner discounts, to the same model."
+  expert:
+    fi: "Digipalvelusäädös (EU) 2022/2065 art. 28. Ikätodennuksen malliratkaisu (versio 2, lokakuu 2025): ISO mdoc -muoto, tietomalli ISO/IEC 18013-5 ja ISO/IEC 23220-2, esittäminen OpenID4VP:llä ja W3C Digital Credentials API:lla, myöntäminen esim. OpenID4VCI:llä. Nollatietotodistusten tuki on tulossa. EUDI-lompakko: asetus (EU) 2024/1183."
+    en: "Digital Services Act (EU) 2022/2065 Art. 28. Age verification blueprint (version 2, October 2025): ISO mdoc format, data model ISO/IEC 18013-5 and ISO/IEC 23220-2, presentation with OpenID4VP and the W3C Digital Credentials API, issuance e.g. with OpenID4VCI. Support for zero-knowledge proofs is upcoming. EUDI Wallet: Regulation (EU) 2024/1183."
+  note:
+    fi: Kuvaus perustuu komission käyttötapausohjekirjaan ja on yleistetty malli eikä kuvaa yksittäistä toteutusta.
+    en: The description is based on the Commission’s use case manual and is a generalised model that does not describe any single implementation.
+trust_chain:
+  name:
+    fi: Ikärajan todentaminen
+    en: Age verification
+  note:
+    fi: Neljä kysymystä, joihin vastaavat lompakko, myöntäjän allekirjoitus, komission luettelo ja valikoiva jakaminen. Kuvaus on yleistetty.
+    en: Four questions answered by the wallet, the issuer’s signature, the Commission’s list and selective disclosure. The description is generalised.
+  links:
+    - question:
+        fi: 1. Kuka ikää kysyy?
+        en: 1. Who is asking for the age?
+      answer:
+        fi: Lompakko näyttää pyytäjän nimen ja tunnisteen ennen kuin käyttäjä hyväksyy pyynnön. EUDI-lompakossa palvelu tunnistetaan pääsy- ja rekisteröintivarmenteella.
+        en: The wallet shows the requester’s name and identity before the user approves the request. In the EUDI Wallet, the service is identified with access and registration certificates.
+    - question:
+        fi: 2. Onko todiste aito?
+        en: 2. Is the credential genuine?
+      answer:
+        fi: Palvelu tarkistaa todisteen kryptografisesti myöntäjän allekirjoitusta vasten.
+        en: The service checks the credential cryptographically against the issuer’s signature.
+    - question:
+        fi: 3. Onko myöntäjä luotettu?
+        en: 3. Is the issuer trusted?
+      answer:
+        fi: Jäsenvaltiot ilmoittavat hyväksymänsä ikätodisteiden myöntäjät komissiolle, ja komissio julkaisee niistä luettelon. Palvelu tarkistaa, että myöntäjä on luettelossa, joten todiste käy myös toisessa jäsenvaltiossa.
+        en: Member States notify the Commission of the age credential issuers they have accredited, and the Commission publishes a list of them. The service checks that the issuer is on the list, so the credential also works in another Member State.
+    - question:
+        fi: 4. Paljastuuko enemmän kuin tarpeen?
+        en: 4. Is more revealed than necessary?
+      answer:
+        fi: Ei. Valikoiva jakaminen paljastaa vain ikärajan täyttymisen, ei syntymäaikaa. Nollatietotodistusten tuki on tulossa.
+        en: No. Selective disclosure reveals only that the age limit is met, not the date of birth. Support for zero-knowledge proofs is upcoming.
+flows:
+  title:
+    fi: Ikärajan todentaminen
+    en: Age verification
+  intro:
+    fi: "Arvo syntyy pääosin säästöinä ja parempana yksityisyytenä: verkkopalvelu korvaa kalliin asiakirjatarkistuksen automaattisella todisteella, eikä käyttäjän tarvitse luovuttaa henkilöllisyystodistustaan. Komissio rahoittaa malliratkaisun, jota markkinatoimijat voivat käyttää ja kehittää. Kuvaus on yleistetty malli."
+    en: "Value arises mainly as savings and better privacy: the online service replaces a costly document check with an automated credential, and the user does not have to hand over their identity document. The Commission funds the blueprint, which market players can use and develop further. The description is a generalised model."
+  nodes:
+    - id: komissio
+      x: 450
+      "y": 55
+      label:
+        fi: Komissio
+        en: Commission
+      sub:
+        fi: malliratkaisu, myöntäjäluettelo
+        en: blueprint, list of issuers
+    - id: myontaja
+      x: 130
+      "y": 220
+      label:
+        fi: Ikätodisteen myöntäjä
+        en: Age credential issuer
+      sub:
+        fi: esim. väestörekisteri
+        en: e.g. population register
+    - id: palvelu
+      x: 770
+      "y": 220
+      label:
+        fi: Verkkopalvelu
+        en: Online service
+      sub:
+        fi: todentaja
+        en: verifier
+    - id: kayttaja
+      x: 450
+      "y": 340
+      label:
+        fi: Käyttäjä
+        en: User
+      sub:
+        fi: haltija
+        en: holder
+    - id: lompakko
+      x: 450
+      "y": 485
+      label:
+        fi: Lompakon tarjoaja
+        en: Wallet provider
+      sub:
+        fi: ikätodennussovellus tai EUDI
+        en: age verification app or EUDI
+    - id: toimittaja
+      x: 770
+      "y": 485
+      label:
+        fi: Todennusratkaisun toimittaja
+        en: Verification solution provider
+  flows:
+    - from: myontaja
+      to: kayttaja
+      type: data
+      status: kaytanto
+      name:
+        fi: Ikätodiste
+        en: Age credential
+      description:
+        fi: Myöntäjä tunnistaa käyttäjän, tarkistaa iän luotettavasta lähteestä ja myöntää todisteen lompakkoon.
+        en: The issuer identifies the user, checks the age from a reliable source and issues the credential to the wallet.
+    - from: kayttaja
+      to: palvelu
+      type: data
+      status: kaytanto
+      name:
+        fi: Todiste ”yli 18”
+        en: Proof “over 18”
+      description:
+        fi: Käyttäjä jakaa vain tiedon ikärajan täyttymisestä, ei nimeä eikä syntymäaikaa.
+        en: The user shares only whether the age limit is met, not their name or date of birth.
+    - from: myontaja
+      to: komissio
+      type: data
+      status: kaytanto
+      name:
+        fi: Myöntäjä luetteloon
+        en: Issuer to the list
+      description:
+        fi: Jäsenvaltio ilmoittaa hyväksymänsä myöntäjän komissiolle, joka julkaisee myöntäjäluettelon.
+        en: The Member State notifies the Commission of the issuer it has accredited, and the Commission publishes the list of issuers.
+    - from: palvelu
+      to: komissio
+      type: data
+      status: kaytanto
+      name:
+        fi: "Kysely: onko myöntäjä luettelossa"
+        en: "Query: is the issuer on the list"
+      description:
+        fi: Palvelu tarkistaa myöntäjän luettelosta, joten myös toisen jäsenvaltion todiste kelpaa.
+        en: The service checks the issuer from the list, so a credential from another Member State is also accepted.
+    - from: palvelu
+      to: palvelu
+      type: saasto
+      status: lahde
+      name:
+        fi: Tarkistus senteillä euron sijaan
+        en: A check for cents instead of euros
+      pill:
+        fi: "Säästö: 1–5 snt vs. 1–5 €"
+        en: "Saving: 1–5 cents vs €1–5"
+      description:
+        fi: Ohjekirjan mukaan automaattinen ikätarkistus maksaa 1–5 senttiä, kun nykyinen tarkistus maksaa 1–5 euroa.
+        en: According to the manual, an automated age check costs 1–5 cents, whereas a current check costs 1–5 euros.
+    - from: kayttaja
+      to: kayttaja
+      type: saasto
+      status: kaytanto
+      pill_position: below
+      name:
+        fi: Ei asiakirjakopioita palveluihin
+        en: No document copies to services
+      pill:
+        fi: "Hyöty: yksityisyys"
+        en: "Benefit: privacy"
+      description:
+        fi: Henkilöllisyystodistusta ei tarvitse ladata palveluihin, ja profiloinnin riski pienenee.
+        en: No need to upload an identity document to services, and the risk of profiling is reduced.
+    - from: komissio
+      to: lompakko
+      type: raha
+      model: E
+      status: kaytanto
+      bend: -120
+      name:
+        fi: Malliratkaisu avoimena lähdekoodina
+        en: Blueprint as open source
+      description:
+        fi: Komissio on kehittänyt malliratkaisun ja avoimen lähdekoodin toteutuksen, jota markkinatoimijat voivat käyttää ja kehittää.
+        en: The Commission has developed the blueprint and an open-source implementation that market players can use and develop further.
+    - from: palvelu
+      to: toimittaja
+      type: raha
+      model: C
+      status: havainnollistava
+      name:
+        fi: Todennusratkaisun hankinta
+        en: Procuring the verification solution
+      description:
+        fi: Palvelu voi käyttää avointa toteutusta itse tai hankkia todennuksen toimittajalta.
+        en: The service can use the open implementation itself or procure verification from a provider.
+    - from: palvelu
+      to: palvelu
+      type: reuna
+      status: voimassa
+      pill_position: below
+      name:
+        fi: Alaikäisten suojelu
+        en: Protection of minors
+      pill:
+        fi: "Velvoite: DSA 28 art."
+        en: "Obligation: DSA Art. 28"
+      description:
+        fi: Alaikäisten saatavilla olevien verkkoalustojen on varmistettava alaikäisten yksityisyyden, turvallisuuden ja suojan korkea taso.
+        en: Online platforms accessible to minors must ensure a high level of privacy, safety and security of minors.
+    - from: kayttaja
+      to: lompakko
+      type: reuna
+      status: voimassa
+      name:
+        fi: Lompakko maksuton käyttäjälle
+        en: Wallet free of charge for the user
+      description:
+        fi: EUDI-lompakko on luonnollisille henkilöille maksuton. Havainnoimattomuusvaatimus rajoittaa käyttökertoihin perustuvaa laskutusta.
+        en: The EUDI Wallet is free of charge for natural persons. The unobservability requirement limits charging based on the number of uses.
+  extra:
+    title:
+      fi: Mitä tästä voi oppia
+      en: What can be learned
+    text:
+      fi: Ikätodiste on hyvä esimerkki valikoivasta jakamisesta. Todentaja tarvitsee vain yhden kyllä/ei-tiedon, ja todiste antaa sen luotettavammin ja halvemmin kuin asiakirjakopio. Kun EU ylläpitää myöntäjien luetteloa ja malliratkaisua, yksittäisen palvelun kynnys ottaa todiste käyttöön on matala.
+      en: The age credential is a good example of selective disclosure. The verifier needs only a single yes/no answer, and the credential gives it more reliably and more cheaply than a document copy. When the EU maintains the list of issuers and the blueprint, the threshold for a single service to adopt the credential is low.

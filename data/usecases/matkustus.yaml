@@ -1,0 +1,373 @@
+# Käyttötapaus. Kaikki näkymät (kuvaus, roolit kartalla, rahavirrat, luottamusketju) rakentuvat tästä tiedostosta.
+id: matkustus
+name:
+  fi: Digitaalinen matkustusasiakirja
+  en: Digital travel credential
+short:
+  fi: Matkustaja lähettää passinsa tai henkilökorttinsa digitaalisen version rajaviranomaiselle ennen matkaa, ja rajatarkastus nopeutuu.
+  en: The traveller sends a digital version of their passport or identity card to the border authority before the trip, and the border check becomes faster.
+wallets:
+  - eudi
+driver: mahdollistava
+status: ehdotus
+detail:
+  title:
+    fi: Digitaalinen matkustusasiakirja
+    en: Digital travel credential
+  highlight_label:
+    fi: Digitaalinen matkustusasiakirja
+    en: Digital travel credential
+  lead:
+    fi: Matkustaja esittää digitaalisen matkustusasiakirjan (DTC) ja matkatiedot rajaviranomaiselle etukäteen, ja ennakkotarkastus tehdään ennen saapumista.
+    en: The traveller presents a digital travel credential (DTC) and travel data to the border authority in advance, and pre-screening is done before arrival.
+  status: ehdotus
+  intro:
+    - fi: Digitaalinen matkustusasiakirja on passin tai henkilökortin digitaalinen versio. Siinä on lähes samat tiedot kuin fyysisen asiakirjan sirussa. Vuonna 2023 EU:n ulkorajoilla kirjattiin 593 miljoonaa rajanylitystä, joista 63 % ilmateitse. Rajatarkastus tehdään nykyisin pääosin vasta rajalla, mikä aiheuttaa jonoja ja sitoo rajavartijoiden aikaa.
+      en: A digital travel credential is a digital version of a passport or identity card. It holds nearly the same data as the chip in the physical document. In 2023, 593 million border crossings were recorded at the EU’s external borders, 63% of them by air. Today the border check is mostly done only at the border, which causes queues and ties up border guards’ time.
+    - fi: "Matkustaja tallentaa DTC:n EUDI-lompakkoon ja lähettää sen matkatietojen kanssa etukäteen. Rajaviranomainen voi tehdä ennakkotarkastuksen ennen saapumista, ja rajalla jää tehtäväksi lopullinen tarkastus. Käyttö on matkustajalle vapaaehtoista."
+      en: "The traveller stores the DTC in the EUDI Wallet and sends it in advance together with the travel data. The border authority can do pre-screening before arrival, leaving only the final check to be done at the border. Use is voluntary for the traveller."
+  cast:
+    haltija:
+      fi: Matkustaja
+      en: Traveller
+    eudilompakko:
+      fi: Matkustajan EUDI-lompakko
+      en: The traveller’s EUDI Wallet
+    lahde:
+      fi: Passin tai henkilökortin siru ja passirekisteri
+      en: The passport or identity card chip and the passport register
+    pubeaa:
+      fi: Passi- tai henkilökorttiviranomainen
+      en: Passport or identity card authority
+    myontaja:
+      fi: Passiviranomainen tai eu-LISA EU Digital Travel -sovelluksen kautta
+      en: The passport authority or eu-LISA through the EU Digital Travel app
+    valittaja:
+      fi: Traveller Router – välittää tiedot oikealle rajaviranomaiselle
+      en: Traveller Router – forwards the data to the right border authority
+    todentaja:
+      fi: Rajaviranomainen
+      en: Border authority
+    velvlo:
+      fi: Jäsenvaltiot hyväksyvät DTC:n, kun lainsäädäntö ja yhteinen ratkaisu ovat valmiit
+      en: Member States accept the DTC once the legislation and the common solution are ready
+    tl:
+      fi: Passien ja henkilökorttien varmennelistat (ICAO-PKI)
+      en: Certificate lists for passports and identity cards (ICAO PKI)
+    komissio:
+      fi: Komissio – lainsäädäntöehdotukset
+      en: Commission – legislative proposals
+    skeema:
+      fi: ICAO 9303 ja ISO/IEC TS 23220-2
+      en: ICAO 9303 and ISO/IEC TS 23220-2
+  cast_order:
+    - haltija
+    - eudilompakko
+    - lahde
+    - pubeaa
+    - myontaja
+    - valittaja
+    - todentaja
+    - velvlo
+    - tl
+    - komissio
+    - skeema
+  steps:
+    - fi: Matkustaja pyytää DTC:n. Hän voi skannata passinsa tai henkilökorttinsa EU Digital Travel -sovelluksella, joka lukee ja tarkistaa sirun tiedot ja myöntää DTC:n.
+      en: The traveller requests a DTC. They can scan their passport or identity card with the EU Digital Travel app, which reads and checks the chip data and issues the DTC.
+    - fi: Vaihtoehtoisesti pyyntö menee jäsenvaltion passi- tai henkilökorttiviranomaiselle, joka myöntää DTC:n suoraan. Kummassakin tapauksessa DTC tallentuu EUDI-lompakkoon.
+      en: Alternatively, the request goes to the Member State’s passport or identity card authority, which issues the DTC directly. In both cases the DTC is stored in the EUDI Wallet.
+    - fi: Matkustaja suunnittelee matkan Schengen-alueen ulkorajan yli ja avaa lompakolla yhteyden Traveller Routeriin.
+      en: The traveller plans a trip across an external Schengen border and opens a connection to the Traveller Router with the wallet.
+    - fi: Matkustaja lähettää DTC:n ja matkatiedot, kuten lennon numeron ja matkapäivän. Traveller Router tarkistaa tiedot ja välittää ne vain asianomaiselle rajaviranomaiselle.
+      en: The traveller submits the DTC and the travel data, such as the flight number and travel date. The Traveller Router checks the data and forwards it only to the relevant border authority.
+    - fi: Rajaviranomainen tarkistaa DTC:n aitouden passien varmenneinfrasta ja tekee ennakkotarkastuksen ennen saapumista.
+      en: The border authority checks the authenticity of the DTC from the passport certificate infrastructure and carries out pre-screening before arrival.
+    - fi: Rajalla tehdään lopullinen tarkastus – henkilöllisyys, asiakirjan voimassaolo ja maahantulo – digitaalisella tai fyysisellä asiakirjalla.
+      en: The final check – identity, document validity and entry clearance – is done at the border with the digital or physical document.
+  value:
+    - who:
+        fi: Matkustaja
+        en: Traveller
+      text:
+        fi: Rajanylitys nopeutuu, ja matkustaja voi valita fyysisen tai digitaalisen asiakirjan.
+        en: Border crossing is faster, and the traveller can choose between the physical and the digital document.
+    - who:
+        fi: Rajaviranomainen
+        en: Border authority
+      text:
+        fi: Ennakkotarkastus vähentää ruuhkia, ja resursseja voi kohdistaa suuremman riskin matkustajiin.
+        en: Pre-screening reduces congestion, and resources can be focused on higher-risk travellers.
+    - who:
+        fi: Lentoyhtiöt ja satamat
+        en: Airlines and ports
+      text:
+        fi: Matkustajavirrat sujuvoituvat, aikataulutus helpottuu, ja ennakkomatkustajatietojen toimittaminen helpottuu.
+        en: Passenger flows run more smoothly, scheduling becomes easier, and submitting advance passenger information is simplified.
+    - who:
+        fi: Yhteiskunta
+        en: Society
+      text:
+        fi: Rajavalvonta digitalisoituu ilman, että matkustajan on pakko luopua fyysisestä asiakirjasta.
+        en: Border control is digitalised without forcing the traveller to give up the physical document.
+  sections:
+    - title:
+        fi: Sääntely
+        en: Regulation
+      text:
+        fi: Komissio on antanut kaksi ehdotusta. Ensimmäinen perustaa EU Digital Travel -sovelluksen, ja toinen koskee henkilökortteihin perustuvien DTC:iden myöntämistä ja teknisiä standardeja. DTC:t eivät ole vielä käytössä missään jäsenvaltiossa. Ohjekirjan mukaan sovelluksen arvioidaan olevan toiminnassa vuoden 2030 lopussa. Matkustajalle käyttö on vapaaehtoista, mutta jäsenvaltioiden on hyväksyttävä DTC, kun lainsäädäntö on hyväksytty ja yhteinen tekninen ratkaisu on käytettävissä. Tietojen toimittaminen kolmansien maiden rajaviranomaisille ei kuulu soveltamisalaan.
+        en: The Commission has issued two proposals. The first establishes the EU Digital Travel application, and the second covers the issuance and technical standards of DTCs based on identity cards. DTCs are not yet in use in any Member State. According to the manual, the application is expected to be operational at the end of 2030. Use is voluntary for the traveller, but Member States must accept the DTC once the legislation has been adopted and the common technical solution is available. Submitting data to third-country border authorities is out of scope.
+    - title:
+        fi: Tarvitaanko ekosysteemiä
+        en: Is an ecosystem needed
+      text:
+        fi: "Tässä käyttötapauksessa luottamus nojaa pääosin olemassa olevaan infraan. DTC:n aitous tarkistetaan samalla ICAO-varmenneinfralla kuin passin siru, ja lompakon ja välityspalvelun luotettavuus tulee EUDI-kehyksestä. Todentajia on vähän, ja ne ovat viranomaisia. Siksi erillisellä luottamusrekisterillä tai toimialan sääntökirjalla on tässä pieni rooli. Ekosysteemiä voi tarvita vasta, jos DTC:tä tai siitä johdettuja tietoja halutaan hyödyntää yksityisissä palveluissa, kuten lentoyhtiöiden tai hotellien prosesseissa, ja on sovittava, kuka saa pyytää mitä."
+        en: "In this use case, trust relies mainly on existing infrastructure. The authenticity of the DTC is checked with the same ICAO certificate infrastructure as the passport chip, and the reliability of the wallet and the routing service comes from the EUDI framework. There are few verifiers, and they are authorities. That is why a separate trust registry or a sector rulebook plays only a small role here. An ecosystem may be needed only if the DTC or data derived from it is to be used in private services, such as airline or hotel processes, and it has to be agreed who may request what."
+  expert:
+    fi: "Ehdotukset COM(2024) 670 (EU Digital Travel -sovellus) ja COM(2024) 671 (henkilökortteihin perustuvat DTC:t; neuvoston asetus). Tietorakenne ja todisteet: ICAO Doc 9303 ja ISO/IEC TS 23220-2:2024. Lompakko: asetus (EU) 910/2014, muutettuna asetuksella (EU) 2024/1183. Pilotointi: EWC; työtä jatkavat WeBuild ja Aptitude."
+    en: "Proposals COM(2024) 670 (EU Digital Travel application) and COM(2024) 671 (DTCs based on identity cards; Council regulation). Data structure and proofs: ICAO Doc 9303 and ISO/IEC TS 23220-2:2024. Wallet: Regulation (EU) 910/2014 as amended by Regulation (EU) 2024/1183. Piloting: EWC; WeBuild and Aptitude continue the work."
+  note:
+    fi: Kuvaus perustuu komission käyttötapausohjekirjaan ja on yleistetty malli. Lainsäädäntö on ehdotusvaiheessa, joten yksityiskohdat voivat muuttua.
+    en: The description is based on the Commission’s use case manual and is a generalised model. The legislation is at the proposal stage, so the details may change.
+trust_chain:
+  name:
+    fi: Digitaalinen matkustusasiakirja
+    en: Digital travel credential
+  note:
+    fi: Neljä kysymystä, joihin vastaavat olemassa oleva passien varmenneinfra ja EUDI-kehys. Kuvaus on yleistetty.
+    en: Four questions answered by the existing passport certificate infrastructure and the EUDI framework. The description is generalised.
+  links:
+    - question:
+        fi: 1. Onko DTC aito?
+        en: 1. Is the DTC genuine?
+      answer:
+        fi: DTC:n tiedot ja allekirjoitus vastaavat passin sirua. Rajaviranomainen tarkistaa ne passien ja henkilökorttien varmennelistoista (ICAO-PKI).
+        en: The DTC’s data and signature correspond to the passport chip. The border authority checks them from the certificate lists for passports and identity cards (ICAO PKI).
+    - question:
+        fi: 2. Kuuluuko DTC esittäjälle?
+        en: 2. Does the DTC belong to the presenter?
+      answer:
+        fi: DTC on sidottu matkustajan lompakkoon. Lopullisessa tarkastuksessa rajalla henkilöllisyys varmistetaan vielä erikseen.
+        en: The DTC is bound to the traveller’s wallet. In the final check at the border, identity is still verified separately.
+    - question:
+        fi: 3. Kenelle tiedot menevät?
+        en: 3. Who receives the data?
+      answer:
+        fi: Lompakko tarkistaa ennen jakamista, että vastaanottaja on Traveller Router. Router välittää tiedot vain asianomaiselle rajaviranomaiselle.
+        en: Before sharing, the wallet checks that the recipient is the Traveller Router. The router forwards the data only to the relevant border authority.
+    - question:
+        fi: 4. Onko lompakko luotettava?
+        en: 4. Is the wallet trustworthy?
+      answer:
+        fi: EUDI-lompakko on sertifioitu, ja sen tarjoaja löytyy luotettavien listojen kautta.
+        en: The EUDI Wallet is certified, and its provider can be found through the trusted lists.
+flows:
+  title:
+    fi: Digitaalinen matkustusasiakirja
+    en: Digital travel credential
+  intro:
+    fi: "Arvo syntyy pääosin säästöinä ja sujuvampana matkustamisena. Rahavirrat ovat julkisia: jäsenvaltiot ja EU rahoittavat myöntämisen, välityspalvelun ja rajatarkastuksen. Matkustajalle lompakko on maksuton. Kuvaus on yleistetty malli."
+    en: "Value arises mainly as savings and smoother travel. The money flows are public: the Member States and the EU fund issuance, the routing service and the border check. The wallet is free of charge for the traveller. The description is a generalised model."
+  nodes:
+    - id: eu
+      x: 450
+      "y": 55
+      label:
+        fi: EU ja jäsenvaltiot
+        en: EU and Member States
+      sub:
+        fi: julkinen rahoitus
+        en: public funding
+    - id: passi
+      x: 130
+      "y": 200
+      label:
+        fi: Passiviranomainen
+        en: Passport authority
+      sub:
+        fi: myöntäjä
+        en: issuer
+    - id: eulisa
+      x: 130
+      "y": 400
+      label:
+        fi: eu-LISA
+        en: eu-LISA
+      sub:
+        fi: EU Digital Travel -sovellus
+        en: EU Digital Travel app
+    - id: matkustaja
+      x: 450
+      "y": 300
+      label:
+        fi: Matkustaja
+        en: Traveller
+      sub:
+        fi: haltija
+        en: holder
+    - id: router
+      x: 770
+      "y": 200
+      label:
+        fi: Traveller Router
+        en: Traveller Router
+      sub:
+        fi: välittäjä
+        en: intermediary
+    - id: raja
+      x: 770
+      "y": 400
+      label:
+        fi: Rajaviranomainen
+        en: Border authority
+      sub:
+        fi: todentaja
+        en: verifier
+    - id: lompakko
+      x: 450
+      "y": 480
+      label:
+        fi: EUDI-lompakon tarjoaja
+        en: EUDI Wallet provider
+  flows:
+    - from: passi
+      to: matkustaja
+      type: data
+      status: ehdotus
+      name:
+        fi: DTC suoraan viranomaiselta
+        en: DTC directly from the authority
+      description:
+        fi: Passi- tai henkilökorttiviranomainen myöntää DTC:n pyynnöstä suoraan lompakkoon.
+        en: The passport or identity card authority issues the DTC on request directly to the wallet.
+    - from: eulisa
+      to: matkustaja
+      type: data
+      status: ehdotus
+      name:
+        fi: DTC sovelluksella skannaamalla
+        en: DTC by scanning with the app
+      description:
+        fi: EU Digital Travel -sovellus lukee ja tarkistaa passin tai henkilökortin sirun ja myöntää DTC:n todisteena.
+        en: The EU Digital Travel app reads and checks the chip of the passport or identity card and issues the DTC as an attestation.
+    - from: matkustaja
+      to: router
+      type: data
+      status: ehdotus
+      name:
+        fi: DTC ja matkatiedot
+        en: DTC and travel data
+      description:
+        fi: Matkustaja lähettää DTC:n ja matkatiedot, kuten lennon numeron ja matkapäivän, ennen matkaa.
+        en: The traveller submits the DTC and the travel data, such as the flight number and travel date, before the trip.
+    - from: router
+      to: raja
+      type: data
+      status: ehdotus
+      name:
+        fi: Ennakkotarkastukseen
+        en: For pre-screening
+      description:
+        fi: Traveller Router välittää tiedot vain asianomaiselle rajaviranomaiselle.
+        en: The Traveller Router forwards the data only to the relevant border authority.
+    - from: raja
+      to: raja
+      type: saasto
+      status: lahde
+      name:
+        fi: Ennakkotarkastus vähentää ruuhkia
+        en: Pre-screening reduces congestion
+      pill:
+        fi: "Hyöty: resurssit riskeihin"
+        en: "Benefit: resources to risks"
+      description:
+        fi: Ohjekirjan mukaan rajaviranomainen voi kohdistaa resurssit suuremman riskin matkustajiin. Vuonna 2023 kirjattiin 593 miljoonaa rajanylitystä, joista 63 % ilmateitse.
+        en: According to the manual, the border authority can focus resources on higher-risk travellers. In 2023, 593 million border crossings were recorded, 63% of them by air.
+    - from: matkustaja
+      to: matkustaja
+      type: saasto
+      status: lahde
+      pill_position: below
+      name:
+        fi: Nopeampi rajanylitys
+        en: Faster border crossing
+      pill:
+        fi: "Hyöty: lyhyempi tarkastus"
+        en: "Benefit: shorter check"
+      description:
+        fi: Kun tiedot on tarkistettu etukäteen, rajalla jää tehtäväksi vain lopullinen tarkastus.
+        en: When the data has been checked in advance, only the final check remains at the border.
+    - from: eu
+      to: eulisa
+      type: raha
+      model: E
+      status: ehdotus
+      name:
+        fi: Sovelluksen rahoitus
+        en: Funding the app
+      description:
+        fi: EU Digital Travel -sovellus on yhteinen EU-tason ratkaisu, jota eu-LISA ylläpitää.
+        en: The EU Digital Travel app is a common EU-level solution maintained by eu-LISA.
+    - from: eu
+      to: passi
+      type: raha
+      model: E
+      status: havainnollistava
+      name:
+        fi: Myöntämisen rahoitus
+        en: Funding issuance
+      description:
+        fi: Jäsenvaltio rahoittaa DTC:n myöntämisen osana passi- ja henkilökorttijärjestelmäänsä. Ehdotukset eivät määrää maksuja.
+        en: The Member State funds the issuance of the DTC as part of its passport and identity card system. The proposals do not set fees.
+    - from: eu
+      to: raja
+      type: raha
+      model: E
+      status: havainnollistava
+      bend: 60
+      name:
+        fi: Rajatarkastuksen järjestelmät
+        en: Border check systems
+      description:
+        fi: Rajaviranomaisten on päivitettävä järjestelmänsä vastaanottamaan DTC:itä.
+        en: Border authorities must update their systems to receive DTCs.
+    - from: eu
+      to: lompakko
+      type: raha
+      model: E
+      status: havainnollistava
+      bend: -230
+      name:
+        fi: EUDI-lompakon rahoitus
+        en: Funding the EUDI Wallet
+      description:
+        fi: Jäsenvaltio tarjoaa EUDI-lompakon tai rahoittaa sen.
+        en: The Member State provides or funds the EUDI Wallet.
+    - from: matkustaja
+      to: lompakko
+      type: reuna
+      status: voimassa
+      name:
+        fi: Lompakko maksuton haltijalle
+        en: Wallet free of charge for the holder
+      description:
+        fi: EUDI-lompakko on luonnollisille henkilöille maksuton.
+        en: The EUDI Wallet is free of charge for natural persons.
+    - from: raja
+      to: matkustaja
+      type: reuna
+      status: ehdotus
+      bend: 40
+      name:
+        fi: Matkustajalle vapaaehtoinen
+        en: Voluntary for the traveller
+      description:
+        fi: Matkustaja voi käyttää fyysistä tai digitaalista asiakirjaa. Jäsenvaltioiden on hyväksyttävä DTC, kun lainsäädäntö ja yhteinen ratkaisu ovat valmiit.
+        en: The traveller can use the physical or the digital document. Member States must accept the DTC once the legislation and the common solution are ready.
+  extra:
+    title:
+      fi: Mitä tästä voi oppia
+      en: What can be learned
+    text:
+      fi: Kaikki todisteet eivät tarvitse uutta luottamusinfraa. DTC:n luotettavuus perustuu samaan ICAO-varmenneinfraan kuin passin siru, ja lompakko tuo siihen vain uuden esitystavan. Arvo syntyy siitä, että tarkastus siirtyy ajallisesti aikaisemmaksi, ei uusista rahavirroista. Toimialan ekosysteemiä tarvitaan vasta, jos matkustusasiakirjasta johdettuja tietoja halutaan käyttää yksityisissä palveluissa.
+      en: Not all credentials need new trust infrastructure. The reliability of the DTC is based on the same ICAO certificate infrastructure as the passport chip, and the wallet only adds a new way of presenting it. Value arises from moving the check earlier in time, not from new money flows. A sector ecosystem is needed only if data derived from the travel document is to be used in private services.
