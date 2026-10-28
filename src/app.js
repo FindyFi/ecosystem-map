@@ -42,8 +42,8 @@ const scenarioLabel = id => id==="yleinen"||id==="ebw" ? T("scen."+id) : (ucById
 const _cv = document.createElement("canvas").getContext("2d");
 function textW(t){ _cv.font = '700 12px "Archivo", Arial, sans-serif'; return _cv.measureText(t).width; }
 
-/* ---------- hash ---------- */
-function writeHash(){
+/* ---------- url ---------- */
+function writeUrl(){
   const p = new URLSearchParams();
   p.set("lang", S.lang); p.set("v", S.view);
   if (S.role) p.set("rooli", S.role);
@@ -52,10 +52,10 @@ function writeHash(){
   if (S.view === "rahavirrat") p.set("malli", S.scen);
   if (S.layers.size < ALL_LAYERS.length) p.set("kerrokset", [...S.layers].join(","));
   if (S.depth !== "perus") p.set("taso", S.depth);
-  history.replaceState(null, "", "#" + p.toString());
+  history.replaceState(null, "", "?" + p.toString());
 }
-function readHash(){
-  const p = new URLSearchParams(location.hash.slice(1));
+function readUrl(){
+  const p = new URLSearchParams(location.search);
   const lang = p.get("lang");
   if (lang && LANGS.includes(lang)) S.lang = lang;
   if (p.get("v")) S.view = p.get("v");
@@ -81,7 +81,7 @@ function applyStatic(){
   $("#updated").textContent = T("footer.updated", {date: formatDate(RAW.meta.updated)});
   $("#contact").href = RAW.meta.contact[S.lang] || RAW.meta.contact[RAW.meta.default_lang];
   $("#home").href = RAW.meta.home[S.lang] || RAW.meta.home[RAW.meta.default_lang];
-  $("#sources").innerHTML = D.sources.map(s => `<li>${esc(s)}</li>`).join("");
+  $("#sources").innerHTML = D.sources.map(s => `<li>${s.url ? `<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a>` : esc(s.title)}</li>`).join("");
   $("#persona").innerHTML = D.personas.map(p => `<option value="${p.id}">${esc(p.label)}</option>`).join("");
   $$("#lang-sel button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === S.lang));
 }
@@ -98,7 +98,7 @@ function setView(v){
   $$("[data-viewpanel]").forEach(s => s.hidden = s.dataset.viewpanel !== v);
   if (v === "kartta") requestAnimationFrame(drawLinks);
   if (v === "rahavirrat") renderFlows();
-  writeHash();
+  writeUrl();
 }
 
 /* ---------- map ---------- */
@@ -113,7 +113,7 @@ function renderMap(){
     b.hidden = !S.layers.has(r.layer);
     b.setAttribute("aria-pressed", S.role === r.id);
     if (cast && !cast[r.id]) b.classList.add("dim");
-    b.addEventListener("click", () => { S.role = S.role === r.id ? null : r.id; renderMap(); renderRolePanel(); writeHash(); });
+    b.addEventListener("click", () => { S.role = S.role === r.id ? null : r.id; renderMap(); renderRolePanel(); writeUrl(); });
     document.querySelector(`.roles[data-zone="${r.zone}"]`).appendChild(b);
   });
   if (S.role) neighbors(S.role).forEach(([id]) => { const el = document.querySelector(`.role[data-id="${id}"]`); if (el) el.classList.add("rel"); });
@@ -166,8 +166,8 @@ function renderRolePanel(){
     ${nb.length ? `<h3>${esc(T("panel.connections"))}</h3><ul class="rel-list">${nb.map(([id,l]) => `<li><button type="button" data-goto="${id}"><b>${esc(roleById(id).name)}</b> <span class="muted small">– ${esc(l)}</span></button></li>`).join("")}</ul>` : ""}
     ${r.basis ? `<div class="basis expert"><b>${esc(T("panel.basis"))}</b> ${esc(r.basis)}</div>` : ""}
     <div class="btnrow"><button class="btn" type="button" id="role-close">${esc(T("panel.clear"))}</button></div>`;
-  el.querySelectorAll("[data-goto]").forEach(b => b.addEventListener("click", () => { S.role = b.dataset.goto; renderMap(); renderRolePanel(); writeHash(); }));
-  $("#role-close").addEventListener("click", () => { S.role = null; renderMap(); renderRolePanel(); writeHash(); });
+  el.querySelectorAll("[data-goto]").forEach(b => b.addEventListener("click", () => { S.role = b.dataset.goto; renderMap(); renderRolePanel(); writeUrl(); }));
+  $("#role-close").addEventListener("click", () => { S.role = null; renderMap(); renderRolePanel(); writeUrl(); });
 }
 
 /* ---------- use cases ---------- */
@@ -178,7 +178,7 @@ function renderUC(){
       <p>${esc(u.short)}</p>
       <div class="meta">${u.wallets.map(w => `<span class="pill">${esc(T("wallet."+w))}</span>`).join("")}<span class="pill">${esc(T("driver."+u.driver))}</span></div>
     </button>`).join("");
-  $$("#uc-grid .uc").forEach(b => b.addEventListener("click", () => { S.uc = b.dataset.uc; renderUC(); writeHash(); }));
+  $$("#uc-grid .uc").forEach(b => b.addEventListener("click", () => { S.uc = b.dataset.uc; renderUC(); writeUrl(); }));
   renderUCDetail();
 }
 function renderUCDetail(){
@@ -215,7 +215,7 @@ function renderFlows(){
   const flows = sc0.flows.map((f,i) => [f,i]).sort((a,b) => FT_ORDER[a[0].type]-FT_ORDER[b[0].type] || a[1]-b[1]).map(x => x[0]);
   const nodes = Object.fromEntries(sc0.nodes.map(n => [n.id, n]));
   $("#flow-scen").innerHTML = scenarioIds().map(id => `<button type="button" data-scen="${id}" aria-pressed="${S.scen === id}">${esc(scenarioLabel(id))}</button>`).join("");
-  $$("#flow-scen button").forEach(b => b.addEventListener("click", () => { S.scen = b.dataset.scen; S.mopt = null; S.flow = null; renderFlows(); writeHash(); }));
+  $$("#flow-scen button").forEach(b => b.addEventListener("click", () => { S.scen = b.dataset.scen; S.mopt = null; S.flow = null; renderFlows(); writeUrl(); }));
   $$("#flow-types button").forEach(b => b.setAttribute("aria-pressed", S.ft.has(b.dataset.ft)));
   const used = new Set(flows.filter(f => f.model).map(f => f.model));
   $("#mopts").innerHTML = D.monetisation.map(m => `<button type="button" class="mopt" data-m="${m.id}" aria-pressed="${S.mopt === m.id}" ${used.has(m.id) ? "" : "disabled"}>${esc(m.label)}</button>`).join("");
@@ -375,22 +375,22 @@ function applyPersona(id){
   const p = D.personas.find(x => x.id === id); if (!p) return;
   S.layers = new Set(p.layers || ALL_LAYERS); S.role = p.role || null;
   S.wtype = p.wtype || ""; S.whave = new Set(p.whave || []); S.wwant = new Set(p.wwant || []);
-  renderMap(); renderRolePanel(); renderWizard(); writeHash();
+  renderMap(); renderRolePanel(); renderWizard(); writeUrl();
 }
-function setDepth(d){ S.depth = d; document.body.dataset.depth = d; $$("#depth-sel button").forEach(b => b.setAttribute("aria-pressed", b.dataset.depth === d)); writeHash(); }
+function setDepth(d){ S.depth = d; document.body.dataset.depth = d; $$("#depth-sel button").forEach(b => b.setAttribute("aria-pressed", b.dataset.depth === d)); writeUrl(); }
 function setLang(lang){
   S.lang = lang; D = resolve(RAW, lang);
   const persona = $("#persona").value;
   applyStatic();
   if (persona) $("#persona").value = persona;
-  renderAll(); writeHash();
+  renderAll(); writeUrl();
 }
 function renderAll(){ renderMap(); renderRolePanel(); renderUC(); renderTrust(); renderWizard(); renderFlows(); setView(S.view); }
 
 /* ---------- init ---------- */
 function init(){
   S.lang = detectLang();
-  readHash();
+  readUrl();
   D = resolve(RAW, S.lang);
   if (S.role && !roleById(S.role)) S.role = null;
   if (!ucById(S.uc)) S.uc = D.usecases[0].id;
@@ -400,9 +400,9 @@ function init(){
   $$(".chip").forEach(c => c.addEventListener("click", () => {
     const l = c.dataset.layer; S.layers.has(l) ? S.layers.delete(l) : S.layers.add(l);
     if (S.role && !S.layers.has(roleById(S.role).layer)) S.role = null;
-    renderMap(); renderRolePanel(); writeHash();
+    renderMap(); renderRolePanel(); writeUrl();
   }));
-  $("#hl-uc").addEventListener("change", e => { S.hl = e.target.value; renderMap(); renderRolePanel(); writeHash(); });
+  $("#hl-uc").addEventListener("change", e => { S.hl = e.target.value; renderMap(); renderRolePanel(); writeUrl(); });
   $$("#depth-sel button").forEach(b => b.addEventListener("click", () => setDepth(b.dataset.depth)));
   $$("#lang-sel button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
   $("#persona").addEventListener("change", e => applyPersona(e.target.value));

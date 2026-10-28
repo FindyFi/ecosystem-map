@@ -1,5 +1,7 @@
 # Yleistiedot. Päivitä updated aina, kun sisältöä muutetaan.
 updated: "2026-10-20"
+# Julkinen osoite; käytetään sivun kanonisena osoitteena.
+url: https://ecosystem.findy.fi/
 default_lang: fi
 languages: [fi, en]
 home:

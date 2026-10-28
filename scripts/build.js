@@ -42,6 +42,8 @@ const errors = [];
 const err = (where, msg) => errors.push(`${where}: ${msg}`);
 function fail(msg){ console.error("✗ " + msg); process.exit(1); }
 
+if (!/^https:\/\/.+\/$/.test(meta.url || "")) err("data/meta.yaml", "url puuttuu tai ei ole muotoa https://…/");
+
 const STATUSES = ["voimassa", "ehdotus", "arf", "kaytanto", "havainnollistava", "lahde"];
 const FLOW_TYPES = ["data", "saasto", "raha", "reuna"];
 const ZONES = ["hal", "myo", "lom", "hyo", "val"];
@@ -85,6 +87,7 @@ DATA.personas.forEach(p => {
   if (p.role && !roleIds.has(p.role)) err(`personas.${p.id}`, `tuntematon rooli ${p.role}`);
   (p.layers || []).forEach(l => { if (!layerIds.has(l)) err(`personas.${p.id}`, `tuntematon kerros ${l}`); });
 });
+DATA.sources.forEach((s, i) => { if (s.url !== undefined && !/^https:\/\/\S+$/.test(s.url)) err(`sources[${i}]`, `url ei ole muotoa https://…: ${s.url}`); });
 DATA.trust.mechanisms.forEach(m => { if (!layerIds.has(m.layer)) err(`trust.${m.id}`, `tuntematon kerros ${m.layer}`); });
 
 /* Lokalisoidut kentät: jokaisella {fi, en} -oliolla on oltava kaikki kielet ja ei-tyhjä arvo. */
@@ -121,6 +124,7 @@ const css = fs.readFileSync(P("src/styles.css"), "utf8")
 const json = o => JSON.stringify(o).replace(/</g, "\\u003c");
 const html = tpl
   .replace("/*{{CSS}}*/", () => css)
+  .replace("{{URL}}", () => meta.url)
   .replace("{{LOGO}}", "data:image/png;base64," + b64(P("assets/findynet-logo.png")))
   .replace("/*{{DATA}}*/", () => json(DATA))
   .replace("/*{{I18N}}*/", () => json(I18N))

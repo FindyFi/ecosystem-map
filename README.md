@@ -84,14 +84,15 @@ GitHub Actions (`.github/workflows/deploy.yml`) tarkistaa datan jokaisessa pull 
 
 Oman osoitteen (esim. `ekosysteemi.findy.fi`) saa käyttöön lisäämällä sen *Settings → Pages → Custom domain* -kenttään ja DNS-palveluun CNAME-tietueen, joka osoittaa `<organisaatio>.github.io`-osoitteeseen.
 
-**Syvälinkit.** Näkymän tila on osoitteen #-osassa, esimerkiksi
-`#lang=en&v=rahavirrat&malli=kela` tai `#lang=fi&v=kartta&korosta=hankinta`.
+**Syvälinkit.** Näkymän tila on osoitteen kyselyosassa (`?`), esimerkiksi
+`?lang=en&v=rahavirrat&malli=kela` tai `?lang=fi&v=kartta&korosta=hankinta`.
+Sivun kanoninen osoite määritellään tiedostossa `data/meta.yaml` (`url`).
 Kieli valitaan osoitteesta tai, jos sitä ei ole annettu, selaimen kieliasetuksesta.
 
 **Upottaminen.** Sivun voi upottaa iframella, mutta suositeltavampaa on linkittää omaan osoitteeseen, koska näkymä tarvitsee leveyttä.
 
 ```html
-<iframe src="https://ekosysteemi.findy.fi/#lang=fi" style="width:100%;height:1100px;border:0" title="Digitaalisten todisteiden ekosysteemi"></iframe>
+<iframe src="https://ecosystem.findy.fi/?lang=fi" style="width:100%;height:1100px;border:0" title="Digitaalisten todisteiden ekosysteemi"></iframe>
 ```
 
 ## Avoimet asiat
