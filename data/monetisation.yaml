@@ -1,0 +1,21 @@
+# Liiketoimintamalliselvityksen viisi ansaintamallia.
+- id: A
+  label:
+    fi: A Transaktiomaksu
+    en: A Transaction-based fee
+- id: B
+  label:
+    fi: B Käyttäjäperusteinen maksu
+    en: B User-based fee
+- id: C
+  label:
+    fi: C Integraatiomaksu
+    en: C Integration-based fee
+- id: D
+  label:
+    fi: D Pääsy- tai jäsenyysmaksu
+    en: D Access or membership fee
+- id: E
+  label:
+    fi: E Julkinen rahoitus
+    en: E Public funding

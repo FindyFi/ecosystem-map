@@ -1,0 +1,41 @@
+name: Ehdota käyttötapausta / Suggest a use case
+description: Ehdota uutta käyttötapausta visualisointiin. / Suggest a new use case for the visualisation.
+labels: [käyttötapaus]
+body:
+  - type: input
+    id: nimi
+    attributes:
+      label: Käyttötapauksen nimi / Name of the use case
+    validations:
+      required: true
+  - type: textarea
+    id: kuvaus
+    attributes:
+      label: Lyhyt kuvaus / Short description
+      description: Mikä ongelma ratkaistaan ja kenelle? / Which problem is solved and for whom?
+    validations:
+      required: true
+  - type: textarea
+    id: roolit
+    attributes:
+      label: Osapuolet ja roolit / Parties and roles
+      description: Kuka myöntää, kuka on haltija, kuka todentaa? Muut roolit? / Who issues, who holds, who verifies? Other roles?
+  - type: textarea
+    id: kulku
+    attributes:
+      label: Kulku vaiheittain / Step-by-step flow
+  - type: textarea
+    id: arvo
+    attributes:
+      label: Arvo ja rahavirrat / Value and money flows
+      description: Mitä kukin osapuoli säästää tai saa, ja mitä maksaa? / What does each party save or gain, and what does it pay?
+  - type: textarea
+    id: lahteet
+    attributes:
+      label: Lähteet ja sääntely / Sources and regulation
+  - type: checkboxes
+    id: lupa
+    attributes:
+      label: Julkaisulupa / Permission to publish
+      options:
+        - label: Mainitut organisaatiot ovat hyväksyneet kuvauksen julkaisemisen. / The organisations mentioned have approved publication.

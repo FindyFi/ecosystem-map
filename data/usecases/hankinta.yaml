@@ -1,0 +1,453 @@
+# Käyttötapaus. Kaikki näkymät (kuvaus, roolit kartalla, rahavirrat, luottamusketju) rakentuvat tästä tiedostosta.
+id: hankinta
+name:
+  fi: Julkiset hankinnat
+  en: Public procurement
+short:
+  fi: Tarjoaja esittää perustiedot, viranomaistodistukset, sertifikaatit ja luottoluokituksen tarjouskilpailussa yrityslompakolla.
+  en: The tenderer presents basic data, authority certificates, quality certificates and a credit rating in a tender with the business wallet.
+wallets:
+  - ebw
+driver: mahdollistava
+status: ehdotus
+detail:
+  title:
+    fi: Julkiset hankinnat
+    en: Public procurement
+  highlight_label:
+    fi: Julkiset hankinnat
+    en: Public procurement
+  lead:
+    fi: Tarjoajayritys todistaa soveltuvuutensa ja poissulkemisperusteiden puuttumisen yrityslompakon todisteilla.
+    en: A tendering company proves its suitability and the absence of exclusion grounds with credentials in its business wallet.
+  status: ehdotus
+  intro:
+    - fi: Julkisiin hankintoihin käytetään EU:ssa vuosittain noin 2 000 miljardia euroa, noin 13,6 % BKT:stä. Tarjoajien on todistettava hankinnoissa toistuvasti oikeudellinen asemansa, edustusoikeutensa, verojen ja maksujen hoitaminen, taloudellinen tilanteensa sekä laatu-, ympäristö- ja tietoturvasertifikaattinsa. Usein tämä tapahtuu lataamalla liitteitä tai toimittamalla paperisia todistuksia, ja rajat ylittävissä kilpailuissa jopa oikeaksi todistettuja kopioita. Pk-yritysten osallistumis- ja voittoasteet ovat suuria yrityksiä selvästi pienempiä.
+      en: Around €2 trillion is spent on public procurement in the EU every year, about 13.6% of GDP. Tenderers repeatedly have to prove their legal status, power of representation, payment of taxes and contributions, financial standing, and quality, environmental and information security certificates. This is often done by uploading attachments or submitting paper certificates, and in cross-border tenders even certified copies. SMEs’ participation and success rates are clearly lower than those of large companies.
+    - fi: "Yrityslompakko kokoaa todisteet yhteen: yritys hakee ne kerran ja käyttää niitä moneen kilpailuun, ja hankintayksikkö voi tarkistaa niiden aitouden automaattisesti."
+      en: "The business wallet brings the credentials together: the company obtains them once and uses them in many tenders, and the contracting authority can check their authenticity automatically."
+  cast:
+    ebwomistaja:
+      fi: Tarjoajayritys
+      en: Tendering company
+    haltija:
+      fi: Tarjoajayritys
+      en: Tendering company
+    edustaja:
+      fi: Tarjouksen laatija yrityksessä
+      en: Person preparing the tender in the company
+    ebwtarjoaja:
+      fi: Tarjoajan yrityslompakon tarjoaja
+      en: The tenderer’s business wallet provider
+    ebwtunniste:
+      fi: Tunnistetietojen tarjoaja
+      en: Provider of identification data
+    kauppa:
+      fi: Kaupparekisteri – nimi ja EUID
+      en: Trade register – name and EUID
+    lahde:
+      fi: Viranomaisrekisterit
+      en: Authority registers
+    pubeaa:
+      fi: Viranomaiset, esim. verovelkatodistus ja kaupparekisteriote
+      en: Authorities, e.g. tax debt certificate and trade register extract
+    myontaja:
+      fi: Sertifiointilaitokset ja luottotietoyhtiöt
+      en: Certification bodies and credit information companies
+    eaa:
+      fi: Sertifikaatit ja luottoluokitus
+      en: Certificates and credit rating
+    julkis:
+      fi: Hankintayksikkö
+      en: Contracting authority
+    ebwlo:
+      fi: Hankintayksikkö
+      en: Contracting authority
+    todentaja:
+      fi: Hankintayksikkö
+      en: Contracting authority
+    qerds:
+      fi: Tarjouksen jättäminen ja päätöksen tiedoksianto
+      en: Submitting the tender and notifying the decision
+    hakemisto:
+      fi: Yrityksen digitaalinen osoite
+      en: The company’s digital address
+    akkreditointi:
+      fi: Akkreditoi sertifiointilaitokset
+      en: Accredits certification bodies
+    rekisteri:
+      fi: Akkreditoitujen laitosten tiedot
+      en: Data on accredited bodies
+    luottekos:
+      fi: Hankintatodisteiden ekosysteemi
+      en: Procurement credentials ecosystem
+    findynet:
+      fi: Findynet
+      en: Findynet
+    skeema:
+      fi: Todistetyyppien määrittelyt
+      en: Definitions of credential types
+  cast_order:
+    - ebwomistaja
+    - edustaja
+    - ebwtarjoaja
+    - ebwtunniste
+    - kauppa
+    - pubeaa
+    - myontaja
+    - julkis
+    - qerds
+    - hakemisto
+    - akkreditointi
+    - rekisteri
+    - luottekos
+  steps:
+    - fi: Hankintayksikkö julkaisee hankintailmoituksen ja kertoo, millä todisteilla soveltuvuus ja poissulkemisperusteiden puuttuminen osoitetaan.
+      en: The contracting authority publishes a contract notice and states with which credentials suitability and the absence of exclusion grounds are demonstrated.
+    - fi: Tarjoajayrityksen yrityslompakossa on jo omistajan tunnistetiedot (nimi ja EUID). Yritys hakee lompakkoonsa tarvittavat viranomaistodistukset, sertifikaatit ja luottoluokituksen, ellei niitä ole jo siellä.
+      en: The tendering company’s business wallet already holds the owner identification data (name and EUID). The company obtains the necessary authority certificates, quality certificates and credit rating for its wallet, unless they are already there.
+    - fi: Valtuutettu edustaja laatii tarjouksen. Lompakko näyttää, kuka todisteita pyytää ja mitä, ja edustaja liittää ne tarjoukseen.
+      en: An authorised representative prepares the tender. The wallet shows who is requesting credentials and which ones, and the representative attaches them to the tender.
+    - fi: Tarjous sinetöidään tai allekirjoitetaan ja jätetään viestintäkanavan tai hankintajärjestelmän kautta.
+      en: The tender is sealed or signed and submitted through the communication channel or the procurement system.
+    - fi: Hankintayksikkö tarkistaa todisteiden aitouden ja voimassaolon sekä sen, että myöntäjät ovat valtuutettuja. Esimerkiksi sertifiointilaitoksen akkreditointi voidaan tarkistaa luottamusrekisteristä.
+      en: The contracting authority checks the authenticity and validity of the credentials and that the issuers are authorised. For example, a certification body’s accreditation can be checked from the trust registry.
+    - fi: Hankintapäätös annetaan tiedoksi yrityksen digitaaliseen osoitteeseen. Sopimuskaudella hankintayksikkö voi yrityksen valtuutuksella hakea päivitetyt todisteet automaattisesti.
+      en: The award decision is notified to the company’s digital address. During the contract period, the contracting authority can retrieve updated credentials automatically with the company’s authorisation.
+  value:
+    - who:
+        fi: Tarjoaja
+        en: Tenderer
+      text:
+        fi: Samat todisteet käyvät moneen kilpailuun, tiedot ovat ajantasaisia, ja rajat ylittävä tarjoaminen onnistuu ilman oikeaksi todistettuja kopioita.
+        en: The same credentials can be used in many tenders, the data is up to date, and cross-border tendering works without certified copies.
+    - who:
+        fi: Hankintayksikkö
+        en: Contracting authority
+      text:
+        fi: Liitteiden käsin tarkistaminen vähenee, väärennösten riski pienenee, ja todisteiden voimassaoloa voi seurata sopimuskaudella.
+        en: Less manual checking of attachments, lower risk of forgery, and the validity of credentials can be monitored during the contract period.
+    - who:
+        fi: Myöntäjät
+        en: Issuers
+      text:
+        fi: Viranomaisten todistuspyyntöjen käsittely automatisoituu. Sertifiointilaitosten sertifikaattien aitous on helppo varmistaa.
+        en: Handling of authorities’ certificate requests is automated. The authenticity of certification bodies’ certificates is easy to verify.
+    - who:
+        fi: Yhteiskunta
+        en: Society
+      text:
+        fi: Hankinnan ratkaisemiseen kuluu keskimäärin 96 päivää. Vaikutustenarvion mukaan jo prosentin tehostuminen säästäisi noin 20 miljardia euroa vuodessa, ja pk-yritysten osallistuminen voisi lisääntyä.
+        en: Awarding a contract takes 96 days on average. According to the impact assessment, a 1% efficiency gain alone would save around €20 billion a year, and SME participation could increase.
+  sections:
+    - title:
+        fi: Sääntely
+        en: Regulation
+      text:
+        fi: Hankintojen menettely perustuu hankintadirektiiviin ja kansalliseen hankintalakiin, jotka määrittävät, millaisia selvityksiä tarjoajalta voidaan vaatia. Yrityslompakkoehdotuksen mukaan julkisyhteisöjen on mahdollistettava asiakirjojen toimittaminen ja tiedoksiannot yrityslompakolla. Tarjoajille lompakon käyttö on vapaaehtoista, joten muut tavat toimittaa selvitykset säilyvät.
+        en: Procurement procedures are based on the public procurement directive and national procurement law, which define what evidence can be required from tenderers. Under the business wallet proposal, public sector bodies must enable the submission of documents and notifications with the business wallet. For tenderers, using the wallet is voluntary, so other ways of submitting evidence remain.
+    - title:
+        fi: Miksi tarvitaan ekosysteemiä
+        en: Why an ecosystem is needed
+      text:
+        fi: "Viranomaisten todisteet saavat luotettavuutensa eIDAS-kehyksestä. Sertifikaatit ja luottoluokitukset ovat kuitenkin ei-hyväksyttyjä todisteita, joita myöntää moni toimija. Hankintayksikön on voitava tarkistaa, onko sertifiointilaitos akkreditoitu ja kuka vastaa todisteen oikeellisuudesta. Luottamusrekisteri ja ekosysteemin sääntökirja täydentävät EUDI- ja yrityslompakkoinfraa juuri tässä: akkreditointielin voi julkaista rekisterissä akkreditoimansa laitokset, jolloin tarkistus automatisoituu."
+        en: "Authority credentials derive their reliability from the eIDAS framework. Quality certificates and credit ratings, however, are non-qualified credentials issued by many parties. The contracting authority must be able to check whether a certification body is accredited and who is responsible for the correctness of the credential. This is exactly where the trust registry and the ecosystem rulebook complement the EUDI and business wallet infrastructure: an accreditation body can publish the bodies it has accredited in the registry, so that the check is automated."
+  expert:
+    fi: "Hankintadirektiivi 2014/24/EU ja hankintalaki määrittävät, millaisia selvityksiä tarjoajalta voidaan vaatia. Yrityslompakko: COM(2025) 838 art. 5(1)(k), 6(1)(d) ja 16; ITRE-mietintöluonnoksen tarkistukset 117–120. Luvut: SWD(2025) 837."
+    en: "The public procurement directive 2014/24/EU and national procurement law define what evidence can be required from tenderers. Business wallet: COM(2025) 838 Art. 5(1)(k), 6(1)(d) and 16; ITRE draft report amendments 117–120. Figures: SWD(2025) 837."
+  note:
+    fi: Kuvaus on yleistetty malli eikä kuvaa yksittäistä toteutusta. Akkreditointitietojen julkaiseminen luottamusrekisterissä on esimerkki mahdollisesta mallista.
+    en: The description is a generalised model and does not describe any single implementation. Publishing accreditation data in the trust registry is an example of a possible model.
+trust_chain:
+  name:
+    fi: Julkiset hankinnat
+    en: Public procurement
+  note:
+    fi: Neljä kysymystä, joihin vastaavat eri osat luottamusinfrasta. Akkreditointitietojen julkaiseminen rekisterissä on esimerkki mahdollisesta mallista.
+    en: Four questions answered by different parts of the trust infrastructure. Publishing accreditation data in the registry is an example of a possible model.
+  links:
+    - question:
+        fi: 1. Kuka tarjouksen jättää?
+        en: 1. Who is submitting the tender?
+      answer:
+        fi: Hankintayksikkö tarkistaa omistajan tunnistetiedot – virallisen nimen ja EUID:n – sekä sen, että tarjouksen jättäjällä on yrityksen antama mandaatti.
+        en: The contracting authority checks the owner identification data – the official name and the EUID – and that the person submitting the tender holds a mandate from the company.
+    - question:
+        fi: 2. Ovatko viranomaistodistukset aitoja?
+        en: 2. Are the authority certificates genuine?
+      answer:
+        fi: Viranomaistodisteet myöntää autenttisesta lähteestä vastaava viranomainen, jonka tiedot löytyvät eIDAS-luottamuslistoilta.
+        en: Authority credentials are issued by the authority responsible for the authentic source, which can be found on the eIDAS trusted lists.
+    - question:
+        fi: 3. Onko sertifiointilaitos akkreditoitu?
+        en: 3. Is the certification body accredited?
+      answer:
+        fi: "Akkreditointielin voi julkaista luottamusrekisterissä lausuman akkreditoimistaan laitoksista. Hankintayksikkö tarkistaa ketjun automaattisesti: akkreditointielin – sertifiointilaitos – sertifikaatin allekirjoitusavain."
+        en: "The accreditation body can publish a statement in the trust registry about the bodies it has accredited. The contracting authority checks the chain automatically: accreditation body – certification body – the certificate’s signing key."
+    - question:
+        fi: 4. Mihin päätös lähetetään?
+        en: 4. Where is the decision sent?
+      answer:
+        fi: Euroopan digitaalinen hakemisto kertoo yrityksen digitaalisen osoitteen, ja päätös annetaan tiedoksi viestintäkanavan kautta.
+        en: The European Digital Directory gives the company’s digital address, and the decision is notified through the communication channel.
+flows:
+  title:
+    fi: Julkiset hankinnat
+    en: Public procurement
+  intro:
+    fi: "Arvo syntyy pääosin säästöinä: tarjoaja hakee todisteet kerran ja käyttää niitä moneen kilpailuun, ja hankintayksikkö tarkistaa ne automaattisesti. Rahavirrat liittyvät lompakkopalveluun ja olemassa oleviin sertifiointi- ja luottotietopalveluihin. Kuvaus on yleistetty malli."
+    en: "Value arises mainly as savings: the tenderer obtains the credentials once and uses them in many tenders, and the contracting authority checks them automatically. Money flows relate to the wallet service and to existing certification and credit information services. The description is a generalised model."
+  nodes:
+    - id: akk
+      x: 450
+      "y": 55
+      label:
+        fi: Akkreditointielin
+        en: Accreditation body
+    - id: findy
+      x: 770
+      "y": 55
+      label:
+        fi: Findynet
+        en: Findynet
+      sub:
+        fi: luottamusrekisteri
+        en: trust registry
+    - id: viranom
+      x: 130
+      "y": 130
+      label:
+        fi: Viranomaiset
+        en: Authorities
+      sub:
+        fi: verot, rekisteriotteet
+        en: taxes, register extracts
+    - id: sert
+      x: 130
+      "y": 300
+      label:
+        fi: Sertifiointilaitos
+        en: Certification body
+      sub:
+        fi: laatu, ympäristö, tietoturva
+        en: quality, environment, infosec
+    - id: luotto
+      x: 130
+      "y": 470
+      label:
+        fi: Luottotietoyhtiö
+        en: Credit information company
+      sub:
+        fi: luottoluokitus
+        en: credit rating
+    - id: tarjoaja
+      x: 450
+      "y": 300
+      label:
+        fi: Tarjoajayritys
+        en: Tendering company
+      sub:
+        fi: yrityslompakon omistaja
+        en: business wallet owner
+    - id: hankinta
+      x: 770
+      "y": 300
+      label:
+        fi: Hankintayksikkö
+        en: Contracting authority
+      sub:
+        fi: julkisyhteisö
+        en: public sector body
+    - id: ebwt
+      x: 450
+      "y": 480
+      label:
+        fi: Yrityslompakon tarjoaja
+        en: Business wallet provider
+  flows:
+    - from: viranom
+      to: tarjoaja
+      type: data
+      status: ehdotus
+      name:
+        fi: Viranomaistodisteet
+        en: Authority credentials
+      description:
+        fi: Esimerkiksi verovelkatodistus ja kaupparekisteriote todisteina, joiden luotettavuus perustuu eIDAS-kehykseen.
+        en: For example a tax debt certificate and a trade register extract as credentials whose reliability is based on the eIDAS framework.
+    - from: sert
+      to: tarjoaja
+      type: data
+      status: havainnollistava
+      name:
+        fi: Sertifikaatit
+        en: Certificates
+      description:
+        fi: Laatu-, ympäristö- ja tietoturvasertifikaatit todisteina.
+        en: Quality, environmental and information security certificates as credentials.
+    - from: luotto
+      to: tarjoaja
+      type: data
+      status: havainnollistava
+      name:
+        fi: Luottoluokitus
+        en: Credit rating
+      description:
+        fi: Taloudellisen tilanteen osoittava todiste.
+        en: A credential demonstrating financial standing.
+    - from: tarjoaja
+      to: hankinta
+      type: data
+      status: ehdotus
+      name:
+        fi: Tarjous ja todisteet
+        en: Tender and credentials
+      description:
+        fi: Valtuutettu edustaja jättää tarjouksen ja liittää siihen pyydetyt todisteet.
+        en: An authorised representative submits the tender and attaches the requested credentials.
+    - from: hankinta
+      to: tarjoaja
+      type: data
+      status: ehdotus
+      bend: 40
+      name:
+        fi: Hankintapäätöksen tiedoksianto
+        en: Notification of the award decision
+      description:
+        fi: Päätös annetaan tiedoksi yrityksen digitaaliseen osoitteeseen viestintäkanavan kautta.
+        en: The decision is notified to the company’s digital address through the communication channel.
+    - from: akk
+      to: findy
+      type: data
+      status: havainnollistava
+      name:
+        fi: Akkreditoidut laitokset rekisteriin
+        en: Accredited bodies to the registry
+      description:
+        fi: Akkreditointielin julkaisee lausuman akkreditoimistaan sertifiointilaitoksista. Esimerkki mahdollisesta mallista.
+        en: The accreditation body publishes a statement about the certification bodies it has accredited. An example of a possible model.
+    - from: hankinta
+      to: findy
+      type: data
+      status: havainnollistava
+      name:
+        fi: "Kysely: onko laitos akkreditoitu"
+        en: "Query: is the body accredited"
+      description:
+        fi: Hankintayksikkö tarkistaa sertifikaatin myöntäjän luottamusketjun automaattisesti.
+        en: The contracting authority checks the trust chain of the certificate issuer automatically.
+    - from: tarjoaja
+      to: tarjoaja
+      type: saasto
+      status: lahde
+      name:
+        fi: Todisteet kerran, käyttö moneen kilpailuun
+        en: Credentials once, used in many tenders
+      pill:
+        fi: "Säästö: ei toistuvia liitteitä"
+        en: "Saving: no repeated attachments"
+      description:
+        fi: Vaikutustenarvion mukaan toistuva tarve todistaa asema, edustusoikeus ja muut tiedot on keskeinen este erityisesti pk-yrityksille ja rajat ylittävissä kilpailuissa.
+        en: According to the impact assessment, the repeated need to prove status, power of representation and other data is a key barrier, especially for SMEs and in cross-border tenders.
+    - from: hankinta
+      to: hankinta
+      type: saasto
+      status: lahde
+      name:
+        fi: Liitteiden tarkistus automatisoituu
+        en: Checking attachments is automated
+      pill:
+        fi: "Säästö: automaattinen tarkistus"
+        en: "Saving: automatic checks"
+      description:
+        fi: Vaikutustenarvion mukaan jo prosentin tehostuminen hankinnoissa säästäisi noin 20 miljardia euroa vuodessa EU:ssa.
+        en: According to the impact assessment, a 1% efficiency gain in procurement alone would save around €20 billion a year in the EU.
+    - from: viranom
+      to: viranom
+      type: saasto
+      status: havainnollistava
+      name:
+        fi: Todistuspyyntöjen käsittely vähenee
+        en: Fewer certificate requests to handle
+      pill:
+        fi: "Säästö: vähemmän pyyntöjä"
+        en: "Saving: fewer requests"
+      description:
+        fi: Todisteet myönnetään automaattisesti rekisteristä.
+        en: Credentials are issued automatically from the register.
+    - from: tarjoaja
+      to: ebwt
+      type: raha
+      model: C
+      status: havainnollistava
+      name:
+        fi: Yrityslompakkopalvelu
+        en: Business wallet service
+      description:
+        fi: Tarjoaja maksaa lompakon tarjoajalle palvelusta. Ehdotus ei määrää hintoja.
+        en: The tenderer pays the wallet provider for the service. The proposal does not set prices.
+    - from: hankinta
+      to: ebwt
+      type: raha
+      model: C
+      status: ehdotus
+      name:
+        fi: Julkisyhteisön yrityslompakko
+        en: The public sector body’s business wallet
+      description:
+        fi: Hankintayksikkö tarvitsee oman yrityslompakon viestintäkanavineen.
+        en: The contracting authority needs its own business wallet with a communication channel.
+    - from: tarjoaja
+      to: sert
+      type: raha
+      status: kaytanto
+      bend: 40
+      name:
+        fi: Sertifiointi
+        en: Certification
+      description:
+        fi: Olemassa oleva maksu. Digitaalinen todiste voi olla osa sertifiointipalvelua.
+        en: An existing fee. The digital credential can be part of the certification service.
+    - from: sert
+      to: findy
+      type: raha
+      model: D
+      status: havainnollistava
+      bend: -60
+      name:
+        fi: Verkoston osallistumismaksu
+        en: Network participation fee
+      description:
+        fi: Jos sertifiointilaitokset ja hankintayksiköt liittyvät Findynet-verkostoon, ne maksavat verkoston osallistumismaksun.
+        en: If certification bodies and contracting authorities join the Findynet network, they pay the network participation fee.
+    - from: hankinta
+      to: hankinta
+      type: reuna
+      status: ehdotus
+      name:
+        fi: Yrityslompakko on hyväksyttävä
+        en: The business wallet must be accepted
+      pill:
+        fi: "Velvoite: hyväksy yrityslompakko"
+        en: "Obligation: accept the business wallet"
+      description:
+        fi: Ehdotuksen mukaan julkisyhteisön on mahdollistettava asiakirjojen toimittaminen ja tiedoksiannot yrityslompakolla.
+        en: Under the proposal, public sector bodies must enable the submission of documents and notifications with the business wallet.
+    - from: hankinta
+      to: tarjoaja
+      type: reuna
+      status: ehdotus
+      bend: -40
+      name:
+        fi: Tarjoajalle vapaaehtoinen
+        en: Voluntary for the tenderer
+      description:
+        fi: Yrityslompakon käyttö on yrityksille vapaaehtoista, joten muut tavat toimittaa selvitykset säilyvät.
+        en: Using the business wallet is voluntary for companies, so other ways of submitting evidence remain.
+  extra:
+    title:
+      fi: Mitä tästä voi oppia
+      en: What can be learned
+    text:
+      fi: Viranomaistodisteiden luottamus tulee eIDAS-kehyksestä, mutta sertifikaattien ja luottoluokitusten luotettavuus riippuu siitä, kuka ne myöntää. Kun akkreditoinnit ja valtuutukset ovat koneluettavia, hankintayksikkö voi tarkistaa kaikki todisteet samalla tavalla. Lompakon tarjoajalle julkisyhteisöjen velvoite luo varman kysynnän, mutta tarjoajayritys ottaa lompakon käyttöön vain, jos se säästää vaivaa.
+      en: Trust in authority credentials comes from the eIDAS framework, but the reliability of quality certificates and credit ratings depends on who issues them. When accreditations and authorisations are machine-readable, the contracting authority can check all credentials in the same way. For wallet providers, the obligation on public sector bodies creates guaranteed demand, but a tendering company will only adopt the wallet if it saves effort.

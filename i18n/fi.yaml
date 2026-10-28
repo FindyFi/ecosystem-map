@@ -1,0 +1,109 @@
+# Käyttöliittymän tekstit (suomi). Avaimet ovat samat kaikissa kielitiedostoissa.
+# Avaimet, joiden arvo sisältää HTML:ää, on merkitty sivupohjassa data-i18n-html-attribuutilla.
+meta.title: Digitaalisten todisteiden ekosysteemi – roolit, käyttötapaukset ja rahavirrat
+header.title: Digitaalisten todisteiden ekosysteemi
+header.subtitle: Roolit, käyttötapaukset, rahavirrat ja luottamusinfra – EUDI-lompakko, yrityslompakko ja Findynet
+header.iam: Olen
+header.personaAria: Valitse näkökulma
+header.depthAria: Tarkkuustaso
+header.depthBasic: Perus
+header.depthExpert: Asiantuntija
+tabs.aria: Näkymät
+tabs.roles: Roolit
+tabs.usecases: Käyttötapaukset
+tabs.flows: Rahavirrat
+tabs.trust: Luottamusinfra
+tabs.wizard: Löydä paikkasi
+
+map.lede: "Digitaalisten todisteiden perusasetelma on aina sama: <strong>myöntäjä</strong> antaa todisteen <strong>haltijalle</strong>, joka esittää sen <strong>todentajalle</strong>. eIDAS-sääntely ja yrityslompakkoehdotus lisäävät tähän rooleja, velvoitteita ja luottamusinfraa. Kytke kerroksia päälle ja pois, ja valitse rooli nähdäksesi sen yhteydet. Sama organisaatio toimii usein monessa roolissa."
+map.layersAria: Kerrokset
+map.highlight: Korosta käyttötapaus
+map.noHighlight: ei korostusta
+map.legend.perus: Perusroolit kaikissa todiste-ekosysteemeissä
+map.legend.eudi: eIDAS-asetuksen ja EUDI-lompakon lisäämät
+map.legend.ebw: Yrityslompakkoehdotuksen lisäämät
+map.legend.findy: Findynetin verkosto
+zone.hal: Sääntely, hallinto ja luottamus
+zone.myo: Tiedot ja myöntäminen
+zone.lom: Haltija ja lompakko
+zone.hyo: Hyödyntäminen
+zone.val: Tekniikka, sertifiointi ja valvonta
+
+panel.emptyTitle: Valitse rooli
+panel.emptyText: Napsauta roolia kartalla. Näet sen tehtävät, velvoitteet ja yhteydet muihin rooleihin.
+panel.layersTitle: Kerrosten idea
+panel.layer.perus: <b>Perusroolit</b> ovat samat kaikissa todiste-ekosysteemeissä sääntelystä riippumatta.
+panel.layer.eudi: <b>eIDAS ja EUDI-lompakko</b> tuovat hyväksytyt todisteet, sertifioinnin, rekisteröinnin ja luotettavat listat.
+panel.layer.ebw: <b>Yrityslompakko</b> tuo organisaatioiden lompakot, yritystunnisteet ja virallisen viestintäkanavan.
+panel.layer.findy: <b>Findynet</b> täydentää luottamusinfraa ekosysteemikohtaisilla säännöillä ja luottamusrekisterillä.
+panel.tip: Vinkki – valitse ”Korosta käyttötapaus” nähdäksesi, kuka toimii missäkin roolissa esimerkiksi Kela–HSL-alennusoikeudessa tai julkisessa hankinnassa.
+panel.obligations: Tehtävät ja velvoitteet
+panel.examples: Esimerkkejä
+panel.isThisYou: Onko tämä teidän roolinne?
+panel.connections: Yhteydet
+panel.basis: Säädösperusta ja lähteet.
+panel.clear: Poista valinta
+
+uc.lede: "Käyttötapaukset eroavat siinä, mikä niitä ajaa eteenpäin: osaa velvoittaa oma sektorilainsäädäntö, osaa sääntely vain mahdollistaa, ja osa syntyy toimijoiden omasta tarpeesta. Valitse käyttötapaus nähdäksesi roolit, kulun ja arvon. Jokaisesta käyttötapauksesta pääset myös sen rahavirtoihin ja luottamusketjuun."
+uc.steps: Kulku
+uc.roles: Roolit
+uc.role: Rooli
+uc.who: Kuka
+uc.value: Arvo osapuolille
+uc.goMap: Näytä roolit kartalla
+uc.goFlow: Näytä rahavirrat
+uc.goTrust: Näytä luottamusketju
+
+flows.lede: "Rahavirtojen lisäksi kaaviossa näkyvät tietovirrat, säästöt ja sääntelyn reunaehdot, koska todiste-ekosysteemien arvo syntyy usein säästöinä eikä suorina maksuina. Valitse tarkasteltava malli. Merkintä <span class=\"tag st-havainnollistava\">havainnollistava</span> tarkoittaa mahdollista, ei todennettua rahavirtaa."
+flows.scenAria: Malli
+flows.typesAria: Virtatyypit
+flows.moptIntro: "Komission liiketoimintamalliselvityksen viisi ansaintamallia – korosta mallin rahavirrat:"
+scen.yleinen: EUDI-ekosysteemi yleisesti
+scen.ebw: Yrityslompakko
+ft.data: Tieto
+ft.saasto: Säästö tai hyöty
+ft.raha: Raha
+ft.reuna: Sääntelyvelvoite
+ft.reunaLong: Sääntelyvelvoite tai reunaehto
+
+trust.lede: Luottamusinfran eri osat vastaavat eri kysymyksiin. EUDI-infra varmistaa, että osapuolet ovat rekisteröityjä ja eurooppalaisia ja että lompakko on sertifioitu. Ekosysteemikohtainen luottamusrekisteri ja sääntökirja kertovat, kuka on valtuutettu myöntämään mitäkin ja millä vastuilla.
+trust.maintainedBy: Ylläpitäjä
+trust.scope: Kattavuus
+trust.basis: Perusta
+trust.checkTitle: Tarvitseeko ekosysteeminne oman sääntökirjan ja luottamusrekisterin?
+trust.checkIntro: Valitse ekosysteeminne piirteet.
+trust.chainTitle: "Esimerkki: luottamusketju käyttötapauksessa"
+trust.chainAria: Käyttötapaus
+
+wiz.lede: Vastaa muutamaan kysymykseen. Saat ehdotuksen rooleista, velvoitteista ja mahdollisuuksista sekä vertailun siitä, millaisen lompakon tarjoaminen voisi sopia organisaatiollenne.
+wiz.type: Organisaatiomme on
+wiz.have: Meillä on
+wiz.want: Haluamme
+wiz.resultTitle: Organisaationne paikka ekosysteemissä
+wiz.prompt: Valitse ensin organisaationne tyyppi. Tulos päivittyy vastaustesi mukaan.
+wiz.roles: Todennäköiset roolinne
+wiz.rolesHint: Valitse rooli nähdäksesi sen kartalla.
+wiz.obligations: Velvoitteet
+wiz.opportunities: Mahdollisuudet
+wiz.walletTitle: Kannattaako lompakkoa tarjota?
+wiz.findynet: Findynet ja organisaationne
+
+status.voimassa: voimassa
+status.ehdotus: ehdotus
+status.arf: ARF
+status.kaytanto: käytäntö
+status.havainnollistava: havainnollistava
+status.lahde: lähteistetty
+driver.pakottava: Oma velvoite
+driver.mahdollistava: Mahdollistava
+driver.tarve: Toimijoiden tarve
+wallet.eudi: EUDI-lompakko
+wallet.ebw: Yrityslompakko
+wallet.any: Mikä tahansa lompakko
+
+footer.ask: Kysyttävää tai ehdotuksia? Kerro meille.
+footer.contact: Ota yhteyttä Findynetiin
+footer.updated: Päivitetty {date}.
+footer.statusLegend: "<b>Lähteet.</b> Tila-merkinnät: <span class=\"tag st-voimassa\">voimassa</span> voimassa oleva sääntely, <span class=\"tag st-ehdotus\">ehdotus</span> lainsäädäntöprosessissa oleva ehdotus, <span class=\"tag st-arf\">ARF</span> arkkitehtuurikehyksen informatiivinen kuvaus, <span class=\"tag st-kaytanto\">käytäntö</span> toimijoiden käytäntö tai pilotti, <span class=\"tag st-lahde\">lähteistetty</span> lähteessä esitetty arvio, <span class=\"tag st-havainnollistava\">havainnollistava</span> mahdollinen malli."
+footer.disclaimer: Yrityslompakkoasetus on lainsäädäntöprosessissa, ja lopullinen sisältö voi poiketa ehdotuksesta. Kuvaus ei ole oikeudellinen neuvo.
+footer.license: "Sisältö: Findynet Osuuskunta, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/deed.fi\">CC BY-SA 4.0</a>. Fontti: Archivo, SIL Open Font License 1.1."

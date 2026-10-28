@@ -1,0 +1,162 @@
+# Luottamusinfran mekanismit ja itsearviointi. Itsearvioinnin pisteet: summa ≤ low → low, ≤ mid → mid, muuten high.
+mechanisms:
+  - id: eidas-lists
+    layer: eudi
+    status: voimassa
+    name:
+      fi: Luotettavat listat ja LoTE-listat
+      en: Trusted Lists and Lists of Trusted Entities
+    question:
+      fi: Onko tämä tarjoaja virallisesti hyväksytty?
+      en: Is this provider officially approved?
+    maintained_by:
+      fi: Jäsenvaltiot ja komissio
+      en: Member States and the Commission
+    scope:
+      fi: EU:n laajuinen; lompakon tarjoajat, PID-tarjoajat, luottamuspalveluntarjoajat, varmenteiden myöntäjät
+      en: EU-wide; wallet providers, PID providers, trust service providers, certificate providers
+    basis:
+      fi: eIDAS-asetus ja täytäntöönpanoasetukset
+      en: The eIDAS Regulation and its implementing regulations
+  - id: rp-registration
+    layer: eudi
+    status: voimassa
+    name:
+      fi: Luottavien osapuolten rekisteröinti ja varmenteet
+      en: Registration of relying parties and certificates
+    question:
+      fi: Kuka pyytää tietojani, ja saako se pyytää näitä tietoja?
+      en: Who is requesting my data, and is it allowed to request this data?
+    maintained_by:
+      fi: Jäsenvaltioiden rekisterinpitäjät ja varmenteiden myöntäjät
+      en: Member State registrars and certificate providers
+    scope:
+      fi: EUDI-lompakkoon luottavat osapuolet; painopiste yksityisyydessä ja siinä, että osapuolet ovat eurooppalaisia
+      en: Parties relying on EUDI Wallets; the focus is on privacy and on parties being European
+    basis:
+      fi: eIDAS art. 5b; täytäntöönpanoasetus 2025/848
+      en: eIDAS Art. 5b; Implementing Regulation 2025/848
+  - id: wallet-certification
+    layer: eudi
+    status: voimassa
+    name:
+      fi: Lompakon sertifiointi ja lompakkoyksikön todiste
+      en: Wallet certification and wallet unit attestation
+    question:
+      fi: Voinko luottaa tähän lompakkoon?
+      en: Can I trust this wallet?
+    maintained_by:
+      fi: Arviointilaitokset ja lompakon tarjoaja
+      en: Conformity assessment bodies and the wallet provider
+    scope:
+      fi: EUDI-lompakot; todentajalle tärkeä erityisesti vahvassa tunnistamisessa, muuten todisteen allekirjoitus riittää
+      en: EUDI Wallets; important to the verifier especially in strong authentication, otherwise the credential’s signature suffices
+    basis:
+      fi: Täytäntöönpanoasetus 2024/2981
+      en: Implementing Regulation 2024/2981
+  - id: ebw-directory
+    layer: ebw
+    status: ehdotus
+    name:
+      fi: Yrityslompakkojen tarjoajalista ja digitaalinen hakemisto
+      en: List of business wallet providers and the European Digital Directory
+    question:
+      fi: Onko tämä yrityslompakko aito, ja mihin osoitteeseen yritykselle lähetetään viesti?
+      en: Is this business wallet genuine, and to which address should a message to the company be sent?
+    maintained_by:
+      fi: Komissio ja kansalliset valvontaviranomaiset
+      en: The Commission and national supervisory bodies
+    scope:
+      fi: Yrityslompakot ja niiden omistajat
+      en: Business wallets and their owners
+    basis:
+      fi: COM(2025) 838 art. 10–12
+      en: COM(2025) 838 Art. 10–12
+  - id: sector-lists
+    layer: perus
+    status: voimassa
+    name:
+      fi: Sektorikohtaiset myöntäjälistat
+      en: Sector-specific issuer lists
+    question:
+      fi: Onko tämä valtuutettu myöntämään juuri tätä todistetta?
+      en: Is this party authorised to issue exactly this credential?
+    maintained_by:
+      fi: Sektorin sääntely, esimerkiksi iän todentaminen, ajokortit, matkustusasiakirjat
+      en: Sector regulation, for example age verification, driving licences, travel documents
+    scope:
+      fi: Yksittäinen todistetyyppi, jolla on oma lainsäädäntö
+      en: A single credential type with its own legislation
+    basis:
+      fi: Sektorikohtainen lainsäädäntö
+      en: Sector-specific legislation
+  - id: findynet-registry
+    layer: findy
+    status: kaytanto
+    name:
+      fi: Findynetin luottamusrekisteri ja sääntökirja
+      en: Findynet trust registry and rulebook
+    question:
+      fi: Onko myöntäjä valtuutettu tässä ekosysteemissä, ja mitä vastuita sitä sitoo?
+      en: Is the issuer authorised in this ecosystem, and which responsibilities bind it?
+    maintained_by:
+      fi: Findynet luottamusankkurina; osallistujat liittyvät liittymissopimuksella. Ekosysteemit ja toimialan auktoriteetit voivat julkaista lausumia alaisistaan
+      en: Findynet as the trust anchor; participants join through an accession agreement. Ecosystems and sector authorities can publish statements about their subordinates
+    scope:
+      fi: Myöntäjän ja todentajan välinen luottamus; toimii myös EU:n rajojen yli ja ei-hyväksytyille todisteille
+      en: Trust between issuer and verifier; also works across EU borders and for non-qualified credentials
+    basis:
+      fi: OpenID Federation; verkoston ja ekosysteemin sääntökirjat sopimuksina
+      en: OpenID Federation; network and ecosystem rulebooks as agreements
+checks:
+  - id: c1
+    weight: 2
+    text:
+      fi: Samaa todistetyyppiä myöntää useampi organisaatio, esimerkiksi monta oppilaitosta tai sertifiointilaitosta.
+      en: The same credential type is issued by several organisations, for example many educational institutions or certification bodies.
+  - id: c2
+    weight: 2
+    text:
+      fi: Todisteet ovat ei-hyväksyttyjä, eikä niillä ole omaa lainsäädäntöä.
+      en: The credentials are non-qualified and have no legislation of their own.
+  - id: c3
+    weight: 2
+    text:
+      fi: Todentajan pitää tietää, onko myöntäjä valtuutettu juuri tähän todisteeseen.
+      en: The verifier needs to know whether the issuer is authorised for exactly this credential.
+  - id: c4
+    weight: 2
+    text:
+      fi: Osapuolten vastuista, virhetilanteista tai mitätöinnistä pitää sopia.
+      en: The parties need to agree on responsibilities, error situations or revocation.
+  - id: c5
+    weight: 1
+    text:
+      fi: Ekosysteemiin kuuluu osapuolia EU:n ulkopuolelta.
+      en: The ecosystem includes parties from outside the EU.
+  - id: c6
+    weight: 1
+    text:
+      fi: Mukana on yksityisiä lompakoita tai organisaatioiden omia lompakoita eIDAS-kehyksen ulkopuolelta.
+      en: Private wallets or organisations’ own wallets outside the eIDAS framework are involved.
+  - id: c7
+    weight: -2
+    text:
+      fi: Todisteen myöntää yksi viranomainen, jonka tehtävä on laissa määritelty.
+      en: The credential is issued by a single authority whose task is defined by law.
+verdicts:
+  none:
+    fi: Valitse yllä olevista piirteistä ne, jotka koskevat ekosysteemiänne.
+    en: Select the characteristics above that apply to your ecosystem.
+  low:
+    fi: EUDI-infra ja sektorin oma lainsäädäntö riittävät todennäköisesti. Kun myöntäjän tehtävä on laissa määritelty ja todiste on hyväksytty tai PuB-EAA, luotettavat listat ja luottavien osapuolten rekisteröinti vastaavat keskeisiin luottamuskysymyksiin.
+    en: The EUDI infrastructure and the sector’s own legislation are probably sufficient. When the issuer’s task is defined by law and the credential is qualified or a PuB-EAA, trusted lists and relying party registration answer the key trust questions.
+  mid:
+    fi: Kevyt ekosysteemisopimus voi riittää. Kirjatkaa ainakin, ketkä ovat valtuutettuja myöntäjiä ja todentajia ja miten mitätöinti hoidetaan. Luottamusrekisteri tekee valtuutuksista koneluettavia.
+    en: A light ecosystem agreement may be enough. Record at least who the authorised issuers and verifiers are and how revocation is handled. A trust registry makes the authorisations machine-readable.
+  high:
+    fi: Ekosysteeminne hyötyy omasta sääntökirjasta ja luottamusrekisteristä. EUDI-infra kertoo, että osapuolet ovat rekisteröityjä, mutta ei sitä, kuka on valtuutettu myöntämään juuri teidän todisteitanne tai kuka vastaa mistäkin. Findynetin verkosto tarjoaa tähän valmiin pohjan, jonka päälle ekosysteemin omat säännöt rakennetaan.
+    en: Your ecosystem benefits from its own rulebook and trust registry. The EUDI infrastructure tells you that parties are registered, but not who is authorised to issue exactly your credentials or who is responsible for what. The Findynet network provides a ready foundation on which the ecosystem’s own rules are built.
+thresholds:
+  low: 0
+  mid: 3

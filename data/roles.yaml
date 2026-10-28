@@ -1,0 +1,809 @@
+# Roolit. zone: hal = hallinto ja luottamus, myo = tiedot ja myöntäminen, lom = haltija ja lompakko, hyo = hyödyntäminen, val = tekniikka ja valvonta.
+- id: haltija
+  layer: perus
+  zone: lom
+  status: kaytanto
+  name:
+    fi: Haltija
+    en: Holder
+  short:
+    fi: Vastaanottaa, säilyttää ja esittää todisteita lompakollaan.
+    en: Receives, stores and presents credentials with their wallet.
+  description:
+    fi: Luonnollinen henkilö tai organisaatio, jolla on todisteet hallussaan ja joka päättää, kenelle ja milloin niitä jakaa. Myöntäjän ei tarvitse tietää, kenelle haltija todisteen esittää.
+    en: A natural person or organisation that holds credentials and decides with whom and when to share them. The issuer does not need to know to whom the holder presents the credential.
+  obligations:
+    - fi: Päättää todisteiden jakamisesta
+      en: Decides on sharing credentials
+    - fi: Vastaa siitä, miten käyttää saamiaan todisteita
+      en: Responsible for how it uses the credentials it receives
+  examples:
+    fi: Kansalainen, työntekijä, yritys omalla yrityslompakollaan
+    en: A citizen, an employee, a company with its own business wallet
+  is_this_you:
+    fi: Organisaationne vastaanottaa todisteita itsestään, esimerkiksi rekisteriote tai sertifikaatti, ja esittää niitä kumppaneille.
+    en: Your organisation receives credentials about itself, such as a register extract or a certificate, and presents them to partners.
+- id: myontaja
+  layer: perus
+  zone: myo
+  status: kaytanto
+  name:
+    fi: Myöntäjä
+    en: Issuer
+  short:
+    fi: Antaa ja allekirjoittaa todisteen haltijalle.
+    en: Issues and signs the credential for the holder.
+  description:
+    fi: Organisaatio, joka muuntaa hallussaan olevan tiedon allekirjoitetuksi todisteeksi ja antaa sen haltijan lompakkoon. Allekirjoituksen ansiosta todentaja voi luottaa todisteeseen, vaikka ei luottaisi haltijaan.
+    en: An organisation that turns data it holds into a signed credential and issues it to the holder’s wallet. Thanks to the signature, the verifier can trust the credential even if it does not trust the holder.
+  obligations:
+    - fi: Tunnistaa haltijan riittävällä varmuudella ennen myöntämistä
+      en: Identifies the holder with sufficient assurance before issuance
+    - fi: Huolehtii allekirjoitusavaimista ja todisteiden mitätöinnistä
+      en: Manages signing keys and the revocation of credentials
+  examples:
+    fi: Oppilaitos, työnantaja, viranomainen, sertifiointilaitos, pankki
+    en: Educational institution, employer, public authority, certification body, bank
+  is_this_you:
+    fi: Teillä on tietoa asiakkaistanne, jäsenistänne tai työntekijöistänne, jota he joutuvat nyt todistamaan muille paperilla tai PDF:llä.
+    en: You hold data about your customers, members or employees that they currently have to prove to others on paper or as a PDF.
+  basis:
+    fi: eIDAS-asetuksen termein ei-hyväksytty myöntäjä on sähköisten attribuuttitodistusten (EAA) tarjoaja, art. 3(44).
+    en: In eIDAS terms, a non-qualified issuer is a provider of electronic attestations of attributes (EAA), Art. 3(44).
+- id: todentaja
+  layer: perus
+  zone: hyo
+  status: kaytanto
+  name:
+    fi: Todentaja eli luottava osapuoli
+    en: Verifier or relying party
+  short:
+    fi: Pyytää todisteen ja tarkistaa sen aitouden.
+    en: Requests the credential and checks its authenticity.
+  description:
+    fi: Palveluntarjoaja, joka pyytää haltijalta todisteita palvelun tarjoamiseksi ja tarkistaa niiden allekirjoituksen, voimassaolon ja myöntäjän. Korvaa manuaalisen asiakirjojen tarkistamisen.
+    en: A service provider that requests credentials from the holder in order to provide a service and checks their signature, validity and issuer. Replaces manual checking of documents.
+  obligations:
+    - fi: Pyytää vain tarpeelliset tiedot
+      en: Requests only the data it needs
+    - fi: Käsittelee saamansa tiedot lainsäädännön mukaisesti
+      en: Processes the data it receives in accordance with the law
+  examples:
+    fi: Joukkoliikenneyhtiö, pankki, työnantaja, hankintayksikkö
+    en: Public transport operator, bank, employer, contracting authority
+  is_this_you:
+    fi: Tarkistatte nyt asiakkaiden tai kumppanien asiakirjoja käsin, tai kysytte tietoja, joita joudutte erikseen varmistamaan.
+    en: You currently check customers’ or partners’ documents by hand, or ask for data that you then have to verify separately.
+- id: lompakko
+  layer: perus
+  zone: lom
+  status: kaytanto
+  name:
+    fi: Lompakon tarjoaja
+    en: Wallet provider
+  short:
+    fi: Tarjoaa sovelluksen todisteiden säilyttämiseen ja esittämiseen.
+    en: Provides an application for storing and presenting credentials.
+  description:
+    fi: Toimittaa haltijalle lompakkosovelluksen tai -palvelun. Sertifioimaton lompakko voi toimia eIDAS-sääntelyn ulkopuolella, kunhan se noudattaa ekosysteemin yhteentoimivuusprofiilia.
+    en: Supplies the holder with a wallet application or service. A non-certified wallet can operate outside eIDAS regulation as long as it follows the ecosystem’s interoperability profile.
+  obligations:
+    - fi: Noudattaa ekosysteemin yhteentoimivuusprofiilia
+      en: Follows the ecosystem’s interoperability profile
+    - fi: Suojaa avaimet ja haltijan tiedot
+      en: Protects keys and the holder’s data
+  examples:
+    fi: Kaupalliset lompakkosovellukset, organisaation oma lompakko
+    en: Commercial wallet apps, an organisation’s own wallet
+  is_this_you:
+    fi: Teillä on asiakaskunta, jolle lompakko olisi luonteva osa nykyistä sovellusta, tai teknologiaa, jonka varaan lompakon voi rakentaa.
+    en: You have a customer base for whom a wallet would fit naturally into your existing app, or technology on which a wallet can be built.
+- id: lahde
+  layer: perus
+  zone: myo
+  status: voimassa
+  name:
+    fi: Tietolähde
+    en: Data source
+  short:
+    fi: Rekisteri, johon todisteen tiedot perustuvat.
+    en: The register on which the credential data is based.
+  description:
+    fi: Tietokanta tai rekisteri, jossa todisteen taustalla oleva tieto on. Lähde voi olla sama organisaatio kuin myöntäjä tai myöntäjä voi hakea tiedot siltä.
+    en: A database or register holding the data behind the credential. The source can be the same organisation as the issuer, or the issuer can retrieve the data from it.
+  examples:
+    fi: Väestötietojärjestelmä, kaupparekisteri, opintorekisteri, Kelan etuusrekisterit
+    en: Population information system, trade register, study register, Kela’s benefit registers
+  is_this_you:
+    fi: Ylläpidätte rekisteriä, jonka tietoja muut tarvitsevat todisteina.
+    en: You maintain a register whose data others need as credentials.
+  basis:
+    fi: eIDAS-asetuksessa autenttinen lähde on julkisen tai yksityisen sektorin tietovaranto, joka on ensisijainen tietolähde, art. 3(47).
+    en: In eIDAS, an authentic source is a repository or system held under the responsibility of a public or private body that is the primary source of the data, Art. 3(47).
+- id: ohjelmisto
+  layer: perus
+  zone: val
+  status: kaytanto
+  name:
+    fi: Myöntö- ja todennusohjelmiston toimittaja
+    en: Issuance and verification software provider
+  short:
+    fi: Toimittaa järjestelmät todisteiden myöntämiseen ja tarkistamiseen.
+    en: Supplies systems for issuing and verifying credentials.
+  description:
+    fi: Toimittaa myöntäjille ja todentajille ohjelmistot ja integraatiot, joilla todisteet myönnetään ja tarkistetaan osana olemassa olevia järjestelmiä.
+    en: Supplies issuers and verifiers with software and integrations for issuing and verifying credentials as part of their existing systems.
+  obligations:
+    - fi: Toteuttaa ekosysteemin valitsemat standardit ja profiilit
+      en: Implements the standards and profiles chosen by the ecosystem
+  examples:
+    fi: Identiteettiratkaisujen toimittajat, järjestelmäintegraattorit
+    en: Identity solution providers, system integrators
+  is_this_you:
+    fi: Myytte tai kehitätte tietojärjestelmiä, joiden pitäisi pystyä myöntämään tai vastaanottamaan todisteita.
+    en: You sell or develop information systems that should be able to issue or receive credentials.
+- id: valittaja
+  layer: perus
+  zone: hyo
+  status: voimassa
+  name:
+    fi: Välittäjä ja integraattori
+    en: Intermediary and integrator
+  short:
+    fi: Hoitaa todentamisen tai myöntämisen toisten puolesta.
+    en: Handles verification or issuance on behalf of others.
+  description:
+    fi: Tarjoaa palveluna lompakkojen ja todisteiden käsittelyä luottaville osapuolille tai myöntäjille ja voi koota useita tunnistus- ja todistekanavia yhden rajapinnan taakse.
+    en: Offers wallet and credential handling as a service to relying parties or issuers, and can combine several identification and credential channels behind a single interface.
+  examples:
+    fi: Tunnistusvälittäjät, identiteettibrokerit
+    en: Identification brokers, identity brokers
+  is_this_you:
+    fi: Tarjoatte jo tunnistus- tai integraatiopalveluja muille organisaatioille.
+    en: You already offer identification or integration services to other organisations.
+  basis:
+    fi: eIDAS-asetuksen art. 5b(10) mukaan luottavien osapuolten puolesta toimivia välittäjiä pidetään luottavina osapuolina. ARF:n mukaan välittäjän on poistettava saamansa tiedot ja välitettävä ne luottavalle osapuolelle.
+    en: Under eIDAS Art. 5b(10), intermediaries acting on behalf of relying parties are deemed to be relying parties. According to the ARF, an intermediary must delete the data it receives and pass it on to the relying party.
+- id: ekosysteemi
+  layer: perus
+  zone: hal
+  status: kaytanto
+  name:
+    fi: Ekosysteemin hallinnointitaho
+    en: Ecosystem governance body
+  short:
+    fi: Määrittää säännöt, vastuut ja jäsenyyden.
+    en: Defines rules, responsibilities and membership.
+  description:
+    fi: Taho, joka ylläpitää ekosysteemin hallintomallia, sääntökirjaa ja liittymissopimuksia. Sääntökirja määrittää roolit, oikeudet, vastuut, prosessit, liiketoimintamallin ja tekniset määrittelyt.
+    en: The body that maintains the ecosystem’s governance model, rulebook and accession agreements. The rulebook defines roles, rights, responsibilities, processes, the business model and technical specifications.
+  obligations:
+    - fi: Ylläpitää sääntökirjaa ja hyväksyy jäsenet
+      en: Maintains the rulebook and approves members
+    - fi: Ratkaisee riitoja ja hallinnoi muutoksia
+      en: Resolves disputes and manages changes
+  examples:
+    fi: Toimialajärjestö, viranomaisten yhteistyöelin, Findynet
+    en: Industry association, cooperation body of authorities, Findynet
+  is_this_you:
+    fi: Edustatte toimialaa tai verkostoa, jonka jäsenten pitäisi voida luottaa toistensa todisteisiin.
+    en: You represent an industry or network whose members should be able to trust each other’s credentials.
+- id: rekisteri
+  layer: perus
+  zone: hal
+  status: kaytanto
+  name:
+    fi: Luottamusrekisterin ylläpitäjä
+    en: Trust registry operator
+  short:
+    fi: Kertoo, kuka on ekosysteemin jäsen ja missä roolissa.
+    en: Tells who is a member of the ecosystem and in which role.
+  description:
+    fi: Julkaisee tiedot osapuolista, niiden rooleista ja allekirjoitusavaimista. Todentaja voi tarkistaa, että myöntäjä on valtuutettu juuri tämäntyyppiseen todisteeseen, ja lompakko voi kertoa haltijalle, kuka tietoja pyytää.
+    en: Publishes information about parties, their roles and their signing keys. A verifier can check that an issuer is authorised for exactly this type of credential, and a wallet can tell the holder who is requesting data.
+  examples:
+    fi: Findynetin federoitu luottamusrekisteri, toimialakohtaiset rekisterit
+    en: Findynet’s federated trust registry, sector-specific registries
+  is_this_you:
+    fi: Olette auktoriteetti, joka tietää, ketkä ovat esimerkiksi hyväksyttyjä oppilaitoksia, terveydenhuollon toimijoita tai pankkeja.
+    en: You are an authority that knows who the approved educational institutions, healthcare providers or banks are, for example.
+- id: eudilompakko
+  layer: eudi
+  zone: lom
+  status: voimassa
+  name:
+    fi: EUDI-lompakon tarjoaja
+    en: EUDI Wallet provider
+  short:
+    fi: Tarjoaa sertifioidun lompakon jäsenvaltion puolesta.
+    en: Provides a certified wallet on behalf of a Member State.
+  description:
+    fi: Jäsenvaltion tarjoama tai tunnustama lompakko, joka on sertifioitu varmuustasolle korkea. Käyttö on luonnollisille henkilöille vapaaehtoista ja maksutonta.
+    en: A wallet provided or recognised by a Member State and certified at assurance level high. Its use is voluntary and free of charge for natural persons.
+  obligations:
+    - fi: Sertifiointi kansallisen sertifiointijärjestelmän mukaisesti
+      en: Certification under a national certification scheme
+    - fi: Ydintoiminnot, kuten valikoiva tietojen jakaminen ja tapahtumaloki
+      en: Core functionalities such as selective disclosure and a transaction log
+    - fi: Ei saa seurata, missä lompakkoa käytetään (havainnoimattomuus)
+      en: Must not track where the wallet is used (unobservability)
+  examples:
+    fi: Suomessa kansallista lompakkoa kehittää Digi- ja väestötietovirasto
+    en: In Finland, the national wallet is being developed by the Digital and Population Data Services Agency (DVV)
+  is_this_you:
+    fi: Harkitsette sertifioidun kansalaislompakon tarjoamista. Edellyttää jäsenvaltion tunnustamista ja raskasta sertifiointia.
+    en: You are considering providing a certified citizen wallet. This requires Member State recognition and demanding certification.
+  basis:
+    fi: eIDAS art. 5a ja 5c; täytäntöönpanoasetukset 2024/2979, 2024/2981, 2024/2982.
+    en: eIDAS Art. 5a and 5c; Implementing Regulations 2024/2979, 2024/2981, 2024/2982.
+- id: pid
+  layer: eudi
+  zone: myo
+  status: voimassa
+  name:
+    fi: PID-tarjoaja
+    en: PID provider
+  short:
+    fi: Myöntää henkilön tunnistetiedot lompakkoon.
+    en: Issues person identification data to the wallet.
+  description:
+    fi: Myöntää henkilön tunnistetiedot (PID) EUDI-lompakkoon varmuustasolla korkea. PID on muiden todisteiden ja tunnistautumisen perusta.
+    en: Issues person identification data (PID) to the EUDI Wallet at assurance level high. PID is the basis for other credentials and for authentication.
+  examples:
+    fi: Jäsenvaltion nimeämä taho
+    en: A body designated by the Member State
+  basis:
+    fi: eIDAS art. 5a; täytäntöönpanoasetus 2024/2977.
+    en: eIDAS Art. 5a; Implementing Regulation 2024/2977.
+- id: qeaa
+  layer: eudi
+  zone: myo
+  status: voimassa
+  name:
+    fi: QEAA-tarjoaja
+    en: QEAA provider
+  short:
+    fi: Hyväksytty luottamuspalveluntarjoaja, joka myöntää hyväksyttyjä todisteita.
+    en: A qualified trust service provider issuing qualified credentials.
+  description:
+    fi: Hyväksytty luottamuspalveluntarjoaja, joka myöntää hyväksyttyjä sähköisiä attribuuttitodistuksia (QEAA). Hyväksytyllä todisteella on sama oikeusvaikutus kuin paperisella todistuksella. Edellyttää tietojen tarkistamista autenttisesta lähteestä.
+    en: A qualified trust service provider that issues qualified electronic attestations of attributes (QEAA). A qualified attestation has the same legal effect as a lawfully issued paper attestation. Requires verifying the attributes against an authentic source.
+  obligations:
+    - fi: Hyväksytyn luottamuspalveluntarjoajan asema ja valvonta
+      en: Qualified trust service provider status and supervision
+    - fi: Attribuuttien tarkistaminen autenttisesta lähteestä
+      en: Verification of attributes against an authentic source
+  examples:
+    fi: Kaupalliset luottamuspalveluntarjoajat
+    en: Commercial trust service providers
+  is_this_you:
+    fi: Olette tai haluatte olla hyväksytty luottamuspalveluntarjoaja ja myydä todistepalveluja.
+    en: You are, or want to become, a qualified trust service provider selling attestation services.
+  basis:
+    fi: eIDAS art. 3(45), 45b–45d.
+    en: eIDAS Art. 3(45), 45b–45d.
+- id: pubeaa
+  layer: eudi
+  zone: myo
+  status: voimassa
+  name:
+    fi: PuB-EAA-tarjoaja
+    en: PuB-EAA provider
+  short:
+    fi: Julkinen taho myöntää todisteita omasta rekisteristään.
+    en: A public body issues credentials from its own register.
+  description:
+    fi: Autenttisesta lähteestä vastaava julkisen sektorin elin tai sen puolesta toimiva taho, joka myöntää todisteita. Luotettavuustaso vastaa hyväksyttyä todistetta.
+    en: A public sector body responsible for an authentic source, or a body acting on its behalf, that issues credentials. The level of trust corresponds to a qualified attestation.
+  examples:
+    fi: Viranomaiset, joilla on rekisteri – esimerkiksi Kela, PRH tai opintorekisteriä ylläpitävä taho
+    en: Authorities with a register – for example Kela, the Finnish Patent and Registration Office or the body maintaining a study register
+  is_this_you:
+    fi: Olette julkinen toimija ja vastaatte rekisteristä, jonka tietoja kansalaiset tai yritykset joutuvat todistamaan.
+    en: You are a public body responsible for a register whose data citizens or companies have to prove.
+  basis:
+    fi: eIDAS art. 3(46) ja 45f.
+    en: eIDAS Art. 3(46) and 45f.
+- id: eaa
+  layer: eudi
+  zone: myo
+  status: voimassa
+  name:
+    fi: EAA-tarjoaja
+    en: EAA provider
+  short:
+    fi: Myöntää ei-hyväksyttyjä todisteita.
+    en: Issues non-qualified credentials.
+  description:
+    fi: Mikä tahansa organisaatio voi myöntää ei-hyväksyttyjä todisteita EUDI-lompakkoon. Luottamus perustuu myöntäjän maineeseen tai ekosysteemin sääntöihin.
+    en: Any organisation can issue non-qualified credentials to the EUDI Wallet. Trust is based on the issuer’s reputation or on the rules of the ecosystem.
+  obligations:
+    - fi: Ei-hyväksyttyjen luottamuspalvelujen riskienhallintavaatimukset
+      en: Risk management requirements for non-qualified trust services
+  examples:
+    fi: Yritykset, järjestöt, oppilaitokset
+    en: Companies, associations, educational institutions
+  basis:
+    fi: eIDAS art. 3(44), 45e; riskienhallinta art. 19a.
+    en: eIDAS Art. 3(44), 45e; risk management Art. 19a.
+- id: qes
+  layer: eudi
+  zone: lom
+  status: voimassa
+  name:
+    fi: Etäallekirjoituspalvelu
+    en: Remote signature service
+  short:
+    fi: Luo hyväksytyt sähköiset allekirjoitukset lompakon kautta.
+    en: Creates qualified electronic signatures through the wallet.
+  description:
+    fi: Hyväksytty luottamuspalveluntarjoaja, joka hallinnoi allekirjoituksen luontilaitetta käyttäjän puolesta. Hyväksytty allekirjoitus on lompakon käyttäjälle maksuton, ja jäsenvaltio voi rajata maksuttomuuden ei-ammatilliseen käyttöön.
+    en: A qualified trust service provider that manages the signature creation device on behalf of the user. Qualified signatures are free of charge for wallet users; a Member State may limit this to non-professional use.
+  examples:
+    fi: Kaupalliset allekirjoituspalvelut
+    en: Commercial signature services
+  basis:
+    fi: eIDAS art. 5a(5)(g); täytäntöönpanoasetus 2025/1567.
+    en: eIDAS Art. 5a(5)(g); Implementing Regulation 2025/1567.
+- id: wrprek
+  layer: eudi
+  zone: hal
+  status: voimassa
+  name:
+    fi: Luottavien osapuolten rekisterinpitäjä
+    en: Registrar of wallet-relying parties
+  short:
+    fi: Rekisteröi EUDI-lompakkoon luottavat osapuolet.
+    en: Registers the parties relying on EUDI Wallets.
+  description:
+    fi: Jäsenvaltion rekisteri, johon luottavat osapuolet ilmoittavat itsensä ja pyytämänsä tiedot. Lompakko näyttää käyttäjälle, kuka tietoja pyytää ja onko pyyntö rekisteröinnin mukainen.
+    en: A Member State register in which relying parties declare themselves and the data they request. The wallet shows the user who is requesting data and whether the request matches the registration.
+  basis:
+    fi: eIDAS art. 5b; täytäntöönpanoasetus 2025/848.
+    en: eIDAS Art. 5b; Implementing Regulation 2025/848.
+- id: varmenne
+  layer: eudi
+  zone: hal
+  status: voimassa
+  name:
+    fi: Pääsy- ja rekisteröintivarmenteiden myöntäjä
+    en: Provider of access and registration certificates
+  short:
+    fi: Antaa luottaville osapuolille varmenteet.
+    en: Issues certificates to relying parties.
+  description:
+    fi: Myöntää luottaville osapuolille pääsyvarmenteet, joilla ne todistavat henkilöllisyytensä lompakolle, ja tarvittaessa rekisteröintivarmenteet, jotka kertovat, mitä tietoja ne saavat pyytää.
+    en: Issues relying parties with access certificates, which they use to prove their identity to the wallet, and where needed registration certificates stating what data they may request.
+  basis:
+    fi: ARF luvut 3.18–3.19; täytäntöönpanoasetus 2025/848.
+    en: ARF chapters 3.18–3.19; Implementing Regulation 2025/848.
+- id: tl
+  layer: eudi
+  zone: hal
+  status: voimassa
+  name:
+    fi: Luotettavien listojen ylläpitäjä
+    en: Trusted list operator
+  short:
+    fi: Julkaisee listat luotetuista tarjoajista.
+    en: Publishes lists of trusted providers.
+  description:
+    fi: "Ylläpitää luotettavia listoja (Trusted Lists) ja LoTE-listoja, joista lompakot ja luottavat osapuolet hakevat luottamusankkurit: lompakon tarjoajat, PID-tarjoajat, luottamuspalveluntarjoajat ja varmenteiden myöntäjät."
+    en: "Maintains Trusted Lists and Lists of Trusted Entities (LoTE), from which wallets and relying parties obtain their trust anchors: wallet providers, PID providers, trust service providers and certificate providers."
+  basis:
+    fi: eIDAS art. 22; täytäntöönpanoasetus 2024/2980; ETSI TS 119 612 ja TS 119 602 (ARF 3.0.0).
+    en: eIDAS Art. 22; Implementing Regulation 2024/2980; ETSI TS 119 612 and TS 119 602 (ARF 3.0.0).
+- id: skeema
+  layer: eudi
+  zone: hal
+  status: arf
+  name:
+    fi: Attestaatioskeeman tarjoaja
+    en: Attestation scheme provider
+  short:
+    fi: Määrittelee todistetyypin rakenteen ja säännöt.
+    en: Defines the structure and rules of a credential type.
+  description:
+    fi: Määrittelee todistetyypin attribuutit, formaatin ja käyttösäännöt (sääntökirja eli rulebook). Skeemat julkaistaan komission ylläpitämässä katalogissa.
+    en: Defines the attributes, format and usage rules of a credential type (a rulebook). Schemes are published in a catalogue maintained by the Commission.
+  is_this_you:
+    fi: Toimialanne tarvitsee yhteisen määritelmän todisteelle, esimerkiksi ammattipätevyydelle tai jäsenyydelle.
+    en: Your industry needs a common definition for a credential, such as a professional qualification or a membership.
+  basis:
+    fi: ARF luvut 3.15 ja 5.5–5.6; täytäntöönpanoasetus 2025/1569.
+    en: ARF chapters 3.15 and 5.5–5.6; Implementing Regulation 2025/1569.
+- id: komissio
+  layer: eudi
+  zone: hal
+  status: voimassa
+  name:
+    fi: Komissio ja yhteistyöryhmä
+    en: Commission and Cooperation Group
+  short:
+    fi: Valmistelee säädökset ja ylläpitää EU-tason listoja.
+    en: Prepares the legal acts and maintains EU-level lists.
+  description:
+    fi: Komissio antaa täytäntöönpanoasetukset ja ylläpitää EU-tason listaa listoista. Jäsenvaltioiden ja komission yhteistyöryhmä (EDICG) kehittää arkkitehtuurikehystä (ARF).
+    en: The Commission adopts the implementing regulations and maintains the EU-level list of lists. The European Digital Identity Cooperation Group (EDICG) of the Member States and the Commission develops the Architecture and Reference Framework (ARF).
+  basis:
+    fi: eIDAS art. 46e.
+    en: eIDAS Art. 46e.
+- id: valvonta
+  layer: eudi
+  zone: val
+  status: voimassa
+  name:
+    fi: Valvontaviranomainen
+    en: Supervisory body
+  short:
+    fi: Valvoo lompakon tarjoajia ja luottamuspalveluja.
+    en: Supervises wallet providers and trust services.
+  description:
+    fi: Kansallinen valvontaelin valvoo lompakon tarjoajia ja luottamuspalveluntarjoajia. Ehdotuksen mukaan sama elin valvoisi myös yrityslompakkojen tarjoajia.
+    en: The national supervisory body supervises wallet providers and trust service providers. Under the proposal, the same body would also supervise business wallet providers.
+  examples:
+    fi: Suomessa Liikenne- ja viestintävirasto Traficom
+    en: In Finland, the Finnish Transport and Communications Agency Traficom
+  basis:
+    fi: eIDAS art. 46a ja 46b; COM(2025) 838 art. 13.
+    en: eIDAS Art. 46a and 46b; COM(2025) 838 Art. 13.
+- id: cab
+  layer: eudi
+  zone: val
+  status: voimassa
+  name:
+    fi: Vaatimustenmukaisuuden arviointilaitos
+    en: Conformity assessment body
+  short:
+    fi: Arvioi ja sertifioi lompakot.
+    en: Assesses and certifies wallets.
+  description:
+    fi: Akkreditoitu laitos, joka arvioi lompakkoratkaisun toiminnalliset, kyberturva- ja tietosuojavaatimukset ja myöntää sertifikaatin. Sertifikaatti on enintään viisi vuotta voimassa, ja sitä edeltävät vuosittaiset valvonta-arvioinnit.
+    en: An accredited body that assesses the functional, cybersecurity and data protection requirements of a wallet solution and issues a certificate. The certificate is valid for at most five years and is preceded by annual surveillance evaluations.
+  basis:
+    fi: Täytäntöönpanoasetus 2024/2981 art. 9–18 ja liite IX.
+    en: Implementing Regulation 2024/2981 Art. 9–18 and Annex IX.
+- id: skeemaomistaja
+  layer: eudi
+  zone: val
+  status: voimassa
+  name:
+    fi: Sertifiointijärjestelmän omistaja
+    en: Certification scheme owner
+  short:
+    fi: Ylläpitää kansallista sertifiointijärjestelmää.
+    en: Maintains the national certification scheme.
+  description:
+    fi: Jäsenvaltion nimeämä taho, joka laatii ja ylläpitää kansallista sertifiointijärjestelmää ja sen riskiarviota. Komissio ja ENISA valmistelevat EU-tason järjestelmää, joka korvaa kansalliset kyberturvan osalta.
+    en: The body designated by the Member State that develops and maintains the national certification scheme and its risk assessment. The Commission and ENISA are preparing an EU-level scheme that will replace the national schemes as regards cybersecurity.
+  basis:
+    fi: Täytäntöönpanoasetus 2024/2981 art. 3 ja 7.
+    en: Implementing Regulation 2024/2981 Art. 3 and 7.
+- id: akkreditointi
+  layer: eudi
+  zone: val
+  status: voimassa
+  name:
+    fi: Kansallinen akkreditointielin
+    en: National accreditation body
+  short:
+    fi: Akkreditoi arviointilaitokset.
+    en: Accredits conformity assessment bodies.
+  description:
+    fi: Akkreditoi vaatimustenmukaisuuden arviointilaitokset ISO/IEC 17065 -standardin mukaisesti.
+    en: Accredits conformity assessment bodies in accordance with ISO/IEC 17065.
+  examples:
+    fi: Suomessa FINAS
+    en: In Finland, FINAS
+  basis:
+    fi: Asetus (EY) N:o 765/2008.
+    en: Regulation (EC) No 765/2008.
+- id: laite
+  layer: eudi
+  zone: val
+  status: voimassa
+  name:
+    fi: Laite- ja alustavalmistajat
+    en: Device and platform manufacturers
+  short:
+    fi: Tarjoavat suojatut laitteistot avainten säilytykseen.
+    en: Provide secure hardware for storing keys.
+  description:
+    fi: Puhelinten ja käyttöjärjestelmien valmistajat, joiden turvaelementtien varassa lompakon avaimet suojataan. Sertifioinnissa niiden turvallisuudesta tehdään oletuksia, jotka on pystyttävä todentamaan.
+    en: Manufacturers of phones and operating systems whose secure elements protect the wallet’s keys. Certification makes assumptions about their security, and these assumptions must be verifiable.
+  basis:
+    fi: Täytäntöönpanoasetus 2024/2981 liite IV.
+    en: Implementing Regulation 2024/2981 Annex IV.
+- id: velvlo
+  layer: eudi
+  zone: hyo
+  status: voimassa
+  name:
+    fi: Velvoitettu luottava osapuoli
+    en: Mandated relying party
+  short:
+    fi: Lain mukaan EUDI-lompakon hyväksyvä palvelu.
+    en: A service required by law to accept the EUDI Wallet.
+  description:
+    fi: Julkiset palvelut, jotka edellyttävät sähköistä tunnistamista, sekä tietyt yksityiset palvelut, kuten vahvaa tunnistamista lain nojalla vaativat palvelut ja erittäin suuret verkkoalustat, on velvoitettu hyväksymään EUDI-lompakko.
+    en: Public services requiring electronic identification, as well as certain private services – such as services required by law to use strong user authentication and very large online platforms – must accept the EUDI Wallet.
+  obligations:
+    - fi: Hyväksyy EUDI-lompakon tunnistautumiseen
+      en: Accepts the EUDI Wallet for authentication
+    - fi: Rekisteröityy luottavaksi osapuoleksi
+      en: Registers as a relying party
+  examples:
+    fi: Viranomaispalvelut, pankit, teleoperaattorit, terveydenhuolto
+    en: Public authority services, banks, telecom operators, healthcare
+  is_this_you:
+    fi: Palvelunne vaatii lain nojalla vahvaa tunnistamista tai tarjoatte julkista sähköistä palvelua.
+    en: Your service is required by law to use strong authentication, or you provide a public digital service.
+  basis:
+    fi: eIDAS art. 5f.
+    en: eIDAS Art. 5f.
+- id: ebwomistaja
+  layer: ebw
+  zone: lom
+  status: ehdotus
+  name:
+    fi: Yrityslompakon omistaja
+    en: Business wallet owner
+  short:
+    fi: Yritys tai julkisyhteisö, jolla on yrityslompakko.
+    en: A company or public sector body with a business wallet.
+  description:
+    fi: Elinkeinonharjoittaja tai julkisyhteisö, joka omistaa yrityslompakon. Omistaja voi samalla lompakolla vastaanottaa, säilyttää ja esittää todisteita, myöntää todisteita muille, allekirjoittaa ja sinetöidä sekä lähettää ja vastaanottaa virallisia viestejä.
+    en: An economic operator or public sector body that owns a business wallet. With the same wallet, the owner can receive, store and present credentials, issue credentials to others, sign and seal, and send and receive official communications.
+  obligations:
+    - fi: Hallinnoi käyttäjiä ja mandaatteja
+      en: Manages users and mandates
+    - fi: Lompakon käyttö on yrityksille vapaaehtoista
+      en: Use of the wallet is voluntary for companies
+  examples:
+    fi: Yritykset, yhdistykset, ammatinharjoittajat, viranomaiset
+    en: Companies, associations, self-employed professionals, public authorities
+  is_this_you:
+    fi: Organisaationne asioi viranomaisten tai yritysten kanssa ja todistaa nyt tietojaan, valtuuksiaan tai sertifikaattejaan käsin.
+    en: Your organisation deals with authorities or companies and currently proves its data, mandates or certificates manually.
+  basis:
+    fi: COM(2025) 838 art. 3(7) ja 5.
+    en: COM(2025) 838 Art. 3(7) and 5.
+- id: edustaja
+  layer: ebw
+  zone: lom
+  status: ehdotus
+  name:
+    fi: Valtuutettu edustaja
+    en: Authorised representative
+  short:
+    fi: Henkilö, joka toimii yrityksen puolesta.
+    en: A person acting on behalf of the company.
+  description:
+    fi: Luonnollinen tai oikeushenkilö, joka käyttää yrityslompakkoa omistajan antaman mandaatin perusteella. Edustaja tunnistetaan omalla tunnistusvälineellään, esimerkiksi EUDI-lompakolla.
+    en: A natural or legal person who uses the business wallet on the basis of a mandate granted by the owner. The representative is identified with their own identification means, such as the EUDI Wallet.
+  basis:
+    fi: COM(2025) 838 art. 3(18)–(19) ja 6(1)(e).
+    en: COM(2025) 838 Art. 3(18)–(19) and 6(1)(e).
+- id: ebwtarjoaja
+  layer: ebw
+  zone: lom
+  status: ehdotus
+  name:
+    fi: Yrityslompakon tarjoaja
+    en: Business wallet provider
+  short:
+    fi: Ilmoitettu palveluntarjoaja, joka tarjoaa yrityslompakon.
+    en: A notified service provider offering business wallets.
+  description:
+    fi: EU:hun sijoittautunut toimija, joka on ilmoittanut itsensä valvontaviranomaiselle ja on komission ylläpitämällä tarjoajalistalla. Sertifiointia ei edellytetä, vaan valvonta on jälkikäteistä. Tunnistautumiseen riittää varmuustaso huomattava.
+    en: An operator established in the EU that has notified the supervisory body and is on the list of providers maintained by the Commission. Certification is not required; supervision is ex post. Assurance level substantial suffices for authentication.
+  obligations:
+    - fi: Sijoittautuminen EU:hun, ei kolmannen maan määräysvaltaa
+      en: Establishment in the EU, no control by a third country
+    - fi: NIS2-velvoitteet ja luottamuspalvelujen riskienhallintavaatimukset
+      en: NIS2 obligations and trust service risk management requirements
+    - fi: Viestintäkanavan (QERDS) integrointi
+      en: Integration of the communication channel (QERDS)
+    - fi: Datan siirrettävyys toiselle tarjoajalle
+      en: Data portability to another provider
+  examples:
+    fi: Luottamuspalveluntarjoajat, ohjelmistotalot, operaattorit
+    en: Trust service providers, software companies, operators
+  is_this_you:
+    fi: Teillä on yritysasiakkaita, joille voisitte tarjota lompakon osana nykyisiä palveluja, kuten taloushallintoa, sähköistä asiointia tai allekirjoituksia.
+    en: You have business customers to whom you could offer a wallet as part of existing services, such as financial administration, digital transactions or signatures.
+  basis:
+    fi: COM(2025) 838 art. 5–7 ja 11–12; ITRE ehdottaa mm. EU-tietojensijaintivaatimusta.
+    en: COM(2025) 838 Art. 5–7 and 11–12; ITRE proposes, among other things, an EU data location requirement.
+- id: ebwtunniste
+  layer: ebw
+  zone: myo
+  status: ehdotus
+  name:
+    fi: Omistajan tunnistetietojen tarjoaja
+    en: Provider of owner identification data
+  short:
+    fi: Myöntää yrityksen tunnistetiedot yrityslompakkoon.
+    en: Issues the company’s identification data to the business wallet.
+  description:
+    fi: Myöntää yrityslompakkoon omistajan tunnistetiedot, joihin kuuluvat vähintään virallinen nimi ja yksilöivä tunniste. Myöntäjä voi olla hyväksytty luottamuspalveluntarjoaja, autenttisesta lähteestä vastaava julkinen taho tai EU-toimielinten osalta komissio.
+    en: Issues the owner identification data – at least the official name and a unique identifier – to the business wallet. The issuer can be a qualified trust service provider, a public body responsible for an authentic source, or, for EU institutions, the Commission.
+  basis:
+    fi: COM(2025) 838 art. 3(3) ja 8.
+    en: COM(2025) 838 Art. 3(3) and 8.
+- id: kauppa
+  layer: ebw
+  zone: myo
+  status: ehdotus
+  name:
+    fi: Kansallinen rekisteri ja EUID
+    en: National register and EUID
+  short:
+    fi: Yritysrekisteri, joka antaa yksilöivän tunnisteen.
+    en: Business register that assigns a unique identifier.
+  description:
+    fi: Yritysrekisterin antama eurooppalainen yksilöivä tunniste (EUID) toimii yrityslompakon omistajan tunnisteena. Toimijoille, joilla EUID:tä ei ole, luodaan vastaava tunniste. Jäsenvaltiot ilmoittavat autenttiset lähteet komissiolle.
+    en: The European Unique Identifier (EUID) assigned by the business register serves as the identifier of the business wallet owner. For operators without an EUID, an equivalent identifier is created. Member States notify the authentic sources to the Commission.
+  examples:
+    fi: Suomessa Patentti- ja rekisterihallitus (kaupparekisteri)
+    en: In Finland, the Finnish Patent and Registration Office (trade register)
+  basis:
+    fi: COM(2025) 838 art. 8(2) ja 9; direktiivi 2017/1132.
+    en: COM(2025) 838 Art. 8(2) and 9; Directive 2017/1132.
+- id: hakemisto
+  layer: ebw
+  zone: hal
+  status: ehdotus
+  name:
+    fi: Euroopan digitaalinen hakemisto
+    en: European Digital Directory
+  short:
+    fi: Komission hakemisto yrityslompakoista ja niiden osoitteista.
+    en: The Commission’s directory of business wallets and their addresses.
+  description:
+    fi: Komission ylläpitämä hakemisto, josta löytyvät yrityslompakon omistajat ja niiden digitaaliset osoitteet. Sitä käytetään sekä rajapinnan kautta että verkkopalveluna, ja se on vain omistajien, edustajien ja tarjoajien käytettävissä.
+    en: A directory maintained by the Commission listing business wallet owners and their digital addresses. It is used both through an interface and as a web service and is available only to owners, representatives and providers.
+  basis:
+    fi: COM(2025) 838 art. 10.
+    en: COM(2025) 838 Art. 10.
+- id: qerds
+  layer: ebw
+  zone: lom
+  status: ehdotus
+  name:
+    fi: Nimetty viestintäkanava (QERDS)
+    en: Designated communication channel (QERDS)
+  short:
+    fi: Oikeudellisesti pätevä sähköinen kirjattu kirje.
+    en: Legally valid electronic registered delivery.
+  description:
+    fi: Komission nimeämä hyväksytty sähköinen rekisteröity jakelupalvelu, joka on kaikkien yrityslompakkojen pakollinen viestintäkanava. Kanavaa on tarjottava myös EUDI-lompakon käyttäjille erillisenä palveluna.
+    en: A qualified electronic registered delivery service designated by the Commission that is the mandatory communication channel for all business wallets. The channel must also be offered to EUDI Wallet users as a separate service.
+  basis:
+    fi: COM(2025) 838 art. 5(1)(i), 5(3) ja liite, kohta 11.
+    en: COM(2025) 838 Art. 5(1)(i), 5(3) and Annex, point 11.
+- id: julkis
+  layer: ebw
+  zone: hyo
+  status: ehdotus
+  name:
+    fi: Velvoitettu julkisyhteisö
+    en: Mandated public sector body
+  short:
+    fi: Viranomaisen on hyväksyttävä yrityslompakko.
+    en: Authorities must accept the business wallet.
+  description:
+    fi: Kaikkien julkisyhteisöjen on ehdotuksen mukaan mahdollistettava tunnistautuminen, allekirjoittaminen, asiakirjojen toimittaminen ja tiedoksiannot yrityslompakolla, ja niillä on oltava oma yrityslompakko. Tämä tekee niistä samalla mahdollisia todisteiden myöntäjiä.
+    en: Under the proposal, all public sector bodies must enable identification, signing, submission of documents and notifications with the business wallet, and must have a business wallet of their own. This also makes them potential issuers of credentials.
+  obligations:
+    - fi: "Hyväksyy yrityslompakon 24 kuukauden kuluessa (ITRE: täytäntöönpanosäädösten voimaantulosta)"
+      en: "Accepts the business wallet within 24 months (ITRE: from the entry into force of the implementing acts)"
+    - fi: Oma yrityslompakko viestintäkanavineen, siirtymäaika 36 kuukautta
+      en: Own business wallet with communication channel; transition period 36 months
+    - fi: ITRE ehdottaa vapautusta enintään 10 000 asukkaan kunnille
+      en: ITRE proposes an exemption for municipalities with at most 10,000 inhabitants
+  examples:
+    fi: Valtion virastot, kunnat, hyvinvointialueet
+    en: Central government agencies, municipalities, wellbeing services counties
+  is_this_you:
+    fi: Olette viranomainen, jolle yritykset toimittavat hakemuksia, ilmoituksia tai raportteja.
+    en: You are an authority to which companies submit applications, notifications or reports.
+  basis:
+    fi: COM(2025) 838 art. 16; ITRE-mietintöluonnos 1.4.2026, tarkistukset 117–120.
+    en: COM(2025) 838 Art. 16; ITRE draft report 1 April 2026, amendments 117–120.
+- id: ebwlo
+  layer: ebw
+  zone: hyo
+  status: ehdotus
+  name:
+    fi: Yrityslompakkoon luottava osapuoli
+    en: Business-wallet-relying party
+  short:
+    fi: Pyytää ja tarkistaa yrityksen todisteita.
+    en: Requests and checks a company’s credentials.
+  description:
+    fi: Yritys tai viranomainen, joka pyytää yrityslompakon omistajalta todisteita, esimerkiksi asiakkaan tuntemiseen, toimittajan arviointiin tai tarjouskilpailuun. Omistaja voi valtuuttaa luottavan osapuolen hakemaan todisteita myös automaattisesti.
+    en: A company or authority that requests credentials from the business wallet owner, for example for customer due diligence, supplier assessment or a tender. The owner can also authorise the relying party to retrieve credentials automatically.
+  is_this_you:
+    fi: Kokoatte ja tarkistatte asiakkaiden, toimittajien tai kumppanien perustietoja ja sertifikaatteja.
+    en: You collect and check basic data and certificates of customers, suppliers or partners.
+  basis:
+    fi: COM(2025) 838 art. 3(23), 5(1)(k) ja 6(1)(d).
+    en: COM(2025) 838 Art. 3(23), 5(1)(k) and 6(1)(d).
+- id: kolmas
+  layer: ebw
+  zone: hal
+  status: ehdotus
+  name:
+    fi: Kolmannen maan vastaava järjestelmä
+    en: Equivalent third-country system
+  short:
+    fi: EU:n ulkopuolinen järjestelmä, joka voidaan tunnustaa vastaavaksi.
+    en: A non-EU system that can be recognised as equivalent.
+  description:
+    fi: Komissio voi tunnustaa EU:n ulkopuoliset yrityslompakot tai kehikot vastaaviksi, jos ne ovat yhteentoimivia eIDAS-luottamuskehyksen kanssa. ITRE suosii vastavuoroisia tunnustamissopimuksia.
+    en: The Commission can recognise non-EU business wallets or frameworks as equivalent if they are interoperable with the eIDAS trust framework. ITRE favours reciprocal recognition agreements.
+  basis:
+    fi: COM(2025) 838 art. 17–18.
+    en: COM(2025) 838 Art. 17–18.
+- id: findynet
+  layer: findy
+  zone: hal
+  status: kaytanto
+  name:
+    fi: Findynet Osuuskunta
+    en: Findynet Cooperative
+  short:
+    fi: Ylläpitää verkostoa, luottamusrekisteriä ja yhteentoimivuustyötä.
+    en: Maintains the network, the trust registry and interoperability work.
+  description:
+    fi: Findynet Osuuskunta hallinnoi Findynet-verkostoa, jonka organisaatioita sitoo verkoston sääntökirja. Findynet ylläpitää OpenID Federation -pohjaista luottamusrekisteriä ja auttaa perustamaan toimialakohtaisia luottamusekosysteemejä. Rekisteri keskittyy todentajan ja myöntäjän väliseen luottamukseen, ja se toimii myös EU:n rajojen yli. Organisaatiot liittyvät verkostoon liittymissopimuksella ja ylläpitävät itse omat tietonsa rekisterissä. Rekisterin tiedot ovat julkisia, ja kuka tahansa voi tehdä niihin kyselyjä ilman tunnuksia.
+    en: Findynet Cooperative governs the Findynet network, whose organisations are bound by the network rulebook. Findynet maintains a trust registry based on OpenID Federation and helps set up sector-specific trust ecosystems. The registry focuses on the trust between verifier and issuer, and it also works across EU borders. Organisations join the network through an accession agreement and maintain their own data in the registry. The registry data is public, and anyone can query it without credentials.
+  obligations:
+    - fi: Ylläpitää luottamusrekisteriä ja verkoston sääntöjä
+      en: Maintains the trust registry and the network rules
+    - fi: Edistää yhteentoimivuusprofiileja ja testaa lompakkojen yhteentoimivuutta
+      en: Promotes interoperability profiles and tests wallet interoperability
+    - fi: Verkoston toiminta rahoitetaan osallistujien osallistumismaksuilla
+      en: The network is funded by participants’ participation fees
+  examples:
+    fi: Kela–HSL-alennusoikeus, osaamistodisteet, WE BUILD -konsortio
+    en: Kela–HSL discount entitlement, skills credentials, the WE BUILD consortium
+  is_this_you:
+    fi: Haluatte, että todisteitanne voidaan tarkistaa luotettavasti myös eIDAS-kehyksen ulkopuolella tai että vastuut on sovittu yhteisesti.
+    en: You want your credentials to be verifiable reliably also outside the eIDAS framework, or you want responsibilities to be agreed jointly.
+- id: luottekos
+  layer: findy
+  zone: hal
+  status: kaytanto
+  name:
+    fi: Luottamusekosysteemi
+    en: Trust ecosystem
+  short:
+    fi: Toimialan oma sopimuskokonaisuus verkoston päällä.
+    en: A sector’s own set of agreements on top of the network.
+  description:
+    fi: Joukko organisaatioita, jotka sopivat yhteisesti tietyn todistetyypin säännöistä, esimerkiksi alennusoikeuksista tai osaamistodisteista. Ekosysteemi määrittää valtuutetut myöntäjät ja todentajat, ja ne näkyvät luottamusrekisterissä. Ekosysteemi valitsee käyttämänsä yhteentoimivuusprofiilin, esimerkiksi DIIP:n tai HAIP:n. Useat ekosysteemit voivat toimia saman verkoston päällä.
+    en: A group of organisations that jointly agree on the rules for a specific credential type, such as discount entitlements or skills credentials. The ecosystem defines the authorised issuers and verifiers, and they are shown in the trust registry. The ecosystem chooses the interoperability profile it uses, for example DIIP or HAIP. Several ecosystems can operate on top of the same network.
+  examples:
+    fi: Alennusoikeusekosysteemi, osaamisekosysteemi, maahanmuuttoekosysteemi
+    en: Discount entitlement ecosystem, skills ecosystem, migration ecosystem
+- id: interop
+  layer: findy
+  zone: val
+  status: kaytanto
+  name:
+    fi: Yhteentoimivuusprofiilit ja -testaus
+    en: Interoperability profiles and testing
+  short:
+    fi: Yhteiset tekniset valinnat ja niiden testaus.
+    en: Common technical choices and their testing.
+  description:
+    fi: "Standardit sallivat monta tapaa toteuttaa todisteet. Yhteentoimivuusprofiili, kuten DIIP, kiinnittää valinnat: formaatit, allekirjoitukset, tunnisteet, protokollat ja mitätöinnin. Findynet testaa lompakkojen ja todentajien yhteentoimivuutta päivittäin ja julkaisee tulokset."
+    en: "Standards allow many ways of implementing credentials. An interoperability profile such as DIIP fixes the choices: formats, signatures, identifiers, protocols and revocation. Findynet tests the interoperability of wallets and verifiers daily and publishes the results."
+  examples:
+    fi: DIIP, HAIP
+    en: DIIP, HAIP
+  basis:
+    fi: DIIP v5; OpenID4VC HAIP; tulokset osoitteessa interop.findy.fi.
+    en: DIIP v5; OpenID4VC HAIP; results at interop.findy.fi.

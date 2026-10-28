@@ -1,0 +1,346 @@
+# Roolien väliset yhteydet kartalla.
+- from: myontaja
+  to: haltija
+  label:
+    fi: myöntää todisteen
+    en: issues the credential
+- from: haltija
+  to: todentaja
+  label:
+    fi: esittää todisteen
+    en: presents the credential
+- from: lompakko
+  to: haltija
+  label:
+    fi: tarjoaa lompakon
+    en: provides the wallet
+- from: lahde
+  to: myontaja
+  label:
+    fi: tietopohja
+    en: data basis
+- from: ohjelmisto
+  to: myontaja
+  label:
+    fi: myöntöjärjestelmä
+    en: issuance system
+- from: ohjelmisto
+  to: todentaja
+  label:
+    fi: todennusjärjestelmä
+    en: verification system
+- from: valittaja
+  to: todentaja
+  label:
+    fi: todentaa puolesta
+    en: verifies on behalf
+- from: ekosysteemi
+  to: myontaja
+  label:
+    fi: sitoo sääntökirjalla
+    en: binds with the rulebook
+- from: ekosysteemi
+  to: todentaja
+  label:
+    fi: sitoo sääntökirjalla
+    en: binds with the rulebook
+- from: rekisteri
+  to: myontaja
+  label:
+    fi: julkaisee roolin ja avaimet
+    en: publishes role and keys
+- from: rekisteri
+  to: todentaja
+  label:
+    fi: "vastaa: onko myöntäjä valtuutettu"
+    en: "answers: is the issuer authorised"
+- from: rekisteri
+  to: lompakko
+  label:
+    fi: "vastaa: kuka pyytää tietoja"
+    en: "answers: who is requesting data"
+- from: ekosysteemi
+  to: rekisteri
+  label:
+    fi: ylläpitää jäsentietoja
+    en: maintains membership data
+- from: eudilompakko
+  to: haltija
+  label:
+    fi: tarjoaa sertifioidun lompakon
+    en: provides a certified wallet
+- from: pid
+  to: haltija
+  label:
+    fi: myöntää PID:n
+    en: issues the PID
+- from: qeaa
+  to: haltija
+  label:
+    fi: myöntää hyväksytyn todisteen
+    en: issues a qualified attestation
+- from: pubeaa
+  to: haltija
+  label:
+    fi: myöntää todisteen rekisteristä
+    en: issues an attestation from the register
+- from: pubeaa
+  to: lahde
+  label:
+    fi: vastaa autenttisesta lähteestä
+    en: responsible for the authentic source
+- from: qeaa
+  to: lahde
+  label:
+    fi: tarkistaa tiedot
+    en: verifies the data
+- from: eaa
+  to: haltija
+  label:
+    fi: myöntää todisteen
+    en: issues the attestation
+- from: eaa
+  to: myontaja
+  label:
+    fi: eIDAS-termi myöntäjälle
+    en: eIDAS term for issuer
+- from: qes
+  to: haltija
+  label:
+    fi: hyväksytty allekirjoitus
+    en: qualified signature
+- from: wrprek
+  to: todentaja
+  label:
+    fi: rekisteröi
+    en: registers
+- from: wrprek
+  to: velvlo
+  label:
+    fi: rekisteröi
+    en: registers
+- from: varmenne
+  to: todentaja
+  label:
+    fi: pääsyvarmenne
+    en: access certificate
+- from: tl
+  to: eudilompakko
+  label:
+    fi: listaa tarjoajan
+    en: lists the provider
+- from: tl
+  to: pid
+  label:
+    fi: listaa tarjoajan
+    en: lists the provider
+- from: tl
+  to: qeaa
+  label:
+    fi: listaa tarjoajan
+    en: lists the provider
+- from: tl
+  to: varmenne
+  label:
+    fi: listaa myöntäjän
+    en: lists the certificate provider
+- from: skeema
+  to: qeaa
+  label:
+    fi: määrittää todistetyypin
+    en: defines the credential type
+- from: skeema
+  to: pubeaa
+  label:
+    fi: määrittää todistetyypin
+    en: defines the credential type
+- from: komissio
+  to: tl
+  label:
+    fi: EU:n lista listoista
+    en: EU list of lists
+- from: komissio
+  to: skeema
+  label:
+    fi: katalogi
+    en: catalogue
+- from: valvonta
+  to: qeaa
+  label:
+    fi: valvoo
+    en: supervises
+- from: valvonta
+  to: eudilompakko
+  label:
+    fi: valvoo
+    en: supervises
+- from: cab
+  to: eudilompakko
+  label:
+    fi: sertifioi
+    en: certifies
+- from: cab
+  to: qeaa
+  label:
+    fi: arvioi
+    en: assesses
+- from: skeemaomistaja
+  to: cab
+  label:
+    fi: sertifiointijärjestelmä
+    en: certification scheme
+- from: akkreditointi
+  to: cab
+  label:
+    fi: akkreditoi
+    en: accredits
+- from: laite
+  to: eudilompakko
+  label:
+    fi: suojattu laitteisto
+    en: secure hardware
+- from: velvlo
+  to: eudilompakko
+  label:
+    fi: hyväksyy lompakon
+    en: accepts the wallet
+- from: velvlo
+  to: todentaja
+  label:
+    fi: erityistapaus
+    en: special case
+- from: ebwtarjoaja
+  to: ebwomistaja
+  label:
+    fi: tarjoaa yrityslompakon
+    en: provides the business wallet
+- from: edustaja
+  to: ebwomistaja
+  label:
+    fi: toimii mandaatilla
+    en: acts under a mandate
+- from: ebwtunniste
+  to: ebwomistaja
+  label:
+    fi: omistajan tunnistetiedot
+    en: owner identification data
+- from: kauppa
+  to: ebwtunniste
+  label:
+    fi: nimi ja EUID
+    en: name and EUID
+- from: hakemisto
+  to: ebwtarjoaja
+  label:
+    fi: saa omistajatiedot
+    en: receives owner data
+- from: hakemisto
+  to: ebwomistaja
+  label:
+    fi: digitaalinen osoite
+    en: digital address
+- from: qerds
+  to: ebwtarjoaja
+  label:
+    fi: integroitu kanava
+    en: integrated channel
+- from: qerds
+  to: julkis
+  label:
+    fi: asiakirjat ja tiedoksiannot
+    en: documents and notifications
+- from: julkis
+  to: ebwomistaja
+  label:
+    fi: hyväksyy yrityslompakon
+    en: accepts the business wallet
+- from: ebwlo
+  to: ebwomistaja
+  label:
+    fi: pyytää todisteita
+    en: requests credentials
+- from: valvonta
+  to: ebwtarjoaja
+  label:
+    fi: jälkivalvonta
+    en: ex post supervision
+- from: komissio
+  to: hakemisto
+  label:
+    fi: ylläpitää
+    en: maintains
+- from: kolmas
+  to: komissio
+  label:
+    fi: vastaavuuspäätös
+    en: equivalence decision
+- from: ebwomistaja
+  to: myontaja
+  label:
+    fi: voi itse myöntää todisteita
+    en: can issue credentials itself
+- from: ebwomistaja
+  to: haltija
+  label:
+    fi: on todisteiden haltija
+    en: is a holder of credentials
+- from: ebwomistaja
+  to: eudilompakko
+  label:
+    fi: vaihtaa todisteita
+    en: exchanges credentials
+- from: edustaja
+  to: eudilompakko
+  label:
+    fi: tunnistautuu
+    en: authenticates
+- from: ebwtunniste
+  to: qeaa
+  label:
+    fi: usein sama toimija
+    en: often the same operator
+- from: findynet
+  to: rekisteri
+  label:
+    fi: ylläpitää luottamusankkuria
+    en: maintains the trust anchor
+- from: findynet
+  to: ekosysteemi
+  label:
+    fi: verkoston sääntökirja
+    en: network rulebook
+- from: luottekos
+  to: findynet
+  label:
+    fi: toimii verkoston päällä
+    en: operates on top of the network
+- from: luottekos
+  to: myontaja
+  label:
+    fi: valtuutetut myöntäjät
+    en: authorised issuers
+- from: luottekos
+  to: todentaja
+  label:
+    fi: valtuutetut todentajat
+    en: authorised verifiers
+- from: interop
+  to: findynet
+  label:
+    fi: ylläpito ja testaus
+    en: maintenance and testing
+- from: interop
+  to: lompakko
+  label:
+    fi: yhteentoimivuustestit
+    en: interoperability tests
+- from: interop
+  to: ohjelmisto
+  label:
+    fi: yhteentoimivuustestit
+    en: interoperability tests
+- from: findynet
+  to: tl
+  label:
+    fi: täydentää EUDI-luottamusinfraa
+    en: complements EUDI trust infrastructure

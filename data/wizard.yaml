@@ -1,0 +1,150 @@
+# ”Löydä paikkasi” -ohjattu polku. Säännöt, jotka yhdistävät vastaukset tekstien tunnisteisiin,
+# ovat tiedostossa src/app.js (funktio wizardRules).
+types:
+  - id: viranomainen
+    label: {fi: "Viranomainen, joka ylläpitää rekisteriä", en: "A public authority that maintains a register"}
+  - id: julkinen
+    label: {fi: "Muu julkinen toimija, kuten kunta tai hyvinvointialue", en: "Another public body, such as a municipality or wellbeing services county"}
+  - id: saannelty
+    label: {fi: "Säännelty yritys, kuten pankki, vakuutusyhtiö tai teleoperaattori", en: "A regulated company, such as a bank, insurer or telecom operator"}
+  - id: yritys
+    label: {fi: "Muu yritys tai yhteisö", en: "Another company or organisation"}
+  - id: tsp
+    label: {fi: "Luottamuspalveluntarjoaja", en: "A trust service provider"}
+  - id: toimittaja
+    label: {fi: "Ohjelmisto- tai palvelutoimittaja", en: "A software or service provider"}
+  - id: jarjesto
+    label: {fi: "Toimiala- tai etujärjestö", en: "An industry or interest organisation"}
+have:
+  - id: tieto
+    label: {fi: "Tietoa ihmisistä tai organisaatioista, jota he joutuvat todistamaan muille", en: "Data about people or organisations that they have to prove to others"}
+  - id: asiakkaat
+    label: {fi: "Paljon asiakkaita tai jäseniä, joiden tietoja tarkistamme", en: "Many customers or members whose data we check"}
+  - id: yritysasiakkaat
+    label: {fi: "Yritysasiakkaita, joille tarjoamme digitaalisia palveluja", en: "Business customers to whom we provide digital services"}
+  - id: tekno
+    label: {fi: "Teknologiaa tai sovellus, jonka varaan lompakon voisi rakentaa", en: "Technology or an app on which a wallet could be built"}
+  - id: saapuvat
+    label: {fi: "Hakemuksia, ilmoituksia tai raportteja, joita yritykset toimittavat meille", en: "Applications, notifications or reports that companies submit to us"}
+want:
+  - id: myonna
+    label: {fi: Myöntää todisteita, en: Issue credentials}
+  - id: hyodynna
+    label: {fi: Hyödyntää muiden myöntämiä todisteita, en: Use credentials issued by others}
+  - id: lompakko
+    label: {fi: Tarjota lompakkoa, en: Provide a wallet}
+  - id: ekosys
+    label: {fi: Perustaa tai koordinoida toimialan ekosysteemiä, en: Set up or coordinate an industry ecosystem}
+obligations:
+  - id: pub_ebw
+    status: ehdotus
+    text:
+      fi: "Yrityslompakkoehdotus: julkisyhteisön on mahdollistettava tunnistautuminen, allekirjoitus, asiakirjojen toimittaminen ja tiedoksiannot yrityslompakolla ja hankittava oma yrityslompakko. ITRE ehdottaa vapautusta enintään 10 000 asukkaan kunnille."
+      en: "Business wallet proposal: public sector bodies must enable identification, signing, submission of documents and notifications with the business wallet and acquire a business wallet of their own. ITRE proposes an exemption for municipalities with at most 10,000 inhabitants."
+  - id: pub_5f
+    status: voimassa
+    text:
+      fi: "Jos palvelu edellyttää sähköistä tunnistamista, sen on hyväksyttävä EUDI-lompakko (eIDAS art. 5f)."
+      en: "If the service requires electronic identification, it must accept the EUDI Wallet (eIDAS Art. 5f)."
+  - id: regulated_5f
+    status: voimassa
+    text:
+      fi: "Jos lainsäädäntö edellyttää vahvaa tunnistamista, palvelun on hyväksyttävä EUDI-lompakko käyttäjän pyynnöstä (eIDAS art. 5f). Pankeilla tähän liittyy maksujen vahva tunnistaminen."
+      en: "If legislation requires strong user authentication, the service must accept the EUDI Wallet at the user’s request (eIDAS Art. 5f). For banks, this includes strong customer authentication for payments."
+  - id: rp_register
+    status: voimassa
+    text:
+      fi: "EUDI-lompakon tietoja pyytävän on rekisteröidyttävä luottavaksi osapuoleksi ja pyydettävä vain rekisteröidyt tiedot (eIDAS art. 5b)."
+      en: "Anyone requesting data from the EUDI Wallet must register as a relying party and request only the registered data (eIDAS Art. 5b)."
+  - id: tsp_qeaa
+    status: voimassa
+    text:
+      fi: "Hyväksyttyjen todisteiden myöntäminen edellyttää hyväksytyn luottamuspalveluntarjoajan asemaa ja attribuuttien tarkistamista autenttisesta lähteestä."
+      en: "Issuing qualified attestations requires qualified trust service provider status and verification of attributes against an authentic source."
+  - id: wallet_type
+    text:
+      fi: "Lompakon tyyppi ratkaisee velvoitteet – katso vertailu alla."
+      en: "The type of wallet determines the obligations – see the comparison below."
+  - id: none
+    status: kaytanto
+    text:
+      fi: "EU-sääntely ei velvoita organisaatiotanne suoraan. Velvoitteet syntyvät, jos toimitte EUDI-lompakon luottavana osapuolena tai myönnätte hyväksyttyjä todisteita."
+      en: "EU regulation does not oblige your organisation directly. Obligations arise if you act as a relying party of the EUDI Wallet or issue qualified attestations."
+opportunities:
+  - id: tieto
+    text:
+      fi: "Myöntäkää todisteita tiedoista, joita asiakkaanne nyt todistavat paperilla tai PDF:llä. Hyöty: vähemmän todistuspyyntöjä ja tietopyyntöjä, ja asiakkaanne saavat tiedot käyttöönsä. Esimerkki: Kela–HSL."
+      en: "Issue credentials for data your customers currently prove on paper or as a PDF. Benefit: fewer certificate and data requests, and your customers get the data for their own use. Example: Kela–HSL."
+  - id: asiakkaat
+    text:
+      fi: "Korvatkaa asiakirjojen manuaalinen tarkistus todisteilla. Saatte vain tarvitsemanne tiedon, ja sen aitous voidaan tarkistaa automaattisesti."
+      en: "Replace manual document checks with credentials. You receive only the data you need, and its authenticity can be checked automatically."
+  - id: saapuvat
+    text:
+      fi: "Vastaanottakaa hakemukset ja raportit yrityslompakosta rakenteisena, valmiiksi tarkistettuna tietona. Sama lompakko mahdollistaa omien päätösten ja lupien myöntämisen todisteina."
+      en: "Receive applications and reports from the business wallet as structured, pre-verified data. The same wallet lets you issue your own decisions and permits as credentials."
+  - id: yritysasiakkaat
+    text:
+      fi: "Yrityslompakko voi olla luonteva osa nykyistä palveluanne. Julkisen sektorin velvoite luo kysyntää, mutta yritysten käyttö on vapaaehtoista."
+      en: "A business wallet can be a natural part of your existing service. The public sector obligation creates demand, but use by companies is voluntary."
+  - id: toimittaja
+    text:
+      fi: "Myöntö- ja todennusintegraatiot ovat todennäköisin kaupallinen markkina: liiketoimintamalliselvitys nostaa välittäjät ja integraattorit ekosysteemin kasvun moottoriksi."
+      en: "Issuance and verification integrations are the most likely commercial market: the business models study identifies intermediaries and integrators as the engine of ecosystem growth."
+  - id: ekosys
+    text:
+      fi: "Kootkaa toimialan myöntäjät ja todentajat yhteiseen ekosysteemiin: yhteinen todistetyyppi, sääntökirja ja valtuutettujen myöntäjien julkaiseminen luottamusrekisterissä."
+      en: "Bring your industry’s issuers and verifiers together into a common ecosystem: a shared credential type, a rulebook and publication of authorised issuers in the trust registry."
+  - id: hyodynna
+    text:
+      fi: "Tunnistakaa prosessit, joissa pyydätte nyt liitteitä tai todistuksia. Ne ovat ensimmäiset kohteet todisteiden hyödyntämiselle."
+      en: "Identify the processes in which you now ask for attachments or certificates. They are the first candidates for using credentials."
+findynet:
+  ecosystem:
+    fi: "Findynet auttaa perustamaan toimialan luottamusekosysteemin verkostonsa päälle: yhteiset säännöt, valtuutettujen osapuolten julkaiseminen luottamusrekisterissä ja yhteentoimivuustestaus."
+    en: "Findynet helps set up an industry trust ecosystem on top of its network: common rules, publication of authorised parties in the trust registry and interoperability testing."
+  technology:
+    fi: "Findynet testaa lompakkojen ja todentajien yhteentoimivuutta ja edistää yhteisiä profiileja, joiden mukaisesti ratkaisunne toimii muiden kanssa."
+    en: "Findynet tests the interoperability of wallets and verifiers and promotes common profiles that let your solution work with others."
+  default:
+    fi: "Liittymällä Findynetin verkostoon organisaationne tiedot ja roolit voidaan tarkistaa luottamusrekisteristä. Tämä täydentää EUDI-infraa siellä, missä tarvitaan tieto myöntäjän valtuutuksesta ja sovitut vastuut."
+    en: "By joining the Findynet network, your organisation’s data and roles can be checked from the trust registry. This complements the EUDI infrastructure where information on the issuer’s authorisation and agreed responsibilities is needed."
+wallet_comparison:
+  columns:
+    - {fi: Mikä tahansa lompakko, en: Any wallet}
+    - {fi: EUDI-lompakko, en: EUDI Wallet}
+    - {fi: Yrityslompakko, en: Business wallet}
+  rows:
+    - label: {fi: Kenelle, en: For whom}
+      cells:
+        - {fi: Henkilöt ja organisaatiot ekosysteemissä, en: People and organisations in the ecosystem}
+        - {fi: Kansalaiset ja asukkaat, en: Citizens and residents}
+        - {fi: "Yritykset, yhteisöt ja julkisyhteisöt", en: "Companies, organisations and public sector bodies"}
+    - label: {fi: Markkinoille, en: Market entry}
+      cells:
+        - {fi: "Vapaasti, ekosysteemin säännöin", en: "Freely, under the ecosystem’s rules"}
+        - {fi: "Jäsenvaltion tarjoama tai tunnustama, sertifioitu", en: "Provided or recognised by a Member State, certified"}
+        - {fi: Ilmoitus valvontaviranomaiselle ja tarjoajalista, en: Notification to the supervisory body and list of providers}
+    - label: {fi: Varmuustaso, en: Assurance level}
+      cells:
+        - {fi: Ekosysteemin päätettävissä, en: Decided by the ecosystem}
+        - {fi: Korkea, en: High}
+        - {fi: Huomattava, en: Substantial}
+    - label: {fi: Keskeiset vaatimukset, en: Key requirements}
+      cells:
+        - {fi: "Yhteentoimivuusprofiili, esim. DIIP tai HAIP", en: "Interoperability profile, e.g. DIIP or HAIP"}
+        - {fi: "Sertifiointi (2024/2981), vuosittaiset arvioinnit, haavoittuvuusarvioinnit", en: "Certification (2024/2981), annual evaluations, vulnerability assessments"}
+        - {fi: "EU-sijoittautuminen, NIS2, viestintäkanava, datan siirrettävyys", en: "EU establishment, NIS2, communication channel, data portability"}
+    - label: {fi: Ansainta, en: Revenue}
+      cells:
+        - {fi: Vapaa, en: Free to decide}
+        - {fi: "Maksuton kansalaisille; havainnoimattomuus rajaa malleja", en: "Free for citizens; unobservability limits the models"}
+        - {fi: Palvelumaksut yrityksiltä ja julkisyhteisöiltä, en: Service fees from companies and public sector bodies}
+    - label: {fi: "Sopii, jos", en: "Fits if"}
+      cells:
+        - {fi: Palvelette tiettyä ekosysteemiä tai toimialaa, en: You serve a specific ecosystem or industry}
+        - {fi: Olette jäsenvaltion kumppani lompakon tarjoamisessa, en: You are a Member State’s partner in providing the wallet}
+        - {fi: "Teillä on yritysasiakkaita ja kyky integroida taloushallinto, asiointi ja allekirjoitukset", en: "You have business customers and can integrate financial administration, digital transactions and signatures"}
+  note:
+    fi: Yrityslompakon vaatimukset perustuvat komission ehdotukseen ja voivat muuttua.
+    en: The business wallet requirements are based on the Commission proposal and may change.

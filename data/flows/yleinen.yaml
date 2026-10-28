@@ -1,0 +1,262 @@
+# Rahavirtamalli. type: data | saasto | raha | reuna. status: voimassa | ehdotus | arf | kaytanto | havainnollistava | lahde. model: A–E (monetisation.yaml).
+id: yleinen
+title:
+  fi: EUDI-ekosysteemi yleisesti
+  en: EUDI ecosystem in general
+intro:
+  fi: Komission liiketoimintamalliselvityksen pohjalta. Selvitys ei määrää hintoja vaan kuvaa ansaintamallit, joita voidaan yhdistellä. Lompakon käyttö on luonnollisille henkilöille maksutonta, ja havainnoimattomuusvaatimus rajoittaa transaktioperusteista laskutusta.
+  en: Based on the Commission’s business models study. The study does not set prices but describes monetisation models that can be combined. Using the wallet is free of charge for natural persons, and the unobservability requirement limits transaction-based charging.
+nodes:
+  - id: rahoitus
+    x: 450
+    "y": 55
+    label:
+      fi: Julkinen rahoitus
+      en: Public funding
+    sub:
+      fi: valtio, EU
+      en: state, EU
+  - id: lompakko
+    x: 450
+    "y": 200
+    label:
+      fi: Lompakon tarjoaja
+      en: Wallet provider
+    sub:
+      fi: EUDI-lompakko
+      en: EUDI Wallet
+  - id: myontaja
+    x: 130
+    "y": 300
+    label:
+      fi: Myöntäjä
+      en: Issuer
+    sub:
+      fi: julkinen tai yksityinen
+      en: public or private
+  - id: todentaja
+    x: 770
+    "y": 300
+    label:
+      fi: Luottava osapuoli
+      en: Relying party
+    sub:
+      fi: yksityinen
+      en: private
+  - id: haltija
+    x: 450
+    "y": 480
+    label:
+      fi: Haltija
+      en: Holder
+    sub:
+      fi: kansalainen
+      en: citizen
+  - id: valittaja
+    x: 770
+    "y": 70
+    label:
+      fi: Välittäjä
+      en: Intermediary
+    sub:
+      fi: integraattori
+      en: integrator
+  - id: qtsp
+    x: 770
+    "y": 480
+    label:
+      fi: Luottamuspalvelu
+      en: Trust service
+    sub:
+      fi: QEAA, QES
+      en: QEAA, QES
+  - id: eko
+    x: 130
+    "y": 70
+    label:
+      fi: Ekosysteemi
+      en: Ecosystem
+    sub:
+      fi: hallinnointitaho
+      en: governance body
+flows:
+  - from: myontaja
+    to: haltija
+    type: data
+    status: voimassa
+    name:
+      fi: Todiste lompakkoon
+      en: Credential to the wallet
+    description:
+      fi: Myöntäjä antaa todisteen haltijan pyynnöstä.
+      en: The issuer issues the credential at the holder’s request.
+  - from: haltija
+    to: todentaja
+    type: data
+    status: voimassa
+    name:
+      fi: Todisteen esittäminen
+      en: Presenting the credential
+    description:
+      fi: Haltija jakaa vain pyydetyt tiedot.
+      en: The holder shares only the requested data.
+  - from: rahoitus
+    to: lompakko
+    type: raha
+    model: E
+    status: lahde
+    name:
+      fi: Lompakon rahoitus
+      en: Wallet funding
+    description:
+      fi: Käynnistysvaiheessa lompakko ja julkiset myöntäjät rahoitetaan pääosin julkisesti.
+      en: In the launch phase, the wallet and public issuers are mainly publicly funded.
+  - from: rahoitus
+    to: myontaja
+    type: raha
+    model: E
+    status: lahde
+    name:
+      fi: Julkisten tietolähteiden digitalisointi
+      en: Digitalising public data sources
+    description:
+      fi: Julkista rahoitusta voidaan kohdentaa autenttisten lähteiden digitalisointiin.
+      en: Public funding can be targeted at digitalising authentic sources.
+  - from: todentaja
+    to: valittaja
+    type: raha
+    model: C
+    status: lahde
+    name:
+      fi: Integraatiomaksu
+      en: Integration-based fee
+    description:
+      fi: Kertaluonteinen tai toistuva maksu rajapinnoista ja integraatioista, esimerkiksi SaaS-tilaus.
+      en: A one-off or recurring fee for interfaces and integrations, such as a SaaS subscription.
+  - from: todentaja
+    to: lompakko
+    type: raha
+    model: D
+    status: havainnollistava
+    bend: 20
+    name:
+      fi: Pääsymaksu
+      en: Access fee
+    description:
+      fi: Mahdollinen kertaluonteinen tai vuosittainen maksu oikeudesta pyytää todisteita; ei sisällä teknisiä palveluja.
+      en: A possible one-off or annual fee for the right to request credentials; does not include technical services.
+  - from: todentaja
+    to: myontaja
+    type: raha
+    model: A
+    status: havainnollistava
+    bend: 30
+    name:
+      fi: Transaktiomaksu
+      en: Transaction-based fee
+    description:
+      fi: Maksu todennusten määrän mukaan. Edellyttää ratkaisua, joka ei paljasta myöntäjälle tai lompakolle, missä todistetta käytetään.
+      en: A fee based on the number of verifications. Requires a solution that does not reveal to the issuer or the wallet where the credential is used.
+  - from: todentaja
+    to: valittaja
+    type: raha
+    model: B
+    status: havainnollistava
+    bend: -60
+    name:
+      fi: Käyttäjäperusteinen maksu
+      en: User-based fee
+    description:
+      fi: Maksu aktiivisten käyttäjien tai saavutettavissa olevan käyttäjäjoukon mukaan.
+      en: A fee based on the number of active users or the reachable user base.
+  - from: valittaja
+    to: myontaja
+    type: raha
+    model: A
+    status: havainnollistava
+    bend: 140
+    name:
+      fi: Tulonjako myöntäjälle
+      en: Revenue sharing with the issuer
+    description:
+      fi: Konsolidaatiovaiheessa välittäjät voivat jakaa tuloja myöntäjien kanssa.
+      en: In the consolidation phase, intermediaries can share revenue with issuers.
+  - from: haltija
+    to: myontaja
+    type: raha
+    status: havainnollistava
+    bend: 60
+    name:
+      fi: Myöntämismaksu
+      en: Issuance fee
+    description:
+      fi: Todisteen myöntämisestä voidaan periä maksu, kuten nykyisin paperisista asiakirjoista. Selvitys varoittaa, että tämä voi hidastaa käyttöönottoa.
+      en: A fee can be charged for issuing a credential, as is done today for paper documents. The study warns that this may slow down adoption.
+  - from: todentaja
+    to: qtsp
+    type: raha
+    status: kaytanto
+    name:
+      fi: Hyväksytyt luottamuspalvelut
+      en: Qualified trust services
+    description:
+      fi: Hyväksytyt todisteet ja yritysten allekirjoitukset ovat kaupallisia palveluja.
+      en: Qualified attestations and corporate signatures are commercial services.
+  - from: myontaja
+    to: eko
+    type: raha
+    model: D
+    status: havainnollistava
+    name:
+      fi: Ekosysteemin osallistumismaksu
+      en: Ecosystem participation fee
+    description:
+      fi: Toimialakohtaisissa ekosysteemeissä myöntäjät ja luottavat osapuolet voivat rahoittaa yhteiset säännöt ja luottamusinfran jäsenyysmaksuilla.
+      en: In sector-specific ecosystems, issuers and relying parties can fund common rules and trust infrastructure through membership fees.
+  - from: todentaja
+    to: todentaja
+    type: saasto
+    status: lahde
+    name:
+      fi: Säästöt luottavalle osapuolelle
+      en: Savings for the relying party
+    description:
+      fi: Pienemmät KYC- ja asiakirjojen tarkistuskulut, vähemmän petoksia, uudet palvelut.
+      en: Lower KYC and document checking costs, less fraud, new services.
+  - from: haltija
+    to: lompakko
+    type: reuna
+    status: voimassa
+    name:
+      fi: Lompakko on maksuton
+      en: The wallet is free of charge
+    description:
+      fi: EUDI-lompakon hankinta ja käyttö on luonnollisille henkilöille maksutonta (eIDAS art. 5a).
+      en: Obtaining and using the EUDI Wallet is free of charge for natural persons (eIDAS Art. 5a).
+  - from: lompakko
+    to: todentaja
+    type: reuna
+    status: voimassa
+    bend: -50
+    name:
+      fi: Havainnoimattomuus
+      en: Unobservability
+    description:
+      fi: Lompakon tarjoaja ei saa kerätä tietoa lompakon käytöstä. Transaktiomaksut eivät voi perustua tarjoajan seurantaan.
+      en: The wallet provider must not collect information about how the wallet is used. Transaction fees cannot be based on tracking by the provider.
+extra:
+  title:
+    fi: Käyttöönoton vaiheet
+    en: Adoption phases
+  list:
+    - fi: "Käynnistys: julkinen sektori rahoittaa ja tarjoaa ydinkäyttötapaukset."
+      en: "Launch: the public sector funds and provides the core use cases."
+    - fi: "Laajeneminen: yksityiset luottavat osapuolet liittyvät julkisten attribuuttien varaan."
+      en: "Expansion: private relying parties join on the basis of public attributes."
+    - fi: "Kaupallistuminen: yksityiset myöntäjät tuovat omat tietonsa, ja uudet tulovirrat syntyvät."
+      en: "Commercialisation: private issuers bring their own data, and new revenue streams emerge."
+    - fi: "Konsolidaatio: tulonjako ja välittäjät tasapainottuvat."
+      en: "Consolidation: revenue sharing and intermediaries settle."
+  source:
+    fi: "Lähde: Business Models Study Report, 2026."
+    en: "Source: Business Models Study Report, 2026."

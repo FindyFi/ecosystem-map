@@ -1,0 +1,108 @@
+# User interface strings (English). Keys are identical across all language files.
+meta.title: Digital credentials ecosystem – roles, use cases and money flows
+header.title: Digital credentials ecosystem
+header.subtitle: Roles, use cases, money flows and trust infrastructure – EUDI Wallet, business wallet and Findynet
+header.iam: I am
+header.personaAria: Choose a perspective
+header.depthAria: Level of detail
+header.depthBasic: Basic
+header.depthExpert: Expert
+tabs.aria: Views
+tabs.roles: Roles
+tabs.usecases: Use cases
+tabs.flows: Money flows
+tabs.trust: Trust infrastructure
+tabs.wizard: Find your place
+
+map.lede: "The basic setting of digital credentials is always the same: an <strong>issuer</strong> issues a credential to a <strong>holder</strong>, who presents it to a <strong>verifier</strong>. eIDAS regulation and the business wallet proposal add roles, obligations and trust infrastructure to this. Switch layers on and off, and select a role to see its connections. The same organisation often acts in several roles."
+map.layersAria: Layers
+map.highlight: Highlight a use case
+map.noHighlight: no highlight
+map.legend.perus: Basic roles in every credential ecosystem
+map.legend.eudi: Added by the eIDAS Regulation and the EUDI Wallet
+map.legend.ebw: Added by the business wallet proposal
+map.legend.findy: The Findynet network
+zone.hal: Regulation, governance and trust
+zone.myo: Data and issuance
+zone.lom: Holder and wallet
+zone.hyo: Use
+zone.val: Technology, certification and supervision
+
+panel.emptyTitle: Select a role
+panel.emptyText: Click a role on the map to see its tasks, obligations and connections to other roles.
+panel.layersTitle: The idea of the layers
+panel.layer.perus: <b>Basic roles</b> are the same in every credential ecosystem, regardless of regulation.
+panel.layer.eudi: <b>eIDAS and the EUDI Wallet</b> bring qualified attestations, certification, registration and trusted lists.
+panel.layer.ebw: <b>The business wallet</b> brings organisations’ wallets, company identifiers and an official communication channel.
+panel.layer.findy: <b>Findynet</b> complements the trust infrastructure with ecosystem-specific rules and a trust registry.
+panel.tip: Tip – choose “Highlight a use case” to see who acts in which role, for example in the Kela–HSL discount entitlement or in public procurement.
+panel.obligations: Tasks and obligations
+panel.examples: Examples
+panel.isThisYou: Is this your role?
+panel.connections: Connections
+panel.basis: Legal basis and sources.
+panel.clear: Clear selection
+
+uc.lede: "Use cases differ in what drives them: some are mandated by their own sector legislation, some are merely enabled by regulation, and some arise from the parties’ own needs. Select a use case to see the roles, the flow and the value. From each use case you can also go to its money flows and trust chain."
+uc.steps: Flow
+uc.roles: Roles
+uc.role: Role
+uc.who: Who
+uc.value: Value for the parties
+uc.goMap: Show roles on the map
+uc.goFlow: Show money flows
+uc.goTrust: Show trust chain
+
+flows.lede: "Besides money flows, the diagram shows data flows, savings and regulatory constraints, because the value of credential ecosystems often arises as savings rather than as direct payments. Choose a model. The label <span class=\"tag st-havainnollistava\">illustrative</span> means a possible, not a verified, money flow."
+flows.scenAria: Model
+flows.typesAria: Flow types
+flows.moptIntro: "The five monetisation models of the Commission’s business models study – highlight a model’s money flows:"
+scen.yleinen: EUDI ecosystem in general
+scen.ebw: Business wallet
+ft.data: Data
+ft.saasto: Saving or benefit
+ft.raha: Money
+ft.reuna: Regulatory obligation
+ft.reunaLong: Regulatory obligation or constraint
+
+trust.lede: Different parts of the trust infrastructure answer different questions. The EUDI infrastructure ensures that parties are registered and European and that the wallet is certified. An ecosystem-specific trust registry and rulebook tell who is authorised to issue what, and with which responsibilities.
+trust.maintainedBy: Maintained by
+trust.scope: Scope
+trust.basis: Basis
+trust.checkTitle: Does your ecosystem need its own rulebook and trust registry?
+trust.checkIntro: Select the characteristics of your ecosystem.
+trust.chainTitle: "Example: the trust chain in a use case"
+trust.chainAria: Use case
+
+wiz.lede: Answer a few questions. You will get suggestions on roles, obligations and opportunities, and a comparison of which kind of wallet provision could suit your organisation.
+wiz.type: Our organisation is
+wiz.have: We have
+wiz.want: We want to
+wiz.resultTitle: Your organisation’s place in the ecosystem
+wiz.prompt: First choose your type of organisation. The result updates as you answer.
+wiz.roles: Your likely roles
+wiz.rolesHint: Select a role to see it on the map.
+wiz.obligations: Obligations
+wiz.opportunities: Opportunities
+wiz.walletTitle: Should you provide a wallet?
+wiz.findynet: Findynet and your organisation
+
+status.voimassa: in force
+status.ehdotus: proposal
+status.arf: ARF
+status.kaytanto: practice
+status.havainnollistava: illustrative
+status.lahde: sourced
+driver.pakottava: Own obligation
+driver.mahdollistava: Enabling
+driver.tarve: Parties’ needs
+wallet.eudi: EUDI Wallet
+wallet.ebw: Business wallet
+wallet.any: Any wallet
+
+footer.ask: Questions or suggestions? Let us know.
+footer.contact: Contact Findynet
+footer.updated: Updated {date}.
+footer.statusLegend: "<b>Sources.</b> Status labels: <span class=\"tag st-voimassa\">in force</span> regulation in force, <span class=\"tag st-ehdotus\">proposal</span> a proposal in the legislative process, <span class=\"tag st-arf\">ARF</span> informative description in the Architecture and Reference Framework, <span class=\"tag st-kaytanto\">practice</span> practice or pilot of the parties, <span class=\"tag st-lahde\">sourced</span> an estimate presented in a source, <span class=\"tag st-havainnollistava\">illustrative</span> a possible model."
+footer.disclaimer: The business wallet regulation is in the legislative process, and the final content may differ from the proposal. This description is not legal advice.
+footer.license: "Content: Findynet Cooperative, <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\">CC BY-SA 4.0</a>. Font: Archivo, SIL Open Font License 1.1."

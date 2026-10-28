@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Digitaalisten todisteiden ekosysteemi</title>
+<meta name="description" content="Digitaalisten todisteiden ekosysteemi: roolit, käyttötapaukset, rahavirrat ja luottamusinfra – EUDI-lompakko, yrityslompakko ja Findynet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧭</text></svg>">
+<style>
+/*{{CSS}}*/
+</style>
+</head>
+<body data-depth="perus">
+<header class="top">
+  <div class="wrap">
+    <div class="top-inner">
+      <div class="brand">
+        <a class="logo" id="home" href="https://findynet.fi/"><img src="{{LOGO}}" alt="Findynet" width="390" height="101"></a>
+        <div class="titles">
+          <h1 data-i18n="header.title"></h1>
+          <p data-i18n="header.subtitle"></p>
+        </div>
+      </div>
+      <div class="controls">
+        <label for="persona" data-i18n="header.iam"></label>
+        <select id="persona" data-i18n-aria="header.personaAria"></select>
+        <div class="seg" role="group" id="depth-sel" data-i18n-aria="header.depthAria">
+          <button type="button" data-depth="perus" aria-pressed="true" data-i18n="header.depthBasic"></button>
+          <button type="button" data-depth="asiantuntija" aria-pressed="false" data-i18n="header.depthExpert"></button>
+        </div>
+        <div class="seg" role="group" id="lang-sel" aria-label="Kieli / Language">
+          <button type="button" data-lang="fi" lang="fi" aria-pressed="true">FI</button>
+          <button type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+    <nav class="tabs" role="tablist" data-i18n-aria="tabs.aria">
+      <button role="tab" data-view="kartta" aria-selected="true" data-i18n="tabs.roles"></button>
+      <button role="tab" data-view="kayttotapaukset" aria-selected="false" data-i18n="tabs.usecases"></button>
+      <button role="tab" data-view="rahavirrat" aria-selected="false" data-i18n="tabs.flows"></button>
+      <button role="tab" data-view="luottamus" aria-selected="false" data-i18n="tabs.trust"></button>
+      <button role="tab" data-view="paikka" aria-selected="false" data-i18n="tabs.wizard"></button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="main">
+  <!-- ROOLIT -->
+  <section id="v-kartta" data-viewpanel="kartta">
+    <p class="lede" data-i18n-html="map.lede"></p>
+    <div class="layerbar" role="group" data-i18n-aria="map.layersAria">
+      <button class="chip" data-layer="perus" aria-pressed="true" style="--c:var(--perus)"><span class="sw"></span><span class="lbl"></span></button>
+      <button class="chip" data-layer="eudi" aria-pressed="true" style="--c:var(--eudi)"><span class="sw"></span><span class="lbl"></span></button>
+      <button class="chip" data-layer="ebw" aria-pressed="true" style="--c:var(--ebw)"><span class="sw"></span><span class="lbl"></span></button>
+      <button class="chip" data-layer="findy" aria-pressed="true" style="--c:var(--findy)"><span class="sw"></span><span class="lbl"></span></button>
+      <div class="hl-select">
+        <label for="hl-uc" data-i18n="map.highlight"></label>
+        <select id="hl-uc"></select>
+      </div>
+    </div>
+    <div class="layout">
+      <div>
+        <div class="map" id="map">
+          <svg class="links" id="links" aria-hidden="true"></svg>
+          <div class="zone z-hal"><h3 data-i18n="zone.hal"></h3><div class="roles" data-zone="hal"></div></div>
+          <div class="zone z-myo"><h3 data-i18n="zone.myo"></h3><div class="roles" data-zone="myo"></div></div>
+          <div class="zone z-lom"><h3 data-i18n="zone.lom"></h3><div class="roles" data-zone="lom"></div></div>
+          <div class="zone z-hyo"><h3 data-i18n="zone.hyo"></h3><div class="roles" data-zone="hyo"></div></div>
+          <div class="zone z-val"><h3 data-i18n="zone.val"></h3><div class="roles" data-zone="val"></div></div>
+        </div>
+        <div class="legend">
+          <span style="--c:var(--perus)"><i></i><span data-i18n="map.legend.perus"></span></span>
+          <span style="--c:var(--eudi)"><i></i><span data-i18n="map.legend.eudi"></span></span>
+          <span style="--c:var(--ebw)"><i></i><span data-i18n="map.legend.ebw"></span></span>
+          <span style="--c:var(--findy)"><i></i><span data-i18n="map.legend.findy"></span></span>
+        </div>
+      </div>
+      <aside class="panel" id="role-panel" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <!-- KÄYTTÖTAPAUKSET -->
+  <section id="v-kayttotapaukset" data-viewpanel="kayttotapaukset" hidden>
+    <p class="lede" data-i18n="uc.lede"></p>
+    <div class="uc-grid" id="uc-grid"></div>
+    <div id="uc-detail"></div>
+  </section>
+
+  <!-- RAHAVIRRAT -->
+  <section id="v-rahavirrat" data-viewpanel="rahavirrat" hidden>
+    <p class="lede" data-i18n-html="flows.lede"></p>
+    <div class="flowbar">
+      <div class="seg" role="group" id="flow-scen" data-i18n-aria="flows.scenAria"></div>
+      <div class="seg" role="group" id="flow-types" data-i18n-aria="flows.typesAria">
+        <button type="button" data-ft="data" aria-pressed="true" data-i18n="ft.data"></button>
+        <button type="button" data-ft="saasto" aria-pressed="true" data-i18n="ft.saasto"></button>
+        <button type="button" data-ft="raha" aria-pressed="true" data-i18n="ft.raha"></button>
+        <button type="button" data-ft="reuna" aria-pressed="true" data-i18n="ft.reuna"></button>
+      </div>
+    </div>
+    <div id="mopt-wrap" style="margin-bottom:12px">
+      <p class="small muted" style="margin:0 0 6px" data-i18n="flows.moptIntro"></p>
+      <div class="mopts" id="mopts"></div>
+    </div>
+    <div class="layout">
+      <div>
+        <div class="flowbox"><svg class="flow" id="flow-svg" viewBox="0 0 900 540" role="img" aria-labelledby="flow-title"><title id="flow-title"></title></svg></div>
+        <div class="legend">
+          <span style="--c:var(--data)"><i></i><span data-i18n="ft.data"></span></span>
+          <span style="--c:var(--saasto)"><i></i><span data-i18n="ft.saasto"></span></span>
+          <span style="--c:var(--raha)"><i></i><span data-i18n="ft.raha"></span></span>
+          <span style="--c:var(--reuna)"><i></i><span data-i18n="ft.reunaLong"></span></span>
+        </div>
+        <ul class="flowlist" id="flow-list"></ul>
+      </div>
+      <aside class="panel" id="flow-panel" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <!-- LUOTTAMUS -->
+  <section id="v-luottamus" data-viewpanel="luottamus" hidden>
+    <p class="lede" data-i18n="trust.lede"></p>
+    <div class="trust-grid" id="trust-grid"></div>
+    <div class="check" id="trust-check">
+      <h2 style="margin:0 0 4px;font-size:1.2rem" data-i18n="trust.checkTitle"></h2>
+      <p class="muted small" style="margin:0 0 8px" data-i18n="trust.checkIntro"></p>
+      <div id="check-items"></div>
+      <div class="verdict" id="verdict" aria-live="polite"></div>
+    </div>
+    <div class="check">
+      <h2 style="margin:0 0 8px;font-size:1.2rem" data-i18n="trust.chainTitle"></h2>
+      <div class="seg" role="group" id="chain-sel" data-i18n-aria="trust.chainAria"></div>
+      <p class="muted small" id="chain-note" style="margin:10px 0 0"></p>
+      <div class="chain" id="chain"></div>
+    </div>
+  </section>
+
+  <!-- LÖYDÄ PAIKKASI -->
+  <section id="v-paikka" data-viewpanel="paikka" hidden>
+    <p class="lede" data-i18n="wiz.lede"></p>
+    <div class="wiz">
+      <form id="wiz" onsubmit="return false">
+        <fieldset><legend data-i18n="wiz.type"></legend><div id="w-type"></div></fieldset>
+        <fieldset><legend data-i18n="wiz.have"></legend><div id="w-have"></div></fieldset>
+        <fieldset><legend data-i18n="wiz.want"></legend><div id="w-want"></div></fieldset>
+      </form>
+      <div class="result" id="w-result" aria-live="polite"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <p data-i18n="footer.ask"></p>
+      <a class="btn light" id="contact" href="https://findynet.fi/yhteys/" data-i18n="footer.contact"></a>
+    </div>
+    <p><b id="updated"></b></p>
+    <p data-i18n-html="footer.statusLegend"></p>
+    <ul id="sources"></ul>
+    <p data-i18n="footer.disclaimer"></p>
+    <p class="small" data-i18n-html="footer.license"></p>
+  </div>
+</footer>
+<script>window.__DATA__ = /*{{DATA}}*/;</script>
+<script>window.__I18N__ = /*{{I18N}}*/;</script>
+<script>
+/*{{APP}}*/
+</script>
+</body>
+</html>

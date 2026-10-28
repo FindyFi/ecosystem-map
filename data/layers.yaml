@@ -1,0 +1,17 @@
+# Kerrokset. Värit määritellään tyylitiedostossa kerroksen tunnisteen mukaan (--perus, --eudi, --ebw, --findy).
+- id: perus
+  name:
+    fi: Perusroolit
+    en: Basic roles
+- id: eudi
+  name:
+    fi: eIDAS ja EUDI-lompakko
+    en: eIDAS and EUDI Wallet
+- id: ebw
+  name:
+    fi: Yrityslompakko (ehdotus)
+    en: Business wallet (proposal)
+- id: findy
+  name:
+    fi: Findynet
+    en: Findynet

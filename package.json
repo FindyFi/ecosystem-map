@@ -1,0 +1,17 @@
+{
+  "name": "findynet-ekosysteemikartta",
+  "version": "1.0.0",
+  "description": "Digitaalisten todisteiden ekosysteemikartta – Findynet",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "validate": "node scripts/build.js --validate-only",
+    "dev": "node scripts/build.js && node scripts/serve.js"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "engines": { "node": ">=20" }
+}

@@ -1,0 +1,409 @@
+# Käyttötapaus. Kaikki näkymät (kuvaus, roolit kartalla, rahavirrat, luottamusketju) rakentuvat tästä tiedostosta.
+id: kela
+name:
+  fi: Eläkeläisalennus joukkoliikenteessä
+  en: Pensioner discount in public transport
+org:
+  fi: Kela–HSL
+  en: Kela–HSL
+short:
+  fi: Kela myöntää eläkeläisstatuksen todisteen, HSL tarkistaa alennusoikeuden.
+  en: Kela issues a credential of pensioner status, HSL checks the discount entitlement.
+wallets:
+  - any
+  - eudi
+driver: tarve
+status: kaytanto
+detail:
+  title:
+    fi: Eläkeläisalennus joukkoliikenteessä
+    en: Pensioner discount in public transport
+  highlight_label:
+    fi: Kela–HSL – eläkeläisalennus
+    en: Kela–HSL – pensioner discount
+  lead:
+    fi: Kela ja Helsingin seudun liikenne (HSL) digitalisoivat eläkeläisalennuksen yhdessä Findynetin kanssa.
+    en: Kela, the Social Insurance Institution of Finland, and Helsinki Region Transport (HSL) are digitalising the pensioner discount together with Findynet.
+  status: kaytanto
+  intro:
+    - fi: "Nykyisin Kela antaa todistuksen eläkkeestä kirjeenä, jonka laatii virkailija, ja HSL tarkistaa alennusoikeuden käsin. Prosessi on kallis ja manuaalinen molemmille, ja moni eläkeläinen odottaa digitaalista vaihtoehtoa. Perinteiset ratkaisut, kuten suora tiedonsiirto Kelalta HSL:lle, eivät olleet tietosuojalainsäädännön kannalta mahdollisia. Digitaalinen todiste ratkaisee tämän: tieto kulkee eläkeläisen kautta, ja hän päättää sen jakamisesta."
+      en: "Today Kela provides a certificate of pension as a letter drafted by an official, and HSL checks the discount entitlement by hand. The process is costly and manual for both, and many pensioners are waiting for a digital alternative. Traditional solutions, such as a direct data transfer from Kela to HSL, were not possible under data protection legislation. A digital credential solves this: the data travels through the pensioner, who decides whether to share it."
+  cast:
+    lahde:
+      fi: Kela – eläke- ja etuustiedot
+      en: Kela – pension and benefit data
+    myontaja:
+      fi: Kela
+      en: Kela
+    pubeaa:
+      fi: Kela (eIDAS-kehyksessä)
+      en: Kela (in the eIDAS framework)
+    haltija:
+      fi: Eläkeläinen
+      en: Pensioner
+    lompakko:
+      fi: Mikä tahansa yhteentoimiva lompakko
+      en: Any interoperable wallet
+    eudilompakko:
+      fi: Jatkossa myös EUDI-lompakko
+      en: Later also the EUDI Wallet
+    todentaja:
+      fi: HSL
+      en: HSL
+    ohjelmisto:
+      fi: Kelan ja HSL:n itse valitsemat ratkaisut
+      en: Solutions chosen by Kela and HSL themselves
+    ekosysteemi:
+      fi: Alennusoikeusekosysteemi
+      en: Discount entitlement ecosystem
+    luottekos:
+      fi: Alennusoikeusekosysteemi
+      en: Discount entitlement ecosystem
+    rekisteri:
+      fi: Findynetin luottamusrekisteri
+      en: Findynet trust registry
+    findynet:
+      fi: Findynet
+      en: Findynet
+    interop:
+      fi: Yhteinen profiili
+      en: Common profile
+    wrprek:
+      fi: "Jos EUDI-lompakko: HSL rekisteröityy"
+      en: "If the EUDI Wallet is used: HSL registers"
+  cast_order:
+    - lahde
+    - myontaja
+    - haltija
+    - lompakko
+    - todentaja
+    - ohjelmisto
+    - luottekos
+    - rekisteri
+    - eudilompakko
+    - wrprek
+  steps:
+    - fi: Eläkeläinen pyytää Kelalta todisteen eläkeläisstatuksestaan ja tunnistautuu.
+      en: The pensioner requests a credential of their pensioner status from Kela and authenticates.
+    - fi: Kela myöntää todisteen automaattisesti eläkeläisen lompakkoon. Virkailijan ei tarvitse laatia kirjettä.
+      en: Kela issues the credential automatically to the pensioner’s wallet. No official needs to draft a letter.
+    - fi: Eläkeläinen ostaa alennuslippua HSL:n verkkokaupassa, ja HSL pyytää todistetta alennusoikeudesta. Jatkossa sama toimii mobiilisovelluksessa ja mahdollisesti myös asiakaspalvelupisteessä.
+      en: The pensioner buys a discounted ticket in HSL’s online shop, and HSL requests the credential of discount entitlement. Later the same will work in the mobile app and possibly also at customer service points.
+    - fi: Lompakko tarkistaa, että pyytäjä on HSL ja että HSL on ekosysteemin jäsen.
+      en: The wallet checks that the requester is HSL and that HSL is a member of the ecosystem.
+    - fi: HSL tarkistaa todisteen allekirjoituksen ja sen, että Kela on valtuutettu myöntäjä.
+      en: HSL checks the credential’s signature and that Kela is an authorised issuer.
+    - fi: Alennus myönnetään. Kela ei saa tietoa siitä, missä todistetta käytettiin.
+      en: The discount is granted. Kela does not learn where the credential was used.
+  value:
+    - who:
+        fi: Eläkeläinen
+        en: Pensioner
+      text:
+        fi: Digitaalinen vaihtoehto ilman kirjeen odottamista; jakaa vain alennusoikeuden, ei muita eläketietoja.
+        en: A digital alternative without waiting for a letter; shares only the discount entitlement, no other pension data.
+    - who:
+        fi: Kela
+        en: Kela
+      text:
+        fi: Virkailijan laatimia eläketodistuskirjeitä tarvitaan vähemmän, ja todiste myönnetään automaattisesti.
+        en: Fewer certificate letters drafted by officials are needed, and the credential is issued automatically.
+    - who:
+        fi: HSL
+        en: HSL
+      text:
+        fi: Alennusoikeuden tarkistus automatisoituu verkkokaupassa ja jatkossa muissa kanavissa.
+        en: Checking the discount entitlement is automated in the online shop and later in other channels.
+    - who:
+        fi: Yhteiskunta
+        en: Society
+      text:
+        fi: Malli on toistettavissa muihin alennusoikeuksiin, kuten opiskelija- ja vammaisalennuksiin, ja muille todentajille, kuten museoille ja uimahalleille.
+        en: The model can be repeated for other discount entitlements, such as student and disability discounts, and for other verifiers, such as museums and swimming halls.
+  sections:
+    - title:
+        fi: Toimittajariippumattomuus
+        en: Vendor independence
+      text:
+        fi: Kela ja HSL valitsivat ohjelmistonsa toisistaan riippumatta. Pilotissa sama ohjelmistoratkaisu kattaa myöntämisen, lompakon ja todennuksen, mutta tuotannossa asiakas voi käyttää mitä tahansa yhteentoimivaa lompakkoa, ja Kela tai HSL voi vaihtaa ohjelmistoaan milloin tahansa. Tämä on mahdollista, koska kaikki osapuolet noudattavat samaa yhteentoimivuusprofiilia.
+        en: Kela and HSL chose their software independently of each other. In the pilot, the same software solution covers issuance, the wallet and verification, but in production the customer can use any interoperable wallet, and Kela or HSL can switch software at any time. This is possible because all parties follow the same interoperability profile.
+    - title:
+        fi: Sääntely ja luottamus
+        en: Regulation and trust
+      text:
+        fi: Käyttötapaukselle ei ole omaa EU-velvoitetta, vaan sen ajurina on osapuolten tarve. Toteutus ei edellytä EUDI-lompakkoa. Kun EUDI-lompakot tulevat käyttöön, Kela voisi myöntää saman todisteen myös niihin, jolloin HSL rekisteröityy luottavaksi osapuoleksi. Todisteen myöntäjän valtuutus ja osapuolten vastuut sovitaan alennusoikeusekosysteemissä, ja ne näkyvät luottamusrekisterissä.
+        en: There is no EU obligation behind this use case; it is driven by the parties’ needs. The implementation does not require the EUDI Wallet. When EUDI Wallets become available, Kela could issue the same credential to them too, in which case HSL registers as a relying party. The issuer’s authorisation and the parties’ responsibilities are agreed in the discount entitlement ecosystem and shown in the trust registry.
+  expert:
+    fi: eIDAS-kehyksessä Kela on autenttisesta lähteestä vastaava julkinen elin, joten sen todisteet voisivat olla PuB-EAA-todisteita (art. 3(46), 45f). Sama ekosysteemi voi laajentua eurooppalaiseen vammaiskorttiin (direktiivi 2024/2841), jonka digitaalinen versio on tulossa EUDI-lompakkoon.
+    en: In the eIDAS framework, Kela is a public body responsible for an authentic source, so its credentials could be PuB-EAAs (Art. 3(46), 45f). The same ecosystem can extend to the European Disability Card (Directive 2024/2841), whose digital version is coming to the EUDI Wallet.
+  note:
+    fi: Kuvaus on yleistetty eikä kerro toteutuksen teknisiä yksityiskohtia.
+    en: The description is generalised and does not cover the technical details of the implementation.
+trust_chain:
+  name:
+    fi: Kela–HSL
+    en: Kela–HSL
+  note:
+    fi: Kaksi luottamuskysymystä, kaksi kerrosta. Kuvaus on yleistetty.
+    en: Two trust questions, two layers. The description is generalised.
+  links:
+    - question:
+        fi: 1. Voinko luottaa pyytäjään?
+        en: 1. Can I trust the requester?
+      answer:
+        fi: Lompakko tarkistaa ennen tietojen jakamista, että pyytäjä on HSL. EUDI-lompakossa tämä tapahtuu pääsy- ja rekisteröintivarmenteella, Findynetin verkostossa luottamusrekisteristä.
+        en: Before sharing data, the wallet checks that the requester is HSL. In the EUDI Wallet this is done with access and registration certificates, in the Findynet network from the trust registry.
+    - question:
+        fi: 2. Onko todiste aito?
+        en: 2. Is the credential genuine?
+      answer:
+        fi: HSL tarkistaa todisteen allekirjoituksen ja sen, että allekirjoitusavain kuuluu Kelalle.
+        en: HSL checks the credential’s signature and that the signing key belongs to Kela.
+    - question:
+        fi: 3. Onko myöntäjä valtuutettu tähän?
+        en: 3. Is the issuer authorised for this?
+      answer:
+        fi: Luottamusrekisteri kertoo, että Kela on alennusoikeusekosysteemin valtuutettu myöntäjä ja mitä ekosysteemin sääntöjä se noudattaa.
+        en: The trust registry shows that Kela is an authorised issuer in the discount entitlement ecosystem and which ecosystem rules it follows.
+    - question:
+        fi: 4. Kuka vastaa mistä?
+        en: 4. Who is responsible for what?
+      answer:
+        fi: Ekosysteemin sääntökirja määrittää osapuolten vastuut ja menettelyt virhetilanteissa.
+        en: The ecosystem rulebook defines the parties’ responsibilities and procedures in error situations.
+flows:
+  title:
+    fi: Kela–HSL-alennusoikeus
+    en: Kela–HSL discount entitlement
+  intro:
+    fi: "Arvo syntyy säästöinä ja parempana palveluna, ei maksuina Kelan ja HSL:n välillä. Molemmat hyötyvät manuaalityön vähenemisestä: Kelan ei tarvitse laatia todistuskirjeitä eikä HSL:n tarkistaa niitä käsin. Kela ja HSL hankkivat ohjelmistonsa toisistaan riippumatta."
+    en: "Value arises as savings and better service, not as payments between Kela and HSL. Both benefit from less manual work: Kela does not need to draft certificate letters and HSL does not need to check them by hand. Kela and HSL procure their software independently of each other."
+  nodes:
+    - id: findynet
+      x: 450
+      "y": 55
+      label:
+        fi: Findynet
+        en: Findynet
+      sub:
+        fi: luottamusrekisteri
+        en: trust registry
+    - id: kela
+      x: 130
+      "y": 200
+      label:
+        fi: Kela
+        en: Kela
+      sub:
+        fi: myöntäjä
+        en: issuer
+    - id: hsl
+      x: 770
+      "y": 200
+      label:
+        fi: HSL
+        en: HSL
+      sub:
+        fi: todentaja
+        en: verifier
+    - id: elakelainen
+      x: 450
+      "y": 345
+      label:
+        fi: Eläkeläinen
+        en: Pensioner
+      sub:
+        fi: haltija
+        en: holder
+    - id: lompakko
+      x: 450
+      "y": 485
+      label:
+        fi: Lompakon tarjoaja
+        en: Wallet provider
+      sub:
+        fi: mikä tahansa
+        en: any
+    - id: kelasw
+      x: 130
+      "y": 485
+      label:
+        fi: Kelan ohjelmisto
+        en: Kela’s software
+      sub:
+        fi: myöntäminen
+        en: issuance
+    - id: hslsw
+      x: 770
+      "y": 485
+      label:
+        fi: HSL:n ohjelmisto
+        en: HSL’s software
+      sub:
+        fi: todennus
+        en: verification
+  flows:
+    - from: kela
+      to: elakelainen
+      type: data
+      status: kaytanto
+      name:
+        fi: Eläkeläisstatuksen todiste
+        en: Credential of pensioner status
+      description:
+        fi: Kela myöntää todisteen omien tietojensa perusteella.
+        en: Kela issues the credential based on its own data.
+    - from: elakelainen
+      to: hsl
+      type: data
+      status: kaytanto
+      name:
+        fi: Alennusoikeuden esittäminen
+        en: Presenting the discount entitlement
+      description:
+        fi: Eläkeläinen jakaa vain alennusoikeuden, ei muita eläketietoja. Nyt HSL:n verkkokaupassa, jatkossa myös mobiilisovelluksessa.
+        en: The pensioner shares only the discount entitlement, no other pension data. Now in HSL’s online shop, later also in the mobile app.
+    - from: hsl
+      to: findynet
+      type: data
+      status: kaytanto
+      name:
+        fi: "Kysely: onko Kela valtuutettu myöntäjä"
+        en: "Query: is Kela an authorised issuer"
+      description:
+        fi: HSL tarkistaa luottamusrekisteristä myöntäjän roolin ja avaimen.
+        en: HSL checks the issuer’s role and key from the trust registry.
+    - from: lompakko
+      to: findynet
+      type: data
+      status: kaytanto
+      bend: -230
+      name:
+        fi: "Kysely: kuka tietoja pyytää"
+        en: "Query: who is requesting data"
+      description:
+        fi: Lompakko kertoo eläkeläiselle, että pyytäjä on HSL ja ekosysteemin jäsen.
+        en: The wallet tells the pensioner that the requester is HSL and a member of the ecosystem.
+    - from: kela
+      to: kela
+      type: saasto
+      status: kaytanto
+      name:
+        fi: Todistuskirjeitä ei tarvitse laatia
+        en: No certificate letters to draft
+      pill:
+        fi: "Säästö: ei todistuskirjeitä"
+        en: "Saving: no certificate letters"
+      description:
+        fi: Nykyisin virkailija laatii eläketodistuksen, ja Kela lähettää sen kirjeenä. Digitaalinen todiste myönnetään automaattisesti.
+        en: Today an official drafts the certificate of pension and Kela sends it as a letter. The digital credential is issued automatically.
+    - from: hsl
+      to: hsl
+      type: saasto
+      status: kaytanto
+      name:
+        fi: Tarkistus automatisoituu
+        en: Checking is automated
+      pill:
+        fi: "Säästö: ei käsin tarkistusta"
+        en: "Saving: no manual checks"
+      description:
+        fi: HSL:n ei tarvitse tarkistaa todistuskirjeitä käsin.
+        en: HSL no longer needs to check certificate letters by hand.
+    - from: elakelainen
+      to: elakelainen
+      type: saasto
+      status: kaytanto
+      pill_position: below
+      name:
+        fi: Ei kirjeen odottamista
+        en: No waiting for a letter
+      pill:
+        fi: "Hyöty: nopeampi asiointi"
+        en: "Benefit: faster service"
+      description:
+        fi: Alennusoikeuden voi todistaa heti, eikä paperia tarvita.
+        en: The discount entitlement can be proven immediately, with no paper needed.
+    - from: elakelainen
+      to: hsl
+      type: raha
+      status: kaytanto
+      bend: 60
+      name:
+        fi: Alennettu lipun hinta
+        en: Discounted ticket price
+      description:
+        fi: Olemassa oleva rahavirta; todisteet muuttavat vain sen, miten oikeus todistetaan.
+        en: An existing money flow; credentials only change how the entitlement is proven.
+    - from: kela
+      to: findynet
+      type: raha
+      model: D
+      status: kaytanto
+      name:
+        fi: Verkoston osallistumismaksu
+        en: Network participation fee
+      description:
+        fi: Findynet-verkoston osallistujat maksavat osallistumismaksun, jolla rahoitetaan luottamusrekisteri, verkoston säännöt ja yhteentoimivuustyö.
+        en: Participants in the Findynet network pay a participation fee that funds the trust registry, the network rules and interoperability work.
+    - from: hsl
+      to: findynet
+      type: raha
+      model: D
+      status: kaytanto
+      bend: -40
+      name:
+        fi: Verkoston osallistumismaksu
+        en: Network participation fee
+      description:
+        fi: Sama osallistumismaksu todentajan puolelta.
+        en: The same participation fee on the verifier side.
+    - from: kela
+      to: kelasw
+      type: raha
+      model: C
+      status: kaytanto
+      name:
+        fi: Myöntöratkaisun hankinta
+        en: Procuring the issuance solution
+      description:
+        fi: Kela valitsi myöntöratkaisunsa itsenäisesti. Yhteentoimivuuden ansiosta ohjelmiston voi vaihtaa.
+        en: Kela chose its issuance solution independently. Thanks to interoperability, the software can be replaced.
+    - from: hsl
+      to: hslsw
+      type: raha
+      model: C
+      status: kaytanto
+      name:
+        fi: Todennusratkaisun hankinta
+        en: Procuring the verification solution
+      description:
+        fi: HSL valitsi todennusratkaisunsa itsenäisesti. Yhteentoimivuuden ansiosta ohjelmiston voi vaihtaa.
+        en: HSL chose its verification solution independently. Thanks to interoperability, the software can be replaced.
+    - from: kela
+      to: hsl
+      type: reuna
+      status: kaytanto
+      name:
+        fi: Ei suoraa tiedonsiirtoa
+        en: No direct data transfer
+      description:
+        fi: Tietosuojan vuoksi Kela ei luovuta tietoja HSL:lle, eikä se saa tietoa todisteen käytöstä.
+        en: For data protection reasons, Kela does not disclose data to HSL, nor does it learn about the use of the credential.
+    - from: elakelainen
+      to: lompakko
+      type: reuna
+      status: voimassa
+      name:
+        fi: Lompakko maksuton haltijalle
+        en: Wallet free of charge for the holder
+      description:
+        fi: EUDI-lompakko on luonnollisille henkilöille maksuton; muissa lompakoissa ehdot riippuvat tarjoajasta.
+        en: The EUDI Wallet is free of charge for natural persons; for other wallets the terms depend on the provider.
+  extra:
+    title:
+      fi: Mitä tästä voi oppia
+      en: What can be learned
+    text:
+      fi: Kun arvo syntyy säästöinä molemmissa päissä, osapuolten ei tarvitse maksaa toisilleen. Yhteiset kulut – luottamusrekisteri, säännöt ja yhteentoimivuus – kannattaa jakaa ekosysteemin kesken, jolloin seuraavan todentajan, kuten museon tai uimahallin, liittyminen on halpaa.
+      en: When value arises as savings at both ends, the parties do not need to pay each other. Shared costs – the trust registry, the rules and interoperability – are best split across the ecosystem, which makes it cheap for the next verifier, such as a museum or a swimming hall, to join.

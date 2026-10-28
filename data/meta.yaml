@@ -1,0 +1,12 @@
+# Yleistiedot. Päivitä updated aina, kun sisältöä muutetaan.
+updated: "2026-10-20"
+default_lang: fi
+languages: [fi, en]
+home:
+  fi: https://findynet.fi/
+  en: https://findynet.fi/en/
+contact:
+  fi: https://findynet.fi/yhteys/
+  en: https://findynet.fi/yhteys/
+# Käyttötapausten järjestys näkymissä (tiedostot data/usecases/<id>.yaml).
+usecase_order: [kela, hankinta]

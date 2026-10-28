@@ -1,0 +1,223 @@
+# Rahavirtamalli. type: data | saasto | raha | reuna. status: voimassa | ehdotus | arf | kaytanto | havainnollistava | lahde. model: A–E (monetisation.yaml).
+id: ebw
+title:
+  fi: Yrityslompakko
+  en: Business wallet
+intro:
+  fi: Komission ehdotuksen ja vaikutustenarvion pohjalta. Ehdotus ei määrää hintoja. Yritysten kustannukset muodostuvat lompakkopalvelusta ja käyttöönotosta, hyödyt pääosin hallinnollisen työn vähenemisestä.
+  en: Based on the Commission proposal and impact assessment. The proposal does not set prices. Companies’ costs consist of the wallet service and its deployment, and the benefits come mainly from reduced administrative work.
+nodes:
+  - id: omistaja
+    x: 450
+    "y": 300
+    label:
+      fi: Yritys
+      en: Company
+    sub:
+      fi: lompakon omistaja
+      en: wallet owner
+  - id: tarjoaja
+    x: 450
+    "y": 70
+    label:
+      fi: Yrityslompakon tarjoaja
+      en: Business wallet provider
+    sub:
+      fi: ilmoitettu
+      en: notified
+  - id: tunniste
+    x: 130
+    "y": 110
+    label:
+      fi: Tunnistetietojen tarjoaja
+      en: Identification data provider
+    sub:
+      fi: QTSP tai viranomainen
+      en: QTSP or authority
+  - id: rekisteri
+    x: 130
+    "y": 300
+    label:
+      fi: Kaupparekisteri
+      en: Trade register
+    sub:
+      fi: EUID
+      en: EUID
+  - id: julkis
+    x: 770
+    "y": 110
+    label:
+      fi: Julkisyhteisö
+      en: Public sector body
+    sub:
+      fi: velvoitettu
+      en: mandated
+  - id: kumppani
+    x: 770
+    "y": 470
+    label:
+      fi: Kumppaniyritys
+      en: Partner company
+    sub:
+      fi: luottava osapuoli
+      en: relying party
+  - id: komissio
+    x: 770
+    "y": 300
+    label:
+      fi: Komissio
+      en: Commission
+    sub:
+      fi: hakemisto
+      en: directory
+  - id: qtsp
+    x: 130
+    "y": 470
+    label:
+      fi: Luottamuspalvelut
+      en: Trust services
+    sub:
+      fi: QES, QSeal, QEAA
+      en: QES, QSeal, QEAA
+flows:
+  - from: omistaja
+    to: tarjoaja
+    type: raha
+    model: C
+    status: lahde
+    name:
+      fi: Lompakkopalvelun tilaus
+      en: Wallet service subscription
+    description:
+      fi: Yritys maksaa yrityslompakon tarjoajalle palvelusta. Vaikutustenarvion mukaan täydessä käyttöönotossa yritysten kustannukset ovat noin 27 mrd € vuodessa ensimmäisen vuoden jälkeen.
+      en: The company pays the business wallet provider for the service. According to the impact assessment, with full uptake companies’ costs are around €27 billion a year after the first year.
+  - from: rekisteri
+    to: tunniste
+    type: data
+    status: ehdotus
+    name:
+      fi: Nimi ja EUID
+      en: Name and EUID
+    description:
+      fi: Tunnistetietojen tarjoaja tarkistaa tiedot autenttisesta lähteestä.
+      en: The identification data provider checks the data against the authentic source.
+  - from: tunniste
+    to: omistaja
+    type: data
+    status: ehdotus
+    name:
+      fi: Omistajan tunnistetiedot
+      en: Owner identification data
+    description:
+      fi: Vähintään virallinen nimi ja yksilöivä tunniste.
+      en: At least the official name and a unique identifier.
+  - from: omistaja
+    to: tunniste
+    type: raha
+    status: havainnollistava
+    bend: 50
+    name:
+      fi: Tunnistetietojen hinta
+      en: Price of identification data
+    description:
+      fi: Ehdotus ei määrää, onko tunnistetiedoilla hintaa. ESMT:n laskelma olettaa tunnisteiden ja yritystodisteiden maksavan noin 1 000 € vuodessa.
+      en: The proposal does not specify whether identification data has a price. The ESMT calculation assumes that identifiers and company credentials cost around €1,000 a year.
+  - from: omistaja
+    to: julkis
+    type: data
+    status: ehdotus
+    name:
+      fi: Asiakirjat, ilmoitukset, tiedoksiannot
+      en: Documents, notifications, service of documents
+    description:
+      fi: Julkisyhteisön on hyväksyttävä yrityslompakko ja viestintäkanava.
+      en: The public sector body must accept the business wallet and the communication channel.
+  - from: julkis
+    to: tarjoaja
+    type: reuna
+    status: ehdotus
+    bend: -30
+    name:
+      fi: Julkisyhteisöllä oltava yrityslompakko
+      en: Public sector body must have a business wallet
+    description:
+      fi: Velvoite synnyttää tarjoajille julkisen sektorin markkinan. ITRE ehdottaa vapautusta pienille kunnille.
+      en: The obligation creates a public sector market for providers. ITRE proposes an exemption for small municipalities.
+  - from: julkis
+    to: julkis
+    type: saasto
+    status: lahde
+    name:
+      fi: Julkisen sektorin hyödyt
+      en: Public sector benefits
+    description:
+      fi: Komission faktalehden mukaan enintään 13,2 mrd € nettohyöty vuodessa kaikille julkisyhteisöille.
+      en: According to the Commission factsheet, up to €13.2 billion in net annual benefits for all public sector bodies.
+  - from: omistaja
+    to: kumppani
+    type: data
+    status: ehdotus
+    name:
+      fi: Perustiedot ja sertifikaatit
+      en: Basic data and certificates
+    description:
+      fi: Kumppani saa tiedot todisteina ja voi päivittää ne automaattisesti.
+      en: The partner receives the data as credentials and can update it automatically.
+  - from: kumppani
+    to: kumppani
+    type: saasto
+    status: lahde
+    name:
+      fi: Toimittajatietojen ylläpito
+      en: Maintaining supplier data
+    description:
+      fi: ESMT arvioi tietueen ylläpidon maksavan noin 11 € vuodessa ja koko säästöpotentiaalin noin 85 mrd € vuodessa Saksan yrityksille.
+      en: ESMT estimates that maintaining one record costs around €11 a year and puts the total savings potential at around €85 billion a year for German companies.
+  - from: omistaja
+    to: omistaja
+    type: saasto
+    status: lahde
+    name:
+      fi: Yrityksen nettohyöty
+      en: Net benefit for the company
+    description:
+      fi: Faktalehden mukaan enintään 3 500 € mikroyritykselle, 37 250 € muulle pk-yritykselle ja 47 300 € suuryritykselle vuodessa.
+      en: According to the factsheet, up to €3,500 a year for a micro enterprise, €37,250 for other SMEs and €47,300 for a large company.
+  - from: tarjoaja
+    to: komissio
+    type: data
+    status: ehdotus
+    name:
+      fi: Omistajatiedot hakemistoon
+      en: Owner data to the directory
+    description:
+      fi: Muutokset ilmoitetaan yhden työpäivän kuluessa.
+      en: Changes are reported within one working day.
+  - from: omistaja
+    to: qtsp
+    type: raha
+    status: kaytanto
+    name:
+      fi: Allekirjoitukset ja sinetit
+      en: Signatures and seals
+    description:
+      fi: Hyväksytyt allekirjoitukset ja sinetit ovat yrityksille maksullisia palveluja.
+      en: Qualified signatures and seals are paid services for companies.
+  - from: tarjoaja
+    to: omistaja
+    type: reuna
+    status: ehdotus
+    bend: 60
+    name:
+      fi: Datan siirrettävyys
+      en: Data portability
+    description:
+      fi: Omistaja voi viedä tietonsa ja vaihtaa tarjoajaa. Tämä estää toimittajalukkiutumista.
+      en: The owner can export its data and switch provider. This prevents vendor lock-in.
+extra:
+  title:
+    fi: Tarjoajan näkökulma
+    en: The provider’s perspective
+  text:
+    fi: Julkisyhteisöjen velvoite synnyttää varman alkumarkkinan. Yritysten käyttö on vapaaehtoista, joten kaupallinen menestys riippuu siitä, säästääkö lompakko asiakkaan aikaa enemmän kuin se maksaa. Vaikutustenarvion mukaan nettohyöty vaihtelee voimakkaasti käyttöasteen mukaan.
+    en: The obligation on public sector bodies creates a guaranteed initial market. Use is voluntary for companies, so commercial success depends on whether the wallet saves the customer more time than it costs. According to the impact assessment, the net benefit varies strongly with the uptake rate.

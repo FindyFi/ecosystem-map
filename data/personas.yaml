@@ -1,0 +1,37 @@
+# ”Olen…”-valinnan näkökulmat. Valinta asettaa kartan kerrokset, valitun roolin ja ohjatun polun oletusvastaukset.
+- id: kaikki
+  label: {fi: "kuka tahansa – näytä kaikki", en: "anyone – show everything"}
+  layers: [perus, eudi, ebw, findy]
+- id: julkinen
+  label: {fi: julkinen toimija, en: a public body}
+  layers: [perus, eudi, ebw, findy]
+  role: julkis
+  wtype: julkinen
+  whave: [saapuvat, tieto]
+- id: yritys
+  label: {fi: todisteita hyödyntävä yritys, en: a company using credentials}
+  layers: [perus, eudi, ebw]
+  role: todentaja
+  wtype: yritys
+  whave: [asiakkaat]
+  wwant: [hyodynna]
+- id: myontaja
+  label: {fi: tiedon omistaja tai myöntäjä, en: a data owner or issuer}
+  layers: [perus, eudi, findy]
+  role: myontaja
+  wtype: viranomainen
+  whave: [tieto]
+  wwant: [myonna]
+- id: toimittaja
+  label: {fi: ohjelmisto- tai lompakkotoimittaja, en: a software or wallet provider}
+  layers: [perus, eudi, ebw, findy]
+  role: lompakko
+  wtype: toimittaja
+  whave: [tekno, yritysasiakkaat]
+  wwant: [lompakko]
+- id: paattaja
+  label: {fi: päättäjä tai viranomainen, en: a policymaker or authority}
+  layers: [perus, eudi, ebw, findy]
+  role: ekosysteemi
+  wtype: jarjesto
+  wwant: [ekosys]
