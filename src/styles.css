@@ -206,6 +206,7 @@ footer .tag{background:#fff}
 .foot-top p{margin:0;font-size:.95rem;color:#fff}
 .btn.light{background:#fff;color:#0901B9;border-color:#fff;text-decoration:none;display:inline-block}
 footer ul{padding-left:18px;columns:2;column-gap:28px}
+footer ul a{font-weight:inherit}
 @media (max-width:760px){footer ul{columns:1}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (prefers-reduced-motion:no-preference){.role,.uc,.flowlist button{transition:background-color .15s,opacity .15s,box-shadow .15s}}
